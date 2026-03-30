@@ -32,10 +32,7 @@ CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
 
 DB_PATH = Path(__file__).parent / "data" / "gst_fraud.db"
 
-if os.environ.get("WEBSITE_SITE_NAME"):  # Running on Azure
-    DB_PATH = Path("/home/data/gst_fraud.db")
-else:  # Local development
-    DB_PATH = Path(__file__).parent / "data" / "gst_fraud.db"
+DB_PATH = Path(__file__).parent / "data" / "gst_fraud.db"
 
 
 def get_db():
