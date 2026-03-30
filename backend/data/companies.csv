@@ -1,81 +1,801 @@
 gstin,company_name,state,registration_date,fraud_score,risk_level,status,is_fraud_ring
-33AHFTR8040G1ZE,Sri Associates,Tamil Nadu,2020-10-31,0.0,LOW,Active,1
-07SSKLH8714I1Z9,Bharat Traders,Delhi,2019-03-17,0.0,LOW,Active,1
-33JJIGB4190J1ZN,Prime Imports,Tamil Nadu,2021-03-28,0.0,LOW,Active,1
-33BFHCG1263L1ZM,Tech Imports,Tamil Nadu,2019-03-06,0.0,LOW,Active,1
-33PESEJ9656Y1Z3,Shri Manufacturing,Tamil Nadu,2019-04-15,0.0,LOW,Active,1
-08KBXOS2486E1ZG,Smart Imports,Rajasthan,2018-10-13,0.0,LOW,Active,1
-36OTLPJ9147D1Z9,Global Manufacturing,Telangana,2021-07-09,0.0,LOW,Active,1
-09PKPMG5961R1ZH,Bharat Traders,Uttar Pradesh,2022-04-24,0.0,LOW,Active,1
-24LLYWG5198J1ZW,Prime Industries,Gujarat,2021-06-01,0.0,LOW,Active,1
-08TOUNA3098Z1ZJ,Shri Solutions,Rajasthan,2019-05-06,0.0,LOW,Active,1
-32YCMBT7145I1ZX,Royal Solutions,Kerala,2022-11-22,0.0,LOW,Active,1
-36TRSKR3842C1ZL,Smart Ventures,Telangana,2018-02-13,0.0,LOW,Active,0
-07ASBBA3524R1Z8,Pioneer Solutions,Delhi,2022-01-21,0.0,LOW,Active,0
-19UECLL4769D1Z3,Bharat Manufacturing,West Bengal,2020-04-04,0.0,LOW,Active,0
-33GELKH2948R1Z6,Sri Traders,Tamil Nadu,2018-04-14,0.0,LOW,Active,0
-07EMFKB3927O1ZI,Pioneer Industries,Delhi,2020-05-16,0.0,LOW,Active,0
-07HZPOT0558F1Z3,New Distributors,Delhi,2020-11-06,0.0,LOW,Active,0
-29BBWKY5500V1ZX,Tech Solutions,Karnataka,2019-10-10,0.0,LOW,Active,0
-08GKRHI7049D1Z4,Prime Associates,Rajasthan,2021-01-06,0.0,LOW,Active,0
-24DJBGH4539Z1ZX,Indo Suppliers,Gujarat,2018-01-17,0.0,LOW,Active,0
-33YDDCO2672U1ZG,Pioneer Corp,Tamil Nadu,2020-11-01,0.0,LOW,Active,0
-27CLHAU6275N1ZZ,Modern Traders,Maharashtra,2018-01-20,0.0,LOW,Active,0
-29OVPDD3878L1ZD,Smart Exports,Karnataka,2021-10-28,0.0,LOW,Active,0
-33JOWZT9217F1ZQ,Global Imports,Tamil Nadu,2018-02-20,0.0,LOW,Active,0
-08UKRTG1730P1ZE,Elite Trading Co,Rajasthan,2019-02-13,0.0,LOW,Active,0
-24VWFRK2073Q1ZP,Bharat Enterprises,Gujarat,2021-10-23,0.0,LOW,Active,0
-33WGPZA5374Q1Z7,Prime Corp,Tamil Nadu,2020-02-28,0.0,LOW,Active,0
-27SAYNS7630V1ZL,Bharat Exports,Maharashtra,2021-06-30,0.0,LOW,Active,0
-33SHIKK2149V1ZB,Indo Pvt Ltd,Tamil Nadu,2021-06-14,0.0,LOW,Active,0
-36VHFUP3465Z1ZA,New Corp,Telangana,2021-09-11,0.0,LOW,Active,0
-36RQCYG3810P1Z4,Royal Suppliers,Telangana,2020-07-21,0.0,LOW,Active,0
-32FSMGR0771N1ZE,Elite Enterprises,Kerala,2018-12-27,0.0,LOW,Active,0
-36GWLUR9598T1ZW,Elite Suppliers,Telangana,2020-05-23,0.0,LOW,Active,0
-29TMGGQ7562C1ZI,Tech Trading Co,Karnataka,2019-04-26,0.0,LOW,Active,0
-08XCDJD2434B1ZD,Royal Pvt Ltd,Rajasthan,2022-09-02,0.0,LOW,Active,0
-32YAWOM9238N1ZY,Smart Services,Kerala,2022-03-11,0.0,LOW,Active,0
-07HMKRU7899R1Z1,Sri Traders,Delhi,2020-03-17,0.0,LOW,Active,0
-09DMBJF3737N1ZG,New Services,Uttar Pradesh,2022-09-06,0.0,LOW,Active,0
-27TBYFB9002A1Z9,National Services,Maharashtra,2019-05-04,0.0,LOW,Active,0
-33OFSTE6718J1Z6,Sri Suppliers,Tamil Nadu,2021-03-31,0.0,LOW,Active,0
-24OXJYF5826J1Z7,Shri Trading Co,Gujarat,2022-06-19,0.0,LOW,Active,0
-36LJNIW8196O1Z9,Global Imports,Telangana,2020-06-10,0.0,LOW,Active,0
-36ZHVNM4728C1ZH,Elite Solutions,Telangana,2022-12-11,0.0,LOW,Active,0
-19ORIMI4322T1ZH,Sri Associates,West Bengal,2021-02-12,0.0,LOW,Active,0
-07CSMTR6470H1ZP,Smart Corp,Delhi,2021-11-17,0.0,LOW,Active,0
-32JOIZO3432X1ZC,Modern Imports,Kerala,2019-10-09,0.0,LOW,Active,0
-36YRETH5759G1ZI,Apex Industries,Telangana,2019-04-11,0.0,LOW,Active,0
-24ANHZO6184A1ZI,Pioneer Services,Gujarat,2020-08-19,0.0,LOW,Active,0
-08EBYMV4060E1ZJ,Smart Traders,Rajasthan,2018-06-24,0.0,LOW,Active,0
-36TPUFN4489J1Z3,Modern Manufacturing,Telangana,2021-06-02,0.0,LOW,Active,0
-07QGCGO1464B1ZE,Indo Imports,Delhi,2019-08-14,0.0,LOW,Active,0
-19BGGUP8112E1ZH,National Traders,West Bengal,2022-08-20,0.0,LOW,Active,0
-27EHTOH1669Q1ZY,Elite Traders,Maharashtra,2020-10-08,0.0,LOW,Active,0
-32BLIGC9859Y1ZH,Shri Manufacturing,Kerala,2021-03-26,0.0,LOW,Active,0
-29MQXEP6403K1ZK,Modern Distributors,Karnataka,2021-10-04,0.0,LOW,Active,0
-29ISHYV5433Y1ZP,Sri Exports,Karnataka,2022-11-07,0.0,LOW,Active,0
-36MBNQM4021J1ZS,Pioneer Traders,Telangana,2022-12-09,0.0,LOW,Active,0
-27ZPGEO5099O1Z7,National Services,Maharashtra,2021-08-19,0.0,LOW,Active,0
-24NHVZG5395E1Z4,Royal Trading Co,Gujarat,2019-07-20,0.0,LOW,Active,0
-36GASVP6844K1ZZ,Star Services,Telangana,2022-04-12,0.0,LOW,Active,0
-08WZGJW4349M1ZO,National Services,Rajasthan,2021-09-21,0.0,LOW,Active,0
-27DZICV0901U1Z9,Pioneer Manufacturing,Maharashtra,2018-06-03,0.0,LOW,Active,0
-24ISQWW8337Y1ZV,Shri Ventures,Gujarat,2022-11-22,0.0,LOW,Active,0
-33GRHFC9771F1ZJ,Shri Trading Co,Tamil Nadu,2018-03-01,0.0,LOW,Active,0
-27HJDNO7108T1ZF,National Solutions,Maharashtra,2020-10-16,0.0,LOW,Active,0
-19QLRXM2509S1ZJ,Royal Imports,West Bengal,2021-08-01,0.0,LOW,Active,0
-24LHZWC3326A1ZP,Sri Ventures,Gujarat,2019-07-17,0.0,LOW,Active,0
-27XTVXU2821I1Z8,Modern Suppliers,Maharashtra,2021-07-10,0.0,LOW,Active,0
-27ILPTC2711R1ZN,Tech Distributors,Maharashtra,2020-12-23,0.0,LOW,Active,0
-29GVMUT3191H1ZP,Apex Traders,Karnataka,2022-09-29,0.0,LOW,Active,0
-09ANLRR5891H1ZU,Bharat Suppliers,Uttar Pradesh,2018-02-21,0.0,LOW,Active,0
-32FBVXH4193P1Z7,Smart Suppliers,Kerala,2018-07-19,0.0,LOW,Active,0
-36DLRTY4714D1ZV,Royal Corp,Telangana,2021-06-14,0.0,LOW,Active,0
-27RFLGJ9396B1ZP,Prime Traders,Maharashtra,2019-07-20,0.0,LOW,Active,0
-19CFQZB3972Y1ZZ,Prime Distributors,West Bengal,2019-03-01,0.0,LOW,Active,0
-07IDXAW1121V1Z1,Sri Trading Co,Delhi,2018-09-27,0.0,LOW,Active,0
-07PAGDK1043S1Z6,Smart Ventures,Delhi,2020-07-14,0.0,LOW,Active,0
-27SXRHQ0984D1ZV,Elite Traders,Maharashtra,2021-12-29,0.0,LOW,Active,0
-33IDDQP7352Q1ZR,Modern Distributors,Tamil Nadu,2018-07-23,0.0,LOW,Active,0
-36SFLFI4404V1ZG,National Exports,Telangana,2020-02-06,0.0,LOW,Active,0
+33AHFTR8040G1ZE,Sri Pvt Ltd,Tamil Nadu,2023-07-22,0.0,LOW,Active,1
+36KLHWT1422Y1ZL,New Manufacturing,Telangana,2022-06-04,0.0,LOW,Active,1
+33JIGBL1902U1ZN,Prime Industries,Tamil Nadu,2023-10-04,0.0,LOW,Active,1
+27RUZWW3481L1ZD,Tech Industries,Maharashtra,2024-01-07,0.0,LOW,Active,1
+32QNGMH9623Y1Z3,Shri Exports,Kerala,2022-10-12,0.0,LOW,Active,1
+09GFYWI6394I1Z8,Pro Associates,Uttar Pradesh,2022-10-30,0.0,LOW,Active,1
+32LPJZD4781F1ZR,New Manufacturing,Kerala,2023-10-23,0.0,LOW,Active,1
+09PMGOY6187Y1ZL,Indo Distributors,Uttar Pradesh,2022-06-14,0.0,LOW,Active,1
+29LYWGN1982U1ZW,Prime Corp,Karnataka,2023-11-05,0.0,LOW,Active,1
+08TOUNA3098Z1ZJ,Shri Services,Rajasthan,2022-10-23,0.0,LOW,Active,1
+32YCMBT7145I1ZX,Royal Pvt Ltd,Kerala,2023-11-03,0.0,LOW,Active,1
+36TRSKR3842C1ZL,Pro Services,Telangana,2022-03-13,0.0,LOW,Active,1
+32FBQFX8026G1ZY,Pioneer Services,Kerala,2022-07-05,0.0,LOW,Active,1
+19UECLL4769D1Z3,Bharat Solutions,West Bengal,2023-04-08,0.0,LOW,Active,1
+07ENDEM8088D1Z3,Pro Enterprises,Delhi,2023-12-19,0.0,LOW,Active,1
+33YWEMF4039I1ZT,Royal Logistics,Tamil Nadu,2022-12-09,0.0,LOW,Active,1
+29EFBTB3049Q1ZA,NextGen Industries,Karnataka,2022-04-19,0.0,LOW,Active,1
+29BBWKY5500V1ZX,Tech Pvt Ltd,Karnataka,2023-01-09,0.0,LOW,Active,1
+08GKRHI7049D1Z4,Prime Networks,Rajasthan,2023-08-24,0.0,LOW,Active,1
+24DJBGH4539Z1ZX,Pro Ventures,Gujarat,2022-02-28,0.0,LOW,Active,1
+33YDDCO2672U1ZG,Pioneer Associates,Tamil Nadu,2023-07-22,0.0,LOW,Active,1
+27CLHAU6275N1ZZ,Modern Industries,Maharashtra,2022-03-01,0.0,LOW,Active,0
+29OVPDD3878L1ZD,Smart Solutions,Karnataka,2024-01-19,0.0,LOW,Active,0
+08UWKQE9898N1Z1,Bharat Distributors,Rajasthan,2022-08-22,0.0,LOW,Active,0
+07GUCWW2843Z1ZE,Sri Pvt Ltd,Delhi,2022-10-06,0.0,LOW,Active,0
+09IWZHQ3959D1ZG,Tech Traders,Uttar Pradesh,2022-08-21,0.0,LOW,Active,0
+33PIULZ1810N1Z0,Pro Pvt Ltd,Tamil Nadu,2023-08-06,0.0,LOW,Active,0
+08LYXQR1956K1ZP,Indo Corp,Rajasthan,2024-02-03,0.0,LOW,Active,0
+07KYRXQ3502N1ZK,Elite Suppliers,Delhi,2023-06-11,0.0,LOW,Active,0
+07NUYTR2660Y1ZF,Indo Services,Delhi,2024-01-09,0.0,LOW,Active,0
+07DBZPT4857M1ZV,Smart Corp,Delhi,2023-04-05,0.0,LOW,Active,0
+27XWXUF8645D1ZT,Elite Networks,Maharashtra,2022-07-06,0.0,LOW,Active,0
+36PYXPS5858X1ZU,Tech Services,Telangana,2023-05-26,0.0,LOW,Active,0
+24TNQHC2235E1Z9,Star Corp,Gujarat,2022-10-14,0.0,LOW,Active,0
+07BKOKF4956Y1ZO,Sri Imports,Delhi,2023-06-23,0.0,LOW,Active,0
+24TWYKT5622N1ZV,Star Exports,Gujarat,2022-03-21,0.0,LOW,Active,0
+09SVXZN9560N1Z8,Global Traders,Uttar Pradesh,2023-06-07,0.0,LOW,Active,0
+24JFITJ7820A1ZY,Apex Services,Gujarat,2022-04-14,0.0,LOW,Active,0
+33UQTYF0116S1ZD,Tech Imports,Tamil Nadu,2023-06-11,0.0,LOW,Active,0
+29PZSUE3595M1ZP,Prime Industries,Karnataka,2024-02-22,0.0,LOW,Active,0
+32RQCUW6197L1ZY,Apex Industries,Kerala,2023-05-04,0.0,LOW,Active,0
+36QAKML3841F1ZX,Tech Logistics,Telangana,2023-12-18,0.0,LOW,Active,0
+19LTGWV0824T1ZO,Sri Logistics,West Bengal,2023-01-30,0.0,LOW,Active,0
+08EFUIW7209C1ZF,Royal Logistics,Rajasthan,2024-02-27,0.0,LOW,Active,0
+36TRQMU0263S1ZN,Pro Networks,Telangana,2023-06-19,0.0,LOW,Active,0
+08LTISH2111R1ZB,Prime Logistics,Rajasthan,2022-09-04,0.0,LOW,Active,0
+24SZNHC1210R1Z8,Shri Traders,Gujarat,2022-11-27,0.0,LOW,Active,0
+36HYQTC0243B1ZG,Modern Industries,Telangana,2023-06-24,0.0,LOW,Active,0
+09MPRDV9025N1ZE,Star Suppliers,Uttar Pradesh,2023-08-09,0.0,LOW,Active,0
+19HPLOB9076I1Z5,Smart Trading Co,West Bengal,2022-07-30,0.0,LOW,Active,0
+36BALPH2774V1ZE,Prime Distributors,Telangana,2022-11-17,0.0,LOW,Active,0
+33OQXVB1375J1ZS,Elite Ventures,Tamil Nadu,2022-06-27,0.0,LOW,Active,0
+09YNMCB4320V1Z1,Tech Traders,Uttar Pradesh,2024-01-09,0.0,LOW,Active,0
+29MQXEP6403K1ZK,Modern Trading Co,Karnataka,2024-01-07,0.0,LOW,Active,0
+08KMRKT0021Y1ZP,Sri Suppliers,Rajasthan,2023-07-31,0.0,LOW,Active,0
+09BNQML0212W1ZV,Sri Services,Uttar Pradesh,2022-06-24,0.0,LOW,Active,0
+29IAKFV1961W1ZI,Tech Distributors,Karnataka,2023-07-26,0.0,LOW,Active,0
+19ZGOJX5882Z1ZQ,NextGen Associates,West Bengal,2023-02-03,0.0,LOW,Active,0
+27HHPZM1535R1ZO,Bharat Pvt Ltd,Maharashtra,2023-06-01,0.0,LOW,Active,0
+07OGUBT7836U1Z9,Shri Corp,Delhi,2023-07-12,0.0,LOW,Active,0
+36ZICVC9018E1Z4,Tech Exports,Telangana,2023-06-15,0.0,LOW,Active,0
+32SQWWW3377R1Z2,New Services,Kerala,2023-11-14,0.0,LOW,Active,0
+24ZTLCQ8469B1ZK,Indo Imports,Gujarat,2022-04-18,0.0,LOW,Active,0
+08LGKRE1636P1Z9,Elite Associates,Rajasthan,2022-10-15,0.0,LOW,Active,0
+19GAUXR1435U1ZR,Tech Suppliers,West Bengal,2024-01-27,0.0,LOW,Active,0
+24FKMGO5929V1ZP,Sri Traders,Gujarat,2022-11-28,0.0,LOW,Active,0
+32TVXUF8212Y1Z8,Modern Traders,Kerala,2023-11-25,0.0,LOW,Active,0
+24UAJDX3427L1ZX,Tech Trading Co,Gujarat,2023-07-18,0.0,LOW,Active,0
+24XYZHW8407H1ZP,Apex Industries,Gujarat,2023-09-13,0.0,LOW,Active,0
+09ANLRR5891H1ZU,Pro Exports,Uttar Pradesh,2022-03-17,0.0,LOW,Active,0
+32FBVXH4193P1Z7,Smart Corp,Kerala,2022-05-30,0.0,LOW,Active,0
+09LRTYK7140P1ZQ,Shri Imports,Uttar Pradesh,2022-12-03,0.0,LOW,Active,0
+07LYWCR5933G1Z7,New Pvt Ltd,Delhi,2023-05-31,0.0,LOW,Active,0
+32ZBIZU2855H1ZL,Sri Associates,Kerala,2022-07-21,0.0,LOW,Active,0
+29ZOUCW1375A1ZB,Shri Corp,Karnataka,2022-11-18,0.0,LOW,Active,0
+09NTMUN1590Z1ZX,Elite Enterprises,Uttar Pradesh,2022-12-25,0.0,LOW,Active,0
+27ZWLCS4831E1ZH,Pro Exports,Maharashtra,2023-11-21,0.0,LOW,Active,0
+09ZNLPC7867X1ZD,Elite Services,Uttar Pradesh,2023-05-06,0.0,LOW,Active,0
+09ILKCL6319C1Z5,New Distributors,Uttar Pradesh,2022-05-18,0.0,LOW,Active,0
+33TJDBY5648Y1ZR,Shri Ventures,Tamil Nadu,2024-02-28,0.0,LOW,Active,0
+32ICNEM8351I1ZE,Pro Enterprises,Kerala,2023-05-05,0.0,LOW,Active,0
+32YVGES3308S1ZP,National Enterprises,Kerala,2022-05-02,0.0,LOW,Active,0
+33TFKIJ7750B1Z9,Shri Industries,Tamil Nadu,2022-07-31,0.0,LOW,Active,0
+24LLPKF5316S1ZV,Indo Traders,Gujarat,2023-08-13,0.0,LOW,Active,0
+07KPAHF1230X1ZR,National Manufacturing,Delhi,2022-08-18,0.0,LOW,Active,0
+36SNVUB8009K1ZR,Star Distributors,Telangana,2023-09-30,0.0,LOW,Active,0
+24CAIUQ8908H1ZR,Star Networks,Gujarat,2023-10-16,0.0,LOW,Active,0
+33KIIIE5159L1ZM,National Services,Tamil Nadu,2024-03-05,0.0,LOW,Active,0
+33DFPTR1747Y1ZS,Bharat Exports,Tamil Nadu,2024-01-18,0.0,LOW,Active,0
+29LMQUP3040L1ZI,New Networks,Karnataka,2022-05-09,0.0,LOW,Active,0
+09MOUXL8634E1Z3,Modern Exports,Uttar Pradesh,2023-05-27,0.0,LOW,Active,0
+33NEGLL5132N1ZL,Shri Exports,Tamil Nadu,2024-01-16,0.0,LOW,Active,0
+33IOKGW9610V1Z9,Indo Manufacturing,Tamil Nadu,2023-02-13,0.0,LOW,Active,0
+29PYIJU8687V1ZX,Royal Networks,Karnataka,2022-05-26,0.0,LOW,Active,0
+08AIYIT1912Z1Z6,Pro Networks,Rajasthan,2023-07-24,0.0,LOW,Active,0
+27RWQPE1669X1ZS,Royal Imports,Maharashtra,2022-04-05,0.0,LOW,Active,0
+07ZPTUG2979G1ZN,Elite Suppliers,Delhi,2024-01-15,0.0,LOW,Active,0
+24UNKEF6804L1ZZ,NextGen Solutions,Gujarat,2022-06-05,0.0,LOW,Active,0
+24CELNV0988A1ZQ,Star Networks,Gujarat,2022-04-15,0.0,LOW,Active,0
+08GZJAY8671J1ZU,National Logistics,Rajasthan,2024-02-02,0.0,LOW,Active,0
+19PXAFD9647H1ZJ,Shri Services,West Bengal,2022-06-24,0.0,LOW,Active,0
+09QQBVM5657J1ZR,Apex Services,Uttar Pradesh,2022-02-21,0.0,LOW,Active,0
+32KRCZB5595M1ZU,Star Imports,Kerala,2022-04-05,0.0,LOW,Active,0
+24TJBGR1571L1ZY,Global Suppliers,Gujarat,2023-02-01,0.0,LOW,Active,0
+19QVBUL2010J1ZW,Pro Logistics,West Bengal,2023-04-03,0.0,LOW,Active,0
+24AQHWB6274M1ZS,Bharat Trading Co,Gujarat,2023-03-22,0.0,LOW,Active,0
+19RJUGC4491J1ZK,New Exports,West Bengal,2022-06-05,0.0,LOW,Active,0
+24HPLRJ0839I1Z3,Star Imports,Gujarat,2022-05-07,0.0,LOW,Active,0
+36URYDP7007L1ZN,Shri Corp,Telangana,2023-03-19,0.0,LOW,Active,0
+19YJTON3621X1ZB,NextGen Manufacturing,West Bengal,2023-07-16,0.0,LOW,Active,0
+36DUSFP6921C1ZS,Elite Industries,Telangana,2022-08-15,0.0,LOW,Active,0
+08RSOHH1771L1ZW,Modern Pvt Ltd,Rajasthan,2022-10-07,0.0,LOW,Active,0
+29GMJOM9180M1ZU,Royal Distributors,Karnataka,2023-08-12,0.0,LOW,Active,0
+32BZQLR3876F1Z8,NextGen Traders,Kerala,2023-05-09,0.0,LOW,Active,0
+33NHEYF9520G1ZZ,National Ventures,Tamil Nadu,2022-11-28,0.0,LOW,Active,0
+32NNEYE6768S1Z2,New Traders,Kerala,2022-03-21,0.0,LOW,Active,0
+32GFOQA8563H1ZP,Elite Industries,Kerala,2022-12-21,0.0,LOW,Active,0
+27EKMID8393M1Z8,NextGen Solutions,Maharashtra,2023-03-06,0.0,LOW,Active,0
+08GDLDB9849F1ZK,Bharat Pvt Ltd,Rajasthan,2023-10-04,0.0,LOW,Active,0
+29MNMIA9592L1Z3,Indo Logistics,Karnataka,2022-04-12,0.0,LOW,Active,0
+32WRMNW4877L1Z2,Shri Pvt Ltd,Kerala,2023-04-06,0.0,LOW,Active,0
+08OBNTH9619M1ZN,Pro Imports,Rajasthan,2023-02-02,0.0,LOW,Active,0
+29FNNBD3446Q1Z8,Bharat Trading Co,Karnataka,2023-01-21,0.0,LOW,Active,0
+09ZTHIV5728L1ZL,Modern Distributors,Uttar Pradesh,2024-01-10,0.0,LOW,Active,0
+32HXWQP2695H1Z3,Pioneer Trading Co,Kerala,2023-10-10,0.0,LOW,Active,0
+36QQVDR0910K1ZQ,Royal Pvt Ltd,Telangana,2022-07-25,0.0,LOW,Active,0
+09NPMWS7559P1ZX,Bharat Trading Co,Uttar Pradesh,2023-03-12,0.0,LOW,Active,0
+19XIJUS6661H1ZH,Indo Services,West Bengal,2023-09-14,0.0,LOW,Active,0
+24USRMM5972S1ZY,Star Imports,Gujarat,2023-03-15,0.0,LOW,Active,0
+29HHSJL2425R1ZH,Modern Services,Karnataka,2022-07-10,0.0,LOW,Active,0
+07BXFGC3461R1ZA,Pioneer Logistics,Delhi,2023-04-12,0.0,LOW,Active,0
+07THHBT6278B1ZB,Global Traders,Delhi,2023-04-23,0.0,LOW,Active,0
+09UETWH0269K1ZI,Pro Networks,Uttar Pradesh,2023-05-31,0.0,LOW,Active,0
+19XDNHV3767A1ZL,Prime Trading Co,West Bengal,2022-12-19,0.0,LOW,Active,0
+32WXVNC6113H1Z0,Star Services,Kerala,2022-11-14,0.0,LOW,Active,0
+19TYHSA6601J1ZA,NextGen Ventures,West Bengal,2023-04-11,0.0,LOW,Active,0
+33QYJFY4493W1ZZ,Pro Pvt Ltd,Tamil Nadu,2023-06-17,0.0,LOW,Active,0
+07RPUNN3918Q1ZC,Pro Corp,Delhi,2023-09-29,0.0,LOW,Active,0
+29INDFP0584Q1ZQ,Shri Suppliers,Karnataka,2023-06-02,0.0,LOW,Active,0
+24SKVTP0309C1ZU,Indo Distributors,Gujarat,2022-03-24,0.0,LOW,Active,0
+29TTZQK9389M1Z5,Pro Corp,Karnataka,2024-01-20,0.0,LOW,Active,0
+08DZKDZ8794X1ZY,Pro Manufacturing,Rajasthan,2023-04-30,0.0,LOW,Active,0
+07GJHYS1847A1ZF,New Solutions,Delhi,2022-09-19,0.0,LOW,Active,0
+32APSBT4228B1Z8,Indo Services,Kerala,2023-07-20,0.0,LOW,Active,0
+32IPRIH1623B1ZZ,Global Distributors,Kerala,2023-10-18,0.0,LOW,Active,0
+36MZYRU3413Y1ZY,Smart Services,Telangana,2023-06-19,0.0,LOW,Active,0
+24WDMBK4532K1Z5,Apex Industries,Gujarat,2023-05-26,0.0,LOW,Active,0
+36SEGRP8177R1ZD,Prime Exports,Telangana,2023-06-25,0.0,LOW,Active,0
+24YAYZD9426G1ZP,Pro Exports,Gujarat,2022-10-23,0.0,LOW,Active,0
+24JNJGN4094K1ZD,Bharat Distributors,Gujarat,2023-03-06,0.0,LOW,Active,0
+27OFDGY5413M1ZF,Pro Exports,Maharashtra,2023-07-16,0.0,LOW,Active,0
+24TMSTL7315F1ZY,Shri Networks,Gujarat,2023-12-09,0.0,LOW,Active,0
+27VBVBA1601G1ZW,Apex Traders,Maharashtra,2023-06-01,0.0,LOW,Active,0
+32QYXRA5407R1ZI,NextGen Distributors,Kerala,2022-03-09,0.0,LOW,Active,0
+29CCDEN8233M1ZT,Smart Services,Karnataka,2023-09-21,0.0,LOW,Active,0
+24RWQWT0350A1ZA,Pioneer Distributors,Gujarat,2022-05-15,0.0,LOW,Active,0
+08OWCNB2884B1Z4,Tech Traders,Rajasthan,2024-01-21,0.0,LOW,Active,0
+29YIYPT7301H1ZO,Pro Exports,Karnataka,2024-01-14,0.0,LOW,Active,0
+09TDZSN9048K1ZP,Sri Associates,Uttar Pradesh,2023-01-20,0.0,LOW,Active,0
+19MJYLR6067W1Z4,Tech Corp,West Bengal,2022-05-15,0.0,LOW,Active,0
+09SQTIC0332E1Z5,Royal Suppliers,Uttar Pradesh,2022-08-30,0.0,LOW,Active,0
+36OKAJC5332M1Z5,Pro Services,Telangana,2024-03-03,0.0,LOW,Active,0
+32NREGG1122Z1Z4,Tech Services,Kerala,2023-02-24,0.0,LOW,Active,0
+19PFCHY3683K1ZR,National Ventures,West Bengal,2023-12-18,0.0,LOW,Active,0
+08PSMEK3769Z1ZF,Star Associates,Rajasthan,2023-01-19,0.0,LOW,Active,0
+09JYFZE7079G1ZS,New Distributors,Uttar Pradesh,2022-12-15,0.0,LOW,Active,0
+19DHGEL3455R1ZW,Royal Traders,West Bengal,2024-01-29,0.0,LOW,Active,0
+08SVPXC2616S1ZP,Bharat Distributors,Rajasthan,2024-03-31,0.0,LOW,Active,0
+33AGNNP5437S1ZW,Apex Enterprises,Tamil Nadu,2022-07-24,0.0,LOW,Active,0
+19CKZDY1342P1ZM,Modern Suppliers,West Bengal,2023-06-22,0.0,LOW,Active,0
+19IHVCW6619H1ZX,Pro Trading Co,West Bengal,2022-08-17,0.0,LOW,Active,0
+08OYGKE6406G1ZS,Royal Manufacturing,Rajasthan,2023-10-19,0.0,LOW,Active,0
+27SFTVB1813O1Z7,Pioneer Networks,Maharashtra,2022-11-15,0.0,LOW,Active,0
+08PPPJV6872T1Z5,National Exports,Rajasthan,2024-01-09,0.0,LOW,Active,0
+33GDJDK5544R1ZB,Global Logistics,Tamil Nadu,2023-09-11,0.0,LOW,Active,0
+24DILBJ0189Q1ZV,Pioneer Distributors,Gujarat,2023-04-14,0.0,LOW,Active,0
+19MCATH2514X1ZV,NextGen Solutions,West Bengal,2023-09-05,0.0,LOW,Active,0
+32CUVJV0759D1ZF,Shri Suppliers,Kerala,2022-12-21,0.0,LOW,Active,0
+24JVLZU2853W1ZR,National Pvt Ltd,Gujarat,2022-08-08,0.0,LOW,Active,0
+07UONPE9259Q1Z6,Royal Traders,Delhi,2022-07-08,0.0,LOW,Active,0
+24WDWGS8764S1ZH,Royal Manufacturing,Gujarat,2023-11-24,0.0,LOW,Active,0
+19BUTKT6844S1Z0,New Suppliers,West Bengal,2024-03-11,0.0,LOW,Active,0
+08WUKZV4325E1ZV,Shri Traders,Rajasthan,2023-02-06,0.0,LOW,Active,0
+33QVAYE4949E1ZJ,Tech Industries,Tamil Nadu,2022-08-01,0.0,LOW,Active,0
+08GJXEK3626W1Z6,Prime Logistics,Rajasthan,2022-02-21,0.0,LOW,Active,0
+33DFRAS8941C1ZE,New Solutions,Tamil Nadu,2023-03-19,0.0,LOW,Active,0
+33IWDUT1915A1ZA,Apex Pvt Ltd,Tamil Nadu,2023-05-16,0.0,LOW,Active,0
+29XQLFX1173N1ZK,Smart Associates,Karnataka,2022-07-13,0.0,LOW,Active,0
+33GPSHY0882T1ZW,Star Ventures,Tamil Nadu,2022-09-01,0.0,LOW,Active,0
+27UUGKG6080L1ZK,Star Distributors,Maharashtra,2022-07-05,0.0,LOW,Active,0
+08OEMZB5029Z1ZP,Indo Networks,Rajasthan,2023-07-23,0.0,LOW,Active,0
+09LKQND0099E1ZY,Star Industries,Uttar Pradesh,2023-01-20,0.0,LOW,Active,0
+24SSWBC4463X1ZB,Sri Corp,Gujarat,2022-06-22,0.0,LOW,Active,0
+27EYNUS1172D1Z1,Royal Associates,Maharashtra,2023-01-29,0.0,LOW,Active,0
+36BSOCL3453I1Z6,Modern Services,Telangana,2023-09-30,0.0,LOW,Active,0
+36AWABJ9190Z1ZQ,Bharat Services,Telangana,2022-10-07,0.0,LOW,Active,0
+09XIVOD6025B1ZP,Elite Ventures,Uttar Pradesh,2022-05-01,0.0,LOW,Active,0
+24IOAFO3645P1ZC,Pro Services,Gujarat,2024-03-11,0.0,LOW,Active,0
+29AKGJV8906X1ZJ,Prime Networks,Karnataka,2022-06-06,0.0,LOW,Active,0
+07KYZDH0284L1ZT,New Solutions,Delhi,2024-03-26,0.0,LOW,Active,0
+36DVBOL9223Z1ZP,Bharat Exports,Telangana,2024-02-07,0.0,LOW,Active,0
+19HBFUP1144R1ZM,Elite Ventures,West Bengal,2022-09-20,0.0,LOW,Active,0
+19GDERV6083C1ZF,Star Networks,West Bengal,2023-02-19,0.0,LOW,Active,0
+27RGZAK4724Z1Z8,Sri Traders,Maharashtra,2022-06-24,0.0,LOW,Active,0
+07DVJQQ5280C1ZC,Elite Corp,Delhi,2023-12-13,0.0,LOW,Active,0
+33XVIBL1583A1ZO,Royal Trading Co,Tamil Nadu,2024-01-20,0.0,LOW,Active,0
+08FEHWA6224R1ZU,New Associates,Rajasthan,2022-04-23,0.0,LOW,Active,0
+09DFXNQ8797L1ZU,Pioneer Imports,Uttar Pradesh,2023-08-31,0.0,LOW,Active,0
+32NKEIF8709Q1ZM,Smart Trading Co,Kerala,2023-10-11,0.0,LOW,Active,0
+33GGNUT7959M1ZM,Global Services,Tamil Nadu,2022-08-16,0.0,LOW,Active,0
+32ITJPS3519Z1ZV,Indo Trading Co,Kerala,2023-08-29,0.0,LOW,Active,0
+19ABPAM3683F1ZK,Sri Corp,West Bengal,2022-04-21,0.0,LOW,Active,0
+32SDCNJ0765K1ZJ,National Trading Co,Kerala,2023-01-16,0.0,LOW,Active,0
+09UYQEZ6972S1ZB,Indo Ventures,Uttar Pradesh,2023-03-14,0.0,LOW,Active,0
+29EASOW7513Z1ZE,Modern Logistics,Karnataka,2023-12-06,0.0,LOW,Active,0
+29ICJIQ9867K1ZS,Tech Pvt Ltd,Karnataka,2022-03-03,0.0,LOW,Active,0
+07SJUSB4414M1ZM,Star Solutions,Delhi,2023-09-02,0.0,LOW,Active,0
+19UPTFL7002D1Z4,Global Manufacturing,West Bengal,2023-02-05,0.0,LOW,Active,0
+29TOXCP6409F1ZR,Shri Solutions,Karnataka,2022-07-30,0.0,LOW,Active,0
+08FESSS2220S1ZZ,National Traders,Rajasthan,2023-07-07,0.0,LOW,Active,0
+08ACVQM0269P1Z7,Star Logistics,Rajasthan,2023-01-01,0.0,LOW,Active,0
+19XGQKJ3104I1ZE,Shri Corp,West Bengal,2022-11-22,0.0,LOW,Active,0
+33CIOZP5884R1ZU,Smart Logistics,Tamil Nadu,2023-09-29,0.0,LOW,Active,0
+24CXSNX8661Y1ZS,Global Pvt Ltd,Gujarat,2022-08-16,0.0,LOW,Active,0
+07DLZLZ6829Z1Z4,Star Manufacturing,Delhi,2022-05-20,0.0,LOW,Active,0
+36IHLWU6544E1Z6,Modern Ventures,Telangana,2022-06-08,0.0,LOW,Active,0
+36WWGRO4146V1ZP,Star Exports,Telangana,2022-03-31,0.0,LOW,Active,0
+07BMGJI7388V1Z6,National Ventures,Delhi,2022-10-11,0.0,LOW,Active,0
+19UISPC4944Q1ZN,NextGen Trading Co,West Bengal,2022-04-18,0.0,LOW,Active,0
+33INDWW0188H1Z2,Shri Imports,Tamil Nadu,2023-06-02,0.0,LOW,Active,0
+07HVNQD0351P1ZZ,Apex Trading Co,Delhi,2023-02-13,0.0,LOW,Active,0
+24TRHKE5986V1ZD,Royal Networks,Gujarat,2022-11-22,0.0,LOW,Active,0
+27WZRMD1826J1ZH,Star Imports,Maharashtra,2023-04-29,0.0,LOW,Active,0
+19GMRVK1568L1ZZ,Indo Ventures,West Bengal,2023-12-14,0.0,LOW,Active,0
+33MIHIH6961Q1ZF,Star Exports,Tamil Nadu,2022-04-19,0.0,LOW,Active,0
+29SRZGK3075G1ZL,Smart Logistics,Karnataka,2024-03-04,0.0,LOW,Active,0
+08NVVWE0128Y1ZB,Bharat Industries,Rajasthan,2024-01-17,0.0,LOW,Active,0
+07JTHUI2284U1Z4,Prime Networks,Delhi,2023-06-18,0.0,LOW,Active,0
+33WJHBW1245O1Z9,Global Industries,Tamil Nadu,2023-01-09,0.0,LOW,Active,0
+19IZIBL2751Z1Z5,Royal Distributors,West Bengal,2022-07-02,0.0,LOW,Active,0
+09LMANS9875A1Z0,Smart Services,Uttar Pradesh,2023-11-23,0.0,LOW,Active,0
+08ICNHB0945Q1ZL,National Exports,Rajasthan,2023-05-10,0.0,LOW,Active,0
+19JEYXK2717S1ZW,Modern Imports,West Bengal,2022-08-12,0.0,LOW,Active,0
+27JQUQP0180D1ZQ,Star Solutions,Maharashtra,2023-05-20,0.0,LOW,Active,0
+36GSFRA4156W1Z8,Modern Networks,Telangana,2023-04-24,0.0,LOW,Active,0
+32DCCFF2527J1ZA,Pro Logistics,Kerala,2022-04-01,0.0,LOW,Active,0
+07RMGAC1549Y1ZW,Modern Associates,Delhi,2022-05-07,0.0,LOW,Active,0
+07LZGBV8836N1Z7,Shri Enterprises,Delhi,2022-05-28,0.0,LOW,Active,0
+29REJLQ8081M1ZP,Tech Manufacturing,Karnataka,2023-06-02,0.0,LOW,Active,0
+19UQUCS0914S1ZU,Elite Trading Co,West Bengal,2023-09-25,0.0,LOW,Active,0
+32JJARV9191N1ZS,New Associates,Kerala,2022-04-08,0.0,LOW,Active,0
+08AWNTS2985W1Z6,Smart Logistics,Rajasthan,2023-05-09,0.0,LOW,Active,0
+08RQDVX6095P1ZV,New Logistics,Rajasthan,2022-08-08,0.0,LOW,Active,0
+08GZBFQ4248O1Z5,Elite Exports,Rajasthan,2023-07-15,0.0,LOW,Active,0
+33ZTAKA5879U1ZJ,Pro Pvt Ltd,Tamil Nadu,2023-07-25,0.0,LOW,Active,0
+19YJBFL5646W1ZS,Modern Services,West Bengal,2022-06-16,0.0,LOW,Active,0
+27IVZHN7011W1ZQ,Tech Pvt Ltd,Maharashtra,2022-06-09,0.0,LOW,Active,0
+07DWFVE3706V1Z7,Elite Networks,Delhi,2023-05-27,0.0,LOW,Active,0
+29ZATOL5979W1ZB,National Solutions,Karnataka,2024-03-09,0.0,LOW,Active,0
+09RPIWK6623K1ZI,National Corp,Uttar Pradesh,2023-05-29,0.0,LOW,Active,0
+09PXNVO3752G1ZI,Apex Corp,Uttar Pradesh,2024-01-24,0.0,LOW,Active,0
+29NSIDJ4564X1ZY,Royal Enterprises,Karnataka,2022-12-09,0.0,LOW,Active,0
+36CJBBG7961B1ZI,Pro Traders,Telangana,2022-09-16,0.0,LOW,Active,0
+08VCWTW7527Z1ZI,Shri Manufacturing,Rajasthan,2024-01-30,0.0,LOW,Active,0
+09KURZB7288O1ZE,Apex Pvt Ltd,Uttar Pradesh,2023-11-30,0.0,LOW,Active,0
+07HEREE5345E1ZA,Tech Enterprises,Delhi,2023-10-11,0.0,LOW,Active,0
+08MYBYP7683Z1ZZ,New Exports,Rajasthan,2023-02-21,0.0,LOW,Active,0
+36FEBNK5022K1ZL,Indo Pvt Ltd,Telangana,2023-02-24,0.0,LOW,Active,0
+32NZVZA6496T1ZF,Bharat Manufacturing,Kerala,2022-04-01,0.0,LOW,Active,0
+33KOHXV3840U1ZC,NextGen Industries,Tamil Nadu,2023-01-14,0.0,LOW,Active,0
+33EYNAB6784D1ZD,Royal Industries,Tamil Nadu,2023-08-24,0.0,LOW,Active,0
+29ASABE2089N1ZO,Star Distributors,Karnataka,2023-05-27,0.0,LOW,Active,0
+08ARNQQ7570Q1Z6,Indo Industries,Rajasthan,2022-12-13,0.0,LOW,Active,0
+24TLKRM5137R1ZI,National Ventures,Gujarat,2023-12-01,0.0,LOW,Active,0
+08YAWDB5350G1ZM,Royal Networks,Rajasthan,2022-09-24,0.0,LOW,Active,0
+29EFVFE7889R1ZT,Pro Industries,Karnataka,2023-12-12,0.0,LOW,Active,0
+24RGFPY3622C1ZC,Pioneer Suppliers,Gujarat,2023-01-11,0.0,LOW,Active,0
+08QHPOJ3402H1ZR,Apex Corp,Rajasthan,2022-11-30,0.0,LOW,Active,0
+08WMJHO1688E1ZY,Tech Industries,Rajasthan,2022-09-09,0.0,LOW,Active,0
+33XWQVP7202R1ZU,National Imports,Tamil Nadu,2023-12-21,0.0,LOW,Active,0
+09FUTHM5356Z1ZA,National Suppliers,Uttar Pradesh,2023-07-31,0.0,LOW,Active,0
+29EYRZT4324C1ZG,Smart Traders,Karnataka,2023-03-05,0.0,LOW,Active,0
+07NUKXW0619U1ZH,Tech Trading Co,Delhi,2024-03-20,0.0,LOW,Active,0
+09QJQVN3953L1ZV,Sri Networks,Uttar Pradesh,2023-06-28,0.0,LOW,Active,0
+29LFNHD1686N1ZL,Modern Logistics,Karnataka,2024-02-27,0.0,LOW,Active,0
+19MPQKG1515S1Z9,Global Associates,West Bengal,2022-04-18,0.0,LOW,Active,0
+29NKZQW7892T1ZU,Global Services,Karnataka,2023-06-28,0.0,LOW,Active,0
+09PUVER2734S1Z4,Star Manufacturing,Uttar Pradesh,2022-10-13,0.0,LOW,Active,0
+29CFWNK1046B1ZY,Modern Industries,Karnataka,2023-07-20,0.0,LOW,Active,0
+19RXOAY6448W1ZX,Smart Logistics,West Bengal,2023-05-05,0.0,LOW,Active,0
+09JUXVO4279C1ZI,Pro Distributors,Uttar Pradesh,2023-10-25,0.0,LOW,Active,0
+24ESUPD0663L1Z6,Royal Associates,Gujarat,2022-07-28,0.0,LOW,Active,0
+24WLJHR7474L1ZZ,Pioneer Associates,Gujarat,2023-09-11,0.0,LOW,Active,0
+24PUKDW1279D1ZD,Star Exports,Gujarat,2023-07-25,0.0,LOW,Active,0
+36PRBKQ8846C1Z4,Smart Imports,Telangana,2022-11-16,0.0,LOW,Active,0
+33PSYKR2907F1ZV,Sri Pvt Ltd,Tamil Nadu,2023-05-15,0.0,LOW,Active,0
+36HAPNG1020F1Z5,Star Imports,Telangana,2022-11-29,0.0,LOW,Active,0
+09KFASX5755L1ZH,Prime Suppliers,Uttar Pradesh,2022-10-09,0.0,LOW,Active,0
+09OGKCB2989R1ZG,Elite Manufacturing,Uttar Pradesh,2024-01-31,0.0,LOW,Active,0
+32MGIUR8842M1ZE,Smart Exports,Kerala,2024-01-14,0.0,LOW,Active,0
+09YNAVG0680F1ZU,Apex Pvt Ltd,Uttar Pradesh,2023-01-07,0.0,LOW,Active,0
+32GYRXM1782G1ZF,Apex Corp,Kerala,2023-11-15,0.0,LOW,Active,0
+33DCYMA8983K1ZV,Tech Logistics,Tamil Nadu,2023-10-01,0.0,LOW,Active,0
+29ZXHFO0745Q1ZM,Global Suppliers,Karnataka,2023-03-30,0.0,LOW,Active,0
+33SLRAF5362R1ZG,Tech Logistics,Tamil Nadu,2022-10-20,0.0,LOW,Active,0
+32IELKT3445S1ZE,Tech Services,Kerala,2022-06-02,0.0,LOW,Active,0
+36LJDYD8149U1ZX,Bharat Logistics,Telangana,2023-08-20,0.0,LOW,Active,0
+24GWBCE2280X1ZL,Apex Imports,Gujarat,2022-11-13,0.0,LOW,Active,0
+36OVIKJ6656R1ZB,Apex Exports,Telangana,2022-12-08,0.0,LOW,Active,0
+36MTXJH6118K1ZQ,Star Industries,Telangana,2023-11-28,0.0,LOW,Active,0
+33EFIHG6248L1ZX,Royal Trading Co,Tamil Nadu,2023-05-27,0.0,LOW,Active,0
+29WDGGT7230P1ZZ,Sri Manufacturing,Karnataka,2022-04-16,0.0,LOW,Active,0
+36TCGER8322U1Z8,NextGen Trading Co,Telangana,2022-07-04,0.0,LOW,Active,0
+27AJXWM8951W1ZY,Elite Distributors,Maharashtra,2022-08-20,0.0,LOW,Active,0
+36QNXMF0341A1Z0,National Imports,Telangana,2023-08-09,0.0,LOW,Active,0
+24MAXYM0422A1ZZ,Prime Distributors,Gujarat,2023-03-09,0.0,LOW,Active,0
+36LGSQV2065Z1ZH,Pro Associates,Telangana,2022-12-08,0.0,LOW,Active,0
+09EBDCL4743E1Z3,Sri Trading Co,Uttar Pradesh,2023-08-21,0.0,LOW,Active,0
+33HDLAC0247P1ZN,Shri Exports,Tamil Nadu,2023-06-09,0.0,LOW,Active,0
+33VYBUB4188A1Z7,Smart Manufacturing,Tamil Nadu,2024-02-21,0.0,LOW,Active,0
+19GZFTC6239K1ZA,Shri Networks,West Bengal,2023-11-26,0.0,LOW,Active,0
+33GQFXW2163F1ZH,Modern Manufacturing,Tamil Nadu,2023-10-11,0.0,LOW,Active,0
+07ABUMP3010T1ZL,Shri Traders,Delhi,2023-11-22,0.0,LOW,Active,0
+08QSUDG9778O1ZC,Star Imports,Rajasthan,2022-03-13,0.0,LOW,Active,0
+29GBSOO4553O1ZH,Pro Trading Co,Karnataka,2023-10-26,0.0,LOW,Active,0
+33NLVOL7578T1ZN,Smart Exports,Tamil Nadu,2023-11-17,0.0,LOW,Active,0
+33ROKNM5636D1Z6,New Traders,Tamil Nadu,2023-08-09,0.0,LOW,Active,0
+29EACEA6346S1ZG,Apex Services,Karnataka,2022-04-11,0.0,LOW,Active,0
+32SAXRY8463X1ZQ,Shri Associates,Kerala,2023-03-04,0.0,LOW,Active,0
+36BBHYY0751Q1ZF,Global Distributors,Telangana,2023-09-26,0.0,LOW,Active,0
+33TORSL1755V1ZA,Elite Imports,Tamil Nadu,2023-08-20,0.0,LOW,Active,0
+08OZVKQ8325M1ZZ,Tech Imports,Rajasthan,2024-03-23,0.0,LOW,Active,0
+19LKSZP5933H1ZD,Sri Associates,West Bengal,2023-01-08,0.0,LOW,Active,0
+36NOOCL1282I1ZJ,Star Pvt Ltd,Telangana,2022-05-25,0.0,LOW,Active,0
+33SUEVR5953X1ZO,Shri Exports,Tamil Nadu,2022-05-11,0.0,LOW,Active,0
+08WLYDU7896U1ZO,Indo Networks,Rajasthan,2022-04-16,0.0,LOW,Active,0
+27IOISD6997S1ZW,Smart Distributors,Maharashtra,2022-05-23,0.0,LOW,Active,0
+24UDIMT5234W1Z8,Pioneer Pvt Ltd,Gujarat,2022-07-08,0.0,LOW,Active,0
+19KOOZN2246S1Z5,Royal Distributors,West Bengal,2022-06-15,0.0,LOW,Active,0
+08JIPAH9694E1ZS,Smart Pvt Ltd,Rajasthan,2022-04-06,0.0,LOW,Active,0
+08ESCTG6182K1Z7,Elite Logistics,Rajasthan,2022-12-29,0.0,LOW,Active,0
+27ITFOT5696V1Z1,NextGen Traders,Maharashtra,2023-03-12,0.0,LOW,Active,0
+24EHUQB6032V1ZN,Sri Ventures,Gujarat,2022-06-10,0.0,LOW,Active,0
+09GJZCI8515O1ZZ,Sri Traders,Uttar Pradesh,2024-02-19,0.0,LOW,Active,0
+07XHMTA6339Q1ZH,Tech Manufacturing,Delhi,2022-04-24,0.0,LOW,Active,0
+27YYFIK1756U1ZE,Smart Corp,Maharashtra,2023-04-23,0.0,LOW,Active,0
+09ZXIOF1588J1ZX,Royal Corp,Uttar Pradesh,2022-07-08,0.0,LOW,Active,0
+32XIOYD3877N1ZQ,Elite Associates,Kerala,2022-12-27,0.0,LOW,Active,0
+29UCETP2522V1Z1,New Logistics,Karnataka,2023-02-22,0.0,LOW,Active,0
+29NPSJW4110Y1Z0,Royal Services,Karnataka,2022-11-23,0.0,LOW,Active,0
+07TBYZW4342M1Z2,Star Exports,Delhi,2023-11-04,0.0,LOW,Active,0
+09PTPNW7548B1ZF,Pro Manufacturing,Uttar Pradesh,2023-08-05,0.0,LOW,Active,0
+27ONQBH3384N1ZI,Shri Networks,Maharashtra,2023-11-09,0.0,LOW,Active,0
+29MQCNE5853K1ZS,Global Suppliers,Karnataka,2022-03-17,0.0,LOW,Active,0
+32XXWCI6717C1Z7,Elite Imports,Kerala,2024-02-13,0.0,LOW,Active,0
+33NJUNY3379S1Z9,National Trading Co,Tamil Nadu,2022-08-05,0.0,LOW,Active,0
+27KITLQ1126I1Z0,Pioneer Logistics,Maharashtra,2023-06-04,0.0,LOW,Active,0
+36UPMFR4460R1ZH,Pro Pvt Ltd,Telangana,2023-11-16,0.0,LOW,Active,0
+27EBJDA5630D1ZQ,Global Ventures,Maharashtra,2022-08-21,0.0,LOW,Active,0
+32RSOOZ7307K1ZN,New Distributors,Kerala,2023-03-15,0.0,LOW,Active,0
+36BMDWI4220S1ZX,Pioneer Ventures,Telangana,2022-05-20,0.0,LOW,Active,0
+09PINZJ1556P1ZB,Smart Ventures,Uttar Pradesh,2023-11-06,0.0,LOW,Active,0
+07AAQDW7943R1ZD,Prime Ventures,Delhi,2022-03-03,0.0,LOW,Active,0
+24UINIA6376A1ZB,Bharat Exports,Gujarat,2022-09-06,0.0,LOW,Active,0
+19XUQMQ8537N1Z3,Indo Exports,West Bengal,2023-08-07,0.0,LOW,Active,0
+36NFRUX3920M1ZY,Star Trading Co,Telangana,2022-08-08,0.0,LOW,Active,0
+32DUIWS2083J1ZD,Indo Trading Co,Kerala,2023-08-11,0.0,LOW,Active,0
+33JAFCN7913P1ZX,Bharat Corp,Tamil Nadu,2023-01-03,0.0,LOW,Active,0
+33VYRDS4750B1Z5,Elite Traders,Tamil Nadu,2023-01-27,0.0,LOW,Active,0
+33NRIPI8312K1ZS,Modern Associates,Tamil Nadu,2024-01-08,0.0,LOW,Active,0
+29ECYOC5529Z1ZI,Smart Trading Co,Karnataka,2023-09-30,0.0,LOW,Active,0
+33IXOBA9030M1ZB,Elite Imports,Tamil Nadu,2024-02-11,0.0,LOW,Active,0
+24IFTVC9750Z1ZT,Elite Ventures,Gujarat,2022-05-30,0.0,LOW,Active,0
+19MYDXG3193K1ZT,Sri Industries,West Bengal,2023-07-04,0.0,LOW,Active,0
+19CMVHJ5547D1ZK,New Ventures,West Bengal,2023-09-12,0.0,LOW,Active,0
+36LPGGE4026N1ZR,Bharat Services,Telangana,2023-09-23,0.0,LOW,Active,0
+29RCYOM5458F1ZJ,New Solutions,Karnataka,2023-04-11,0.0,LOW,Active,0
+32UJMRC8896A1Z9,National Suppliers,Kerala,2023-12-28,0.0,LOW,Active,0
+36HQLFW2769N1ZM,Sri Networks,Telangana,2022-05-22,0.0,LOW,Active,0
+09WWBXZ0591J1Z1,Royal Manufacturing,Uttar Pradesh,2022-10-18,0.0,LOW,Active,0
+08SKLFE1583N1Z9,National Corp,Rajasthan,2022-12-12,0.0,LOW,Active,0
+27BASML9064O1ZR,Global Suppliers,Maharashtra,2023-11-20,0.0,LOW,Active,0
+36LVKFL0477I1ZQ,Apex Traders,Telangana,2023-09-02,0.0,LOW,Active,0
+27OSCMR1799Y1ZH,NextGen Industries,Maharashtra,2023-06-11,0.0,LOW,Active,0
+36XCMTY0673B1ZL,Sri Logistics,Telangana,2023-08-21,0.0,LOW,Active,0
+19NMTKY7209X1ZJ,Tech Traders,West Bengal,2024-03-05,0.0,LOW,Active,0
+19PORHT0410Z1ZH,National Associates,West Bengal,2022-11-05,0.0,LOW,Active,0
+24WACEP1482W1ZF,Global Networks,Gujarat,2023-07-01,0.0,LOW,Active,0
+27ICDYE4972O1ZA,Apex Traders,Maharashtra,2022-09-23,0.0,LOW,Active,0
+24TDEKH7753W1ZO,Tech Corp,Gujarat,2023-06-20,0.0,LOW,Active,0
+36WAYLR9609U1ZM,Tech Exports,Telangana,2023-05-08,0.0,LOW,Active,0
+24GCRKU7751K1ZB,Pro Enterprises,Gujarat,2023-01-06,0.0,LOW,Active,0
+27VACCL2210C1Z3,Prime Solutions,Maharashtra,2023-10-21,0.0,LOW,Active,0
+33CPJTQ8111J1ZT,New Suppliers,Tamil Nadu,2023-12-28,0.0,LOW,Active,0
+24URRUG7203B1ZG,Global Suppliers,Gujarat,2022-11-18,0.0,LOW,Active,0
+33MYPEM1726O1ZG,Shri Industries,Tamil Nadu,2022-06-05,0.0,LOW,Active,0
+33OGLXD6962W1ZL,Sri Networks,Tamil Nadu,2023-03-27,0.0,LOW,Active,0
+19MKSVB2367D1ZY,Bharat Ventures,West Bengal,2023-02-22,0.0,LOW,Active,0
+09BZQJW3872G1ZB,Shri Manufacturing,Uttar Pradesh,2023-09-10,0.0,LOW,Active,0
+07HKCRM8410A1ZF,Star Industries,Delhi,2023-07-05,0.0,LOW,Active,0
+36QMZVZ0337M1Z7,NextGen Suppliers,Telangana,2022-09-24,0.0,LOW,Active,0
+36DPYAD6490W1Z8,Global Traders,Telangana,2022-03-06,0.0,LOW,Active,0
+24VCPVB8156C1ZC,Bharat Manufacturing,Gujarat,2023-05-02,0.0,LOW,Active,0
+08DROIZ2010I1Z9,Global Imports,Rajasthan,2023-04-21,0.0,LOW,Active,0
+36EGPDU6318C1Z0,Global Industries,Telangana,2022-02-27,0.0,LOW,Active,0
+32XKUUS2654F1Z2,Global Logistics,Kerala,2023-10-23,0.0,LOW,Active,0
+32YQUJA2150L1ZY,Smart Suppliers,Kerala,2023-07-24,0.0,LOW,Active,0
+07HFURZ4160U1ZN,Prime Distributors,Delhi,2022-12-08,0.0,LOW,Active,0
+24IUTBT9174D1Z4,Elite Exports,Gujarat,2022-10-18,0.0,LOW,Active,0
+09FRIUI0783H1Z4,Pioneer Traders,Uttar Pradesh,2023-06-17,0.0,LOW,Active,0
+09DYLKD7692E1Z2,Shri Associates,Uttar Pradesh,2024-01-29,0.0,LOW,Active,0
+29CMKTF2179F1ZZ,New Distributors,Karnataka,2022-10-13,0.0,LOW,Active,0
+36MZPVH7723S1ZE,National Enterprises,Telangana,2023-10-18,0.0,LOW,Active,0
+09ZBMTA5478O1ZV,New Enterprises,Uttar Pradesh,2022-10-24,0.0,LOW,Active,0
+09YDHQC4378X1Z1,Elite Corp,Uttar Pradesh,2023-05-31,0.0,LOW,Active,0
+09EWQSA6365J1ZR,Tech Pvt Ltd,Uttar Pradesh,2024-03-31,0.0,LOW,Active,0
+33QIYNX3034B1ZN,Global Industries,Tamil Nadu,2023-03-02,0.0,LOW,Active,0
+36SFZGC4959G1ZE,Apex Associates,Telangana,2023-01-14,0.0,LOW,Active,0
+36RHBIM5176R1ZI,Apex Industries,Telangana,2023-05-28,0.0,LOW,Active,0
+07XLCXH9126P1Z9,NextGen Enterprises,Delhi,2022-09-17,0.0,LOW,Active,0
+24KRYMK7010Z1ZE,Bharat Distributors,Gujarat,2023-08-06,0.0,LOW,Active,0
+32IQIPS8431Z1ZJ,Tech Services,Kerala,2022-08-14,0.0,LOW,Active,0
+19JHVDH9615F1ZB,National Trading Co,West Bengal,2024-02-15,0.0,LOW,Active,0
+07DZOLJ2769E1ZN,Pro Trading Co,Delhi,2023-05-25,0.0,LOW,Active,0
+36HXKMD4307Q1ZL,Indo Logistics,Telangana,2023-12-14,0.0,LOW,Active,0
+24ZTZRU7931P1Z2,Pro Solutions,Gujarat,2022-07-12,0.0,LOW,Active,0
+24AQFJI6157Y1ZH,Sri Industries,Gujarat,2022-09-08,0.0,LOW,Active,0
+36WRYZK4650V1ZN,National Distributors,Telangana,2023-04-03,0.0,LOW,Active,0
+08KAIIL5287N1ZS,Global Distributors,Rajasthan,2022-12-12,0.0,LOW,Active,0
+09DPCFM8909Y1ZO,Sri Distributors,Uttar Pradesh,2022-05-21,0.0,LOW,Active,0
+24KOSTD1350J1ZJ,Pro Suppliers,Gujarat,2023-07-10,0.0,LOW,Active,0
+07AAGYV4684P1ZF,Modern Associates,Delhi,2022-03-21,0.0,LOW,Active,0
+19ZBTPO8646D1ZN,Sri Associates,West Bengal,2023-07-29,0.0,LOW,Active,0
+29PDLSJ0369B1ZI,NextGen Industries,Karnataka,2022-12-15,0.0,LOW,Active,0
+36FQTPE3387I1ZN,Pro Imports,Telangana,2022-05-29,0.0,LOW,Active,0
+29ANJMI9112G1ZZ,NextGen Solutions,Karnataka,2023-11-10,0.0,LOW,Active,0
+09LBVYM3388T1ZX,Global Ventures,Uttar Pradesh,2023-02-05,0.0,LOW,Active,0
+27TDDSR3294Y1Z7,Sri Logistics,Maharashtra,2022-05-10,0.0,LOW,Active,0
+09BCUNB1206Y1Z6,Prime Pvt Ltd,Uttar Pradesh,2022-06-26,0.0,LOW,Active,0
+29RADTH5387T1ZF,New Solutions,Karnataka,2023-07-22,0.0,LOW,Active,0
+32TNSZE7079Q1ZU,Global Suppliers,Kerala,2023-03-02,0.0,LOW,Active,0
+33EJJFF1911E1ZV,Indo Traders,Tamil Nadu,2023-02-24,0.0,LOW,Active,0
+33IDHPI9452N1ZC,Pioneer Imports,Tamil Nadu,2022-05-02,0.0,LOW,Active,0
+29ARRKN6136D1ZA,Apex Pvt Ltd,Karnataka,2022-04-27,0.0,LOW,Active,0
+08FVKGL4775Y1ZP,Pioneer Manufacturing,Rajasthan,2023-02-19,0.0,LOW,Active,0
+19NDLDM2907C1ZV,Sri Trading Co,West Bengal,2024-01-15,0.0,LOW,Active,0
+09PIHQT6544J1ZV,NextGen Associates,Uttar Pradesh,2023-07-07,0.0,LOW,Active,0
+36IWOYA4933M1ZS,Shri Traders,Telangana,2023-06-05,0.0,LOW,Active,0
+29OWHSM1741V1ZV,Pro Logistics,Karnataka,2023-12-27,0.0,LOW,Active,0
+19OEBGP3672B1Z1,Shri Corp,West Bengal,2023-10-17,0.0,LOW,Active,0
+08JTAXI0333V1ZF,Smart Ventures,Rajasthan,2022-10-31,0.0,LOW,Active,0
+32CRWCE5064Q1ZQ,Sri Logistics,Kerala,2022-11-20,0.0,LOW,Active,0
+32AIOIC4624Z1ZL,Indo Imports,Kerala,2022-08-09,0.0,LOW,Active,0
+09FQZBW2225Z1ZE,New Solutions,Uttar Pradesh,2023-11-21,0.0,LOW,Active,0
+32IBUMF7638N1ZY,Prime Distributors,Kerala,2023-01-06,0.0,LOW,Active,0
+09GNROW6514V1ZT,Pro Distributors,Uttar Pradesh,2022-11-21,0.0,LOW,Active,0
+32SBFMG7784C1ZD,Tech Ventures,Kerala,2023-04-18,0.0,LOW,Active,0
+29GPKCE2845N1ZR,Shri Pvt Ltd,Karnataka,2023-12-14,0.0,LOW,Active,0
+29HAUHO6077B1Z5,Indo Industries,Karnataka,2023-01-07,0.0,LOW,Active,0
+09XRXKV8255D1ZX,NextGen Associates,Uttar Pradesh,2024-01-01,0.0,LOW,Active,0
+19WGDUI5372N1ZD,Modern Trading Co,West Bengal,2022-07-17,0.0,LOW,Active,0
+07ZLGPM3934V1ZF,National Imports,Delhi,2022-12-01,0.0,LOW,Active,0
+19SVAZP8696Z1ZF,Pro Manufacturing,West Bengal,2022-11-06,0.0,LOW,Active,0
+24QSXRN2409I1ZJ,Smart Ventures,Gujarat,2022-05-23,0.0,LOW,Active,0
+07WELIV6720Y1ZV,Royal Exports,Delhi,2023-06-17,0.0,LOW,Active,0
+09WVVSN3687O1Z1,Global Suppliers,Uttar Pradesh,2022-04-14,0.0,LOW,Active,0
+29AFHOC2776E1ZQ,Elite Logistics,Karnataka,2023-01-13,0.0,LOW,Active,0
+29GRVUF4189S1ZE,Sri Services,Karnataka,2022-03-13,0.0,LOW,Active,0
+33ZFSEK4203S1Z7,NextGen Distributors,Tamil Nadu,2022-03-06,0.0,LOW,Active,0
+19VMFFY8273N1ZD,Prime Ventures,West Bengal,2023-10-27,0.0,LOW,Active,0
+07KKDHG6936O1Z5,Pioneer Corp,Delhi,2022-03-02,0.0,LOW,Active,0
+08ZKFJL5050H1ZU,Shri Enterprises,Rajasthan,2023-02-17,0.0,LOW,Active,0
+24NJZRD8011P1ZL,National Industries,Gujarat,2023-06-14,0.0,LOW,Active,0
+08SLGIZ4923N1ZI,Tech Networks,Rajasthan,2022-11-16,0.0,LOW,Active,0
+08LETMY5964G1Z9,Smart Trading Co,Rajasthan,2022-04-16,0.0,LOW,Active,0
+27MEMDX4495O1ZV,National Solutions,Maharashtra,2022-06-15,0.0,LOW,Active,0
+08CWEEN2855A1ZX,Global Distributors,Rajasthan,2023-09-27,0.0,LOW,Active,0
+33GMCIH9139D1ZK,Sri Industries,Tamil Nadu,2022-07-27,0.0,LOW,Active,0
+19VRLYP0969K1Z8,Shri Ventures,West Bengal,2022-09-24,0.0,LOW,Active,0
+08UTOPC2273A1ZD,Star Manufacturing,Rajasthan,2022-08-05,0.0,LOW,Active,0
+24QYEHU7996L1Z6,NextGen Pvt Ltd,Gujarat,2023-03-03,0.0,LOW,Active,0
+19LKGPC4316C1Z2,Bharat Suppliers,West Bengal,2023-07-30,0.0,LOW,Active,0
+07QSYNQ0408J1Z9,Indo Services,Delhi,2022-06-30,0.0,LOW,Active,0
+36LOOXN5447I1ZM,New Networks,Telangana,2022-11-07,0.0,LOW,Active,0
+27CREEK0825O1ZS,Tech Exports,Maharashtra,2023-11-20,0.0,LOW,Active,0
+29FCZGR4030U1ZU,Star Logistics,Karnataka,2023-06-06,0.0,LOW,Active,0
+24QZJRR3310D1Z1,Prime Enterprises,Gujarat,2024-02-02,0.0,LOW,Active,0
+07MDGVW5071N1Z1,Global Corp,Delhi,2022-06-19,0.0,LOW,Active,0
+19ZMWPF5800U1ZR,Pioneer Ventures,West Bengal,2023-04-21,0.0,LOW,Active,0
+27MMPPR8475N1ZK,New Associates,Maharashtra,2023-09-09,0.0,LOW,Active,0
+09XDQQL4174O1ZE,Smart Exports,Uttar Pradesh,2023-07-24,0.0,LOW,Active,0
+32WSMWS3496L1ZU,Prime Ventures,Kerala,2022-08-04,0.0,LOW,Active,0
+33RDFPC4932B1Z1,Tech Imports,Tamil Nadu,2023-02-22,0.0,LOW,Active,0
+29EWNUI1254K1ZM,Pro Associates,Karnataka,2022-04-08,0.0,LOW,Active,0
+29WWPCB9797D1Z6,Shri Networks,Karnataka,2023-09-18,0.0,LOW,Active,0
+33EDFJS7748E1ZN,National Solutions,Tamil Nadu,2023-01-28,0.0,LOW,Active,0
+07LKTGV3503Y1ZQ,Smart Corp,Delhi,2023-02-24,0.0,LOW,Active,0
+36KFUKK4873A1ZS,Sri Networks,Telangana,2022-07-19,0.0,LOW,Active,0
+33CIZEB7669B1ZX,Royal Manufacturing,Tamil Nadu,2022-12-19,0.0,LOW,Active,0
+36WSIIV9614U1ZD,Elite Imports,Telangana,2023-08-31,0.0,LOW,Active,0
+09UWCNK7855G1Z5,Pro Ventures,Uttar Pradesh,2023-07-28,0.0,LOW,Active,0
+36IQAXO2834Q1Z7,Shri Imports,Telangana,2024-03-10,0.0,LOW,Active,0
+24QJBQD2749Z1ZY,Smart Imports,Gujarat,2023-10-22,0.0,LOW,Active,0
+24HUSRS5235Y1ZN,Modern Corp,Gujarat,2023-05-31,0.0,LOW,Active,0
+09VCBXM4355Q1ZP,Pioneer Distributors,Uttar Pradesh,2022-11-17,0.0,LOW,Active,0
+19RYTKE5449Q1ZX,Prime Suppliers,West Bengal,2022-06-20,0.0,LOW,Active,0
+19AEOXD8132Q1Z9,Apex Ventures,West Bengal,2022-06-20,0.0,LOW,Active,0
+08HMUDP0882X1ZV,Modern Imports,Rajasthan,2022-02-22,0.0,LOW,Active,0
+33WKOOX7476Y1Z8,Elite Suppliers,Tamil Nadu,2023-07-21,0.0,LOW,Active,0
+19DSCQQ3930V1ZS,Tech Industries,West Bengal,2024-03-14,0.0,LOW,Active,0
+29SOUSO1516S1Z3,NextGen Pvt Ltd,Karnataka,2023-09-26,0.0,LOW,Active,0
+19NARNZ2288S1ZS,Pro Exports,West Bengal,2022-05-17,0.0,LOW,Active,0
+09PMYIE0530D1ZY,Indo Corp,Uttar Pradesh,2022-08-11,0.0,LOW,Active,0
+29GCHKE6300M1Z6,National Distributors,Karnataka,2023-01-13,0.0,LOW,Active,0
+08GYXBG5255D1ZH,Bharat Suppliers,Rajasthan,2022-04-23,0.0,LOW,Active,0
+36KMKGX2962R1Z8,Royal Suppliers,Telangana,2022-12-28,0.0,LOW,Active,0
+33WNUDO1299R1ZS,Sri Suppliers,Tamil Nadu,2022-04-03,0.0,LOW,Active,0
+32HZAYM5833U1ZD,NextGen Ventures,Kerala,2023-10-12,0.0,LOW,Active,0
+27ENBCS8798G1ZW,Bharat Associates,Maharashtra,2023-01-11,0.0,LOW,Active,0
+19HRIFY3919T1ZU,Sri Trading Co,West Bengal,2022-02-24,0.0,LOW,Active,0
+09OSMKC8658V1ZS,Modern Imports,Uttar Pradesh,2024-01-09,0.0,LOW,Active,0
+09VJETS0494H1Z1,Apex Pvt Ltd,Uttar Pradesh,2022-12-04,0.0,LOW,Active,0
+33VQVFZ9047T1ZD,Prime Manufacturing,Tamil Nadu,2022-02-27,0.0,LOW,Active,0
+33WOMOR5650E1Z4,Tech Services,Tamil Nadu,2022-06-30,0.0,LOW,Active,0
+36SHWAZ6668A1ZR,Shri Exports,Telangana,2023-12-08,0.0,LOW,Active,0
+09VKDNM5070N1ZY,Bharat Enterprises,Uttar Pradesh,2023-05-25,0.0,LOW,Active,0
+09FCOAT9402F1ZL,New Solutions,Uttar Pradesh,2023-01-04,0.0,LOW,Active,0
+27MVPQI2123B1ZL,Smart Industries,Maharashtra,2023-08-06,0.0,LOW,Active,0
+32QTQPC0038C1Z8,Elite Traders,Kerala,2022-04-24,0.0,LOW,Active,0
+24PLCBB8464T1Z0,Star Suppliers,Gujarat,2023-05-30,0.0,LOW,Active,0
+09WQIYU4311T1Z4,Prime Corp,Uttar Pradesh,2023-10-20,0.0,LOW,Active,0
+36GKSLG7034U1ZM,Pro Corp,Telangana,2023-01-04,0.0,LOW,Active,0
+29MPHZN6128R1Z3,Apex Pvt Ltd,Karnataka,2023-04-28,0.0,LOW,Active,0
+07QFBEM6468S1ZL,Indo Distributors,Delhi,2023-11-12,0.0,LOW,Active,0
+08ELUBF0226H1ZU,Bharat Manufacturing,Rajasthan,2024-03-13,0.0,LOW,Active,0
+07KVAAJ5146Y1ZN,Sri Pvt Ltd,Delhi,2022-04-05,0.0,LOW,Active,0
+07HFGEW2112D1Z1,National Manufacturing,Delhi,2024-01-14,0.0,LOW,Active,0
+33IFLJJ1576N1Z4,National Corp,Tamil Nadu,2022-06-21,0.0,LOW,Active,0
+07EJJPZ2061R1ZI,Bharat Services,Delhi,2022-07-22,0.0,LOW,Active,0
+27QHDNP4777T1Z4,NextGen Manufacturing,Maharashtra,2022-08-10,0.0,LOW,Active,0
+36JNESN4945U1Z2,Smart Pvt Ltd,Telangana,2022-09-20,0.0,LOW,Active,0
+19WKHXO9351C1ZI,NextGen Imports,West Bengal,2023-05-21,0.0,LOW,Active,0
+07PMQLM4833F1ZS,Tech Industries,Delhi,2022-10-17,0.0,LOW,Active,0
+08XHNOC2213R1ZC,Prime Exports,Rajasthan,2023-01-27,0.0,LOW,Active,0
+24HVRHS9977I1Z0,Indo Imports,Gujarat,2022-12-23,0.0,LOW,Active,0
+09YVTAR9982X1ZD,Smart Networks,Uttar Pradesh,2023-06-20,0.0,LOW,Active,0
+32UTSLU3176G1ZS,Pro Enterprises,Kerala,2023-05-26,0.0,LOW,Active,0
+08DWHTM6324Y1ZP,Pro Ventures,Rajasthan,2024-01-28,0.0,LOW,Active,0
+08POADZ9579S1ZP,Prime Manufacturing,Rajasthan,2023-03-17,0.0,LOW,Active,0
+33NECOL8015B1ZV,Global Pvt Ltd,Tamil Nadu,2022-03-19,0.0,LOW,Active,0
+33XKFHN4303N1ZP,Modern Corp,Tamil Nadu,2022-07-30,0.0,LOW,Active,0
+36KTKXF8386F1ZJ,Prime Networks,Telangana,2023-10-14,0.0,LOW,Active,0
+19HADBK8598O1ZT,Shri Industries,West Bengal,2023-10-02,0.0,LOW,Active,0
+24QXJVU3884F1ZR,Star Trading Co,Gujarat,2023-06-03,0.0,LOW,Active,0
+32CSBXE8560X1ZD,Royal Solutions,Kerala,2023-07-10,0.0,LOW,Active,0
+08BCTIL2540W1ZT,Bharat Manufacturing,Rajasthan,2023-03-17,0.0,LOW,Active,0
+07KACXI7405H1ZS,Pioneer Associates,Delhi,2022-07-13,0.0,LOW,Active,0
+29EACHN3076E1ZS,Global Pvt Ltd,Karnataka,2023-02-21,0.0,LOW,Active,0
+27XNLBQ5661W1ZJ,Shri Enterprises,Maharashtra,2023-05-20,0.0,LOW,Active,0
+27UTYJG0493G1Z4,Modern Trading Co,Maharashtra,2022-10-03,0.0,LOW,Active,0
+29BNVIQ6934H1ZD,Apex Exports,Karnataka,2022-06-08,0.0,LOW,Active,0
+29ARAFF6260G1ZQ,Pioneer Solutions,Karnataka,2022-12-25,0.0,LOW,Active,0
+36UXOGC3639Y1Z8,Global Exports,Telangana,2023-01-26,0.0,LOW,Active,0
+19BAXLN7570A1Z7,Smart Distributors,West Bengal,2023-01-02,0.0,LOW,Active,0
+07QBJHD2095O1ZL,Tech Exports,Delhi,2022-07-07,0.0,LOW,Active,0
+27NZQHA8325V1ZF,Smart Manufacturing,Maharashtra,2024-01-24,0.0,LOW,Active,0
+36ILAWB1612C1ZB,Pro Pvt Ltd,Telangana,2023-10-19,0.0,LOW,Active,0
+07NLMEF4635U1ZC,Pioneer Industries,Delhi,2022-11-25,0.0,LOW,Active,0
+08KELNT7870M1ZR,Indo Corp,Rajasthan,2022-05-16,0.0,LOW,Active,0
+36SGMLJ6014E1ZC,Sri Networks,Telangana,2022-02-24,0.0,LOW,Active,0
+08MYYZJ4654B1Z7,Global Pvt Ltd,Rajasthan,2023-03-21,0.0,LOW,Active,0
+09YUTJS6303N1ZF,Pioneer Traders,Uttar Pradesh,2022-10-26,0.0,LOW,Active,0
+08QRSQG4626V1ZA,Modern Industries,Rajasthan,2022-03-04,0.0,LOW,Active,0
+09KPXNE4823R1ZO,Indo Distributors,Uttar Pradesh,2023-10-13,0.0,LOW,Active,0
+33COUVG2760F1ZV,Modern Industries,Tamil Nadu,2022-02-21,0.0,LOW,Active,0
+09NRTEJ7119O1ZD,Prime Traders,Uttar Pradesh,2022-08-29,0.0,LOW,Active,0
+29VEZWL9160C1ZO,Tech Industries,Karnataka,2022-06-27,0.0,LOW,Active,0
+08AGMTA2967B1Z6,NextGen Enterprises,Rajasthan,2022-09-24,0.0,LOW,Active,0
+09PZTYM3438K1ZF,Star Manufacturing,Uttar Pradesh,2023-02-24,0.0,LOW,Active,0
+32BJICL6781T1Z7,Tech Services,Kerala,2023-08-17,0.0,LOW,Active,0
+08LRWNR0693U1ZN,Bharat Suppliers,Rajasthan,2022-04-07,0.0,LOW,Active,0
+07PKPCL9998D1ZO,Prime Corp,Delhi,2022-12-17,0.0,LOW,Active,0
+36WUSAM0899O1ZA,Modern Logistics,Telangana,2023-05-22,0.0,LOW,Active,0
+36GFTRC4719M1ZH,Tech Logistics,Telangana,2022-10-03,0.0,LOW,Active,0
+33RXQMU3259C1ZL,Star Distributors,Tamil Nadu,2023-03-13,0.0,LOW,Active,0
+07FDCCT9713K1ZO,Sri Ventures,Delhi,2023-10-03,0.0,LOW,Active,0
+27PEKLU7916S1ZE,Star Enterprises,Maharashtra,2022-06-09,0.0,LOW,Active,0
+36WIVHF6127Z1Z2,Bharat Ventures,Telangana,2023-10-26,0.0,LOW,Active,0
+36ZDZSM8473Z1ZL,Prime Services,Telangana,2022-07-26,0.0,LOW,Active,0
+27YUWSH8910M1ZL,Pioneer Imports,Maharashtra,2023-04-28,0.0,LOW,Active,0
+09KNHSF8317S1Z3,Indo Suppliers,Uttar Pradesh,2024-02-16,0.0,LOW,Active,0
+29PLMXF8163S1Z6,National Manufacturing,Karnataka,2024-01-15,0.0,LOW,Active,0
+09REBJM9153N1Z9,Star Services,Uttar Pradesh,2023-11-24,0.0,LOW,Active,0
+27DKHPE7796C1ZT,Star Associates,Maharashtra,2023-12-17,0.0,LOW,Active,0
+19JDCMR5055I1Z6,Global Manufacturing,West Bengal,2023-10-20,0.0,LOW,Active,0
+19ZSHDI7854W1Z1,Pro Networks,West Bengal,2023-03-30,0.0,LOW,Active,0
+19BVOVQ7261T1ZB,Pro Suppliers,West Bengal,2022-02-25,0.0,LOW,Active,0
+08DDFEO8095L1ZY,Royal Enterprises,Rajasthan,2022-08-14,0.0,LOW,Active,0
+07HYNUR4565L1ZY,Prime Solutions,Delhi,2023-07-27,0.0,LOW,Active,0
+27GEHVY6231T1ZR,Pro Associates,Maharashtra,2022-05-07,0.0,LOW,Active,0
+24JXKCG4650X1ZH,Prime Imports,Gujarat,2023-11-30,0.0,LOW,Active,0
+32RVPKD9406C1ZH,Pro Solutions,Kerala,2022-06-27,0.0,LOW,Active,0
+36KICXU1720H1ZO,Modern Trading Co,Telangana,2022-06-07,0.0,LOW,Active,0
+36SHVMN7856B1ZA,Star Trading Co,Telangana,2023-01-11,0.0,LOW,Active,0
+08URUOW4526W1Z9,National Corp,Rajasthan,2023-12-25,0.0,LOW,Active,0
+09OGXQJ7644O1ZM,NextGen Ventures,Uttar Pradesh,2023-06-14,0.0,LOW,Active,0
+24YNSYF6037C1Z5,Smart Industries,Gujarat,2022-05-09,0.0,LOW,Active,0
+29OCHYV0969E1ZU,NextGen Solutions,Karnataka,2023-07-14,0.0,LOW,Active,0
+09AEVAL5396Q1Z2,Elite Trading Co,Uttar Pradesh,2023-11-03,0.0,LOW,Active,0
+36XEJDJ0419K1ZF,Modern Ventures,Telangana,2023-08-26,0.0,LOW,Active,0
+24MGAQK9995B1ZT,Pioneer Traders,Gujarat,2023-11-14,0.0,LOW,Active,0
+08ALHCJ7404G1Z5,NextGen Corp,Rajasthan,2023-08-15,0.0,LOW,Active,0
+09DMERF3241Z1ZH,Elite Suppliers,Uttar Pradesh,2022-06-11,0.0,LOW,Active,0
+29DTAWS1214K1Z2,Prime Logistics,Karnataka,2022-08-03,0.0,LOW,Active,0
+24DMMRD7737X1ZO,Modern Solutions,Gujarat,2022-07-04,0.0,LOW,Active,0
+27DIARB8450P1ZI,Pioneer Industries,Maharashtra,2022-12-05,0.0,LOW,Active,0
+09GDNGT8928G1ZU,Modern Networks,Uttar Pradesh,2024-02-13,0.0,LOW,Active,0
+32EZPQF1099N1Z1,Prime Industries,Kerala,2023-11-13,0.0,LOW,Active,0
+27JNSZF4040D1ZH,Tech Imports,Maharashtra,2023-02-27,0.0,LOW,Active,0
+09GXEAR3226N1ZB,Pioneer Imports,Uttar Pradesh,2022-11-05,0.0,LOW,Active,0
+08HCAOW3737Q1ZN,Tech Pvt Ltd,Rajasthan,2022-10-21,0.0,LOW,Active,0
+32JXDTD5961W1ZS,New Exports,Kerala,2022-06-01,0.0,LOW,Active,0
+24SZFSB1528R1ZM,Elite Solutions,Gujarat,2023-03-01,0.0,LOW,Active,0
+09BKYNA5610S1Z3,Prime Manufacturing,Uttar Pradesh,2024-01-31,0.0,LOW,Active,0
+19RWZET3742F1Z0,Prime Enterprises,West Bengal,2022-08-02,0.0,LOW,Active,0
+36LSNHF7510H1ZI,National Associates,Telangana,2022-04-01,0.0,LOW,Active,0
+29HUQGV5036L1ZK,Pro Associates,Karnataka,2022-05-16,0.0,LOW,Active,0
+29KPIBV8291A1ZY,Modern Manufacturing,Karnataka,2023-12-25,0.0,LOW,Active,0
+24WQOVF2587E1ZS,Royal Imports,Gujarat,2022-10-15,0.0,LOW,Active,0
+29XCEEW1476A1ZJ,Global Manufacturing,Karnataka,2022-08-05,0.0,LOW,Active,0
+32EDLLQ4717A1Z6,Star Enterprises,Kerala,2023-03-13,0.0,LOW,Active,0
+33VTQBG0160A1Z6,Bharat Industries,Tamil Nadu,2023-08-29,0.0,LOW,Active,0
+07DTXVH4252R1Z7,Shri Solutions,Delhi,2022-03-13,0.0,LOW,Active,0
+36HNVDX0416H1ZO,Modern Logistics,Telangana,2024-01-24,0.0,LOW,Active,0
+29ZFYHB3390B1Z9,Royal Networks,Karnataka,2022-08-21,0.0,LOW,Active,0
+08PRDRH8319V1ZN,New Enterprises,Rajasthan,2022-11-18,0.0,LOW,Active,0
+29UDDLU9814X1ZH,New Exports,Karnataka,2022-07-18,0.0,LOW,Active,0
+29EKILS4738U1ZF,Royal Logistics,Karnataka,2023-03-19,0.0,LOW,Active,0
+36NNVKP4567W1Z5,Apex Enterprises,Telangana,2022-10-18,0.0,LOW,Active,0
+07ZAOYX0388E1ZI,National Distributors,Delhi,2023-06-06,0.0,LOW,Active,0
+07FFTDS1764B1Z6,New Logistics,Delhi,2023-12-30,0.0,LOW,Active,0
+32WAJCC5811X1Z8,NextGen Ventures,Kerala,2024-03-27,0.0,LOW,Active,0
+19KIUSH1807Q1ZA,Star Distributors,West Bengal,2022-03-03,0.0,LOW,Active,0
+19OVXNS4195E1ZD,Shri Services,West Bengal,2023-04-06,0.0,LOW,Active,0
+09ETOVV4368F1Z3,Royal Pvt Ltd,Uttar Pradesh,2023-03-07,0.0,LOW,Active,0
+24CCPWA2505Y1ZJ,Pro Pvt Ltd,Gujarat,2022-08-31,0.0,LOW,Active,0
+27GCOBZ4003L1ZI,NextGen Pvt Ltd,Maharashtra,2023-04-03,0.0,LOW,Active,0
+08TSZSC4718E1Z1,Star Logistics,Rajasthan,2023-10-14,0.0,LOW,Active,0
+32WAERC6922V1Z9,Global Networks,Kerala,2024-02-25,0.0,LOW,Active,0
+36ZPNTL1269B1ZO,Prime Industries,Telangana,2022-10-22,0.0,LOW,Active,0
+29OZCAT3878P1Z6,Bharat Trading Co,Karnataka,2023-05-31,0.0,LOW,Active,0
+24EHJCE7242O1Z8,Pioneer Traders,Gujarat,2022-06-26,0.0,LOW,Active,0
+08WKWXD3893V1ZQ,Elite Associates,Rajasthan,2023-07-23,0.0,LOW,Active,0
+27QQTGV0821M1Z4,Star Suppliers,Maharashtra,2022-10-06,0.0,LOW,Active,0
+33JMNVC1193N1ZC,Bharat Industries,Tamil Nadu,2023-04-07,0.0,LOW,Active,0
+08IPFTC4591G1ZK,Shri Manufacturing,Rajasthan,2023-09-24,0.0,LOW,Active,0
+27YJLMB8962U1ZB,National Industries,Maharashtra,2022-05-16,0.0,LOW,Active,0
+24KHSWN6280N1ZL,Global Pvt Ltd,Gujarat,2022-12-21,0.0,LOW,Active,0
+08YMNUZ4958R1ZC,National Exports,Rajasthan,2022-05-10,0.0,LOW,Active,0
+08AXYMI7627O1Z8,Elite Solutions,Rajasthan,2023-12-01,0.0,LOW,Active,0
+27FZKOE3399S1Z0,Apex Enterprises,Maharashtra,2023-03-06,0.0,LOW,Active,0
+24XNWSQ4435Q1ZL,Global Suppliers,Gujarat,2022-06-16,0.0,LOW,Active,0
+09JOELH6667D1Z5,New Enterprises,Uttar Pradesh,2022-06-06,0.0,LOW,Active,0
+32YCTQO6586N1ZD,Elite Manufacturing,Kerala,2022-10-06,0.0,LOW,Active,0
+33FMDZX4877A1ZN,NextGen Ventures,Tamil Nadu,2022-10-07,0.0,LOW,Active,0
+24WGVUK2940E1ZN,Bharat Exports,Gujarat,2023-08-05,0.0,LOW,Active,0
+29YZGZF6885E1ZO,Global Manufacturing,Karnataka,2024-03-06,0.0,LOW,Active,0
+08NLCUN6786I1ZZ,Bharat Pvt Ltd,Rajasthan,2022-08-01,0.0,LOW,Active,0
+33CLQPA7903X1Z8,Apex Trading Co,Tamil Nadu,2023-05-30,0.0,LOW,Active,0
+07QFFVS8320C1Z9,Sri Solutions,Delhi,2023-11-24,0.0,LOW,Active,0
+33LPCHX0438M1Z6,Sri Distributors,Tamil Nadu,2023-07-07,0.0,LOW,Active,0
+33MQFKX6412F1Z2,Bharat Imports,Tamil Nadu,2022-06-20,0.0,LOW,Active,0
+19ZPANG1655Y1Z9,Apex Solutions,West Bengal,2022-09-29,0.0,LOW,Active,0
+07ADCRD2107U1ZI,Pioneer Distributors,Delhi,2023-06-13,0.0,LOW,Active,0
+36YXGFV7917S1ZJ,Prime Logistics,Telangana,2022-08-08,0.0,LOW,Active,0
+09WLTVQ6453U1Z4,Global Traders,Uttar Pradesh,2023-05-26,0.0,LOW,Active,0
+36GKPWY5318N1ZB,Smart Industries,Telangana,2023-02-21,0.0,LOW,Active,0
+07RJUDI0347H1ZZ,Star Ventures,Delhi,2022-04-28,0.0,LOW,Active,0
+32FFOSY8656V1ZR,Bharat Pvt Ltd,Kerala,2023-01-11,0.0,LOW,Active,0
+07BMBHD4652A1ZI,Sri Suppliers,Delhi,2022-03-10,0.0,LOW,Active,0
+24DZANN3048N1ZJ,Bharat Imports,Gujarat,2022-11-28,0.0,LOW,Active,0
+09CUMBH9469L1Z6,Smart Traders,Uttar Pradesh,2022-03-21,0.0,LOW,Active,0
+27DZWSF0788R1Z0,Shri Associates,Maharashtra,2024-01-25,0.0,LOW,Active,0
+27CYBIP8211O1Z7,Bharat Corp,Maharashtra,2022-06-29,0.0,LOW,Active,0
+32XZKLD5569K1ZU,New Associates,Kerala,2022-10-09,0.0,LOW,Active,0
+24SJVGQ8604G1Z0,Prime Suppliers,Gujarat,2024-01-07,0.0,LOW,Active,0
+09ECFPN8734E1ZW,National Services,Uttar Pradesh,2022-06-08,0.0,LOW,Active,0
+08KLQFK0469S1Z6,Elite Solutions,Rajasthan,2022-07-20,0.0,LOW,Active,0
+33GXEAR4290N1ZD,Star Networks,Tamil Nadu,2022-07-24,0.0,LOW,Active,0
+09NBHCQ7424T1ZH,Pioneer Networks,Uttar Pradesh,2023-08-16,0.0,LOW,Active,0
+09CBGCC8525I1ZE,Star Manufacturing,Uttar Pradesh,2023-11-17,0.0,LOW,Active,0
+09CTWGF7325X1Z0,Global Networks,Uttar Pradesh,2022-05-27,0.0,LOW,Active,0
+32MHXGI0181A1ZU,Bharat Enterprises,Kerala,2023-05-04,0.0,LOW,Active,0
+29ZWETA3408P1Z7,Sri Ventures,Karnataka,2022-04-07,0.0,LOW,Active,0
+07NEDCH7479I1ZV,Apex Suppliers,Delhi,2022-11-06,0.0,LOW,Active,0
+27VHINR8842Q1Z1,Royal Services,Maharashtra,2022-07-21,0.0,LOW,Active,0
+29JAPSL2093D1ZH,Pro Suppliers,Karnataka,2023-11-23,0.0,LOW,Active,0
+36EXJIP9215W1ZL,Modern Distributors,Telangana,2023-11-09,0.0,LOW,Active,0
+19OUJCA9165J1ZZ,Global Ventures,West Bengal,2024-01-01,0.0,LOW,Active,0
+19HUABH5034V1Z0,Tech Corp,West Bengal,2022-04-12,0.0,LOW,Active,0
+08WUNYO9717N1Z5,Smart Traders,Rajasthan,2022-12-14,0.0,LOW,Active,0
+19YGRKK9895F1ZR,Bharat Corp,West Bengal,2024-01-16,0.0,LOW,Active,0
+07GKFHH9417N1Z6,NextGen Suppliers,Delhi,2022-07-11,0.0,LOW,Active,0
+08NRJJM9490Y1ZQ,National Ventures,Rajasthan,2022-05-21,0.0,LOW,Active,0
+07PJQXW0816O1ZX,Shri Industries,Delhi,2023-06-06,0.0,LOW,Active,0
+27HZCPV5681S1ZW,Shri Pvt Ltd,Maharashtra,2024-03-18,0.0,LOW,Active,0
+36DTMFR8339A1ZV,Prime Solutions,Telangana,2023-11-20,0.0,LOW,Active,0
+33APDCF4840D1ZJ,Pioneer Trading Co,Tamil Nadu,2023-04-10,0.0,LOW,Active,0
+07VOVRW6461X1ZF,NextGen Pvt Ltd,Delhi,2022-08-13,0.0,LOW,Active,0
+19MHCPJ2374N1Z9,Indo Suppliers,West Bengal,2022-03-20,0.0,LOW,Active,0
+33OAHQX6099O1ZT,Sri Trading Co,Tamil Nadu,2022-11-30,0.0,LOW,Active,0
+08NWFXN5116S1ZL,National Associates,Rajasthan,2023-06-05,0.0,LOW,Active,0
+24YBVMZ6175V1ZX,National Exports,Gujarat,2022-11-12,0.0,LOW,Active,0
+32YJQKB8101V1ZU,Smart Services,Kerala,2023-01-17,0.0,LOW,Active,0
+33XEXTK0618C1ZS,Sri Trading Co,Tamil Nadu,2023-03-10,0.0,LOW,Active,0
+08CLDQO1462X1ZA,NextGen Pvt Ltd,Rajasthan,2023-05-10,0.0,LOW,Active,0
+33PQRFV8345C1ZL,NextGen Logistics,Tamil Nadu,2022-08-28,0.0,LOW,Active,0
+07VOMJQ5104M1Z4,New Corp,Delhi,2023-09-25,0.0,LOW,Active,0
+36HDFPI2992W1ZM,Global Ventures,Telangana,2022-04-30,0.0,LOW,Active,0
+33NGNPI6585I1Z1,Bharat Distributors,Tamil Nadu,2022-03-25,0.0,LOW,Active,0
+24FXBFV3790P1Z4,Shri Imports,Gujarat,2023-09-20,0.0,LOW,Active,0
+33YPPCO9200Q1ZE,Apex Distributors,Tamil Nadu,2023-12-17,0.0,LOW,Active,0
+19HWZAB7858V1Z1,Pioneer Traders,West Bengal,2023-09-08,0.0,LOW,Active,0
+09TSLLD4893G1ZL,Shri Services,Uttar Pradesh,2023-05-13,0.0,LOW,Active,0
+07CAKTV5088H1Z3,Shri Corp,Delhi,2022-05-09,0.0,LOW,Active,0
+19EBJRG2641C1Z4,Pro Pvt Ltd,West Bengal,2022-11-03,0.0,LOW,Active,0
+19SVXWL3358H1ZX,Bharat Networks,West Bengal,2022-11-20,0.0,LOW,Active,0
+33BXSQH2192X1ZZ,Modern Imports,Tamil Nadu,2022-09-23,0.0,LOW,Active,0
+29AGLTY0825J1Z5,Tech Manufacturing,Karnataka,2022-04-22,0.0,LOW,Active,0
+19AJLFJ6560Y1ZM,Bharat Associates,West Bengal,2022-03-18,0.0,LOW,Active,0
+32FASQW7978R1ZO,Indo Suppliers,Kerala,2024-02-28,0.0,LOW,Active,0
+09OONEJ7910Z1ZH,Smart Ventures,Uttar Pradesh,2022-05-18,0.0,LOW,Active,0
+08OBHGG6703V1ZK,Global Suppliers,Rajasthan,2022-11-17,0.0,LOW,Active,0
+19AAAJQ5450T1ZZ,New Suppliers,West Bengal,2023-01-07,0.0,LOW,Active,0
+29GUGMF1862U1Z2,NextGen Suppliers,Karnataka,2022-08-27,0.0,LOW,Active,0
+32IOFYZ9088R1Z2,Smart Imports,Kerala,2023-10-27,0.0,LOW,Active,0
+33CLNGI3846J1Z9,Bharat Imports,Tamil Nadu,2022-03-17,0.0,LOW,Active,0
+08ZXJYH0321S1Z1,Prime Exports,Rajasthan,2022-06-08,0.0,LOW,Active,0
+36STUSY3561Y1Z5,Smart Networks,Telangana,2022-05-10,0.0,LOW,Active,0
+32QTODW7665K1ZH,Indo Services,Kerala,2022-09-07,0.0,LOW,Active,0
+08GTJLT1278L1Z5,Pro Networks,Rajasthan,2023-02-15,0.0,LOW,Active,0
+33XQPLK5815Y1ZQ,National Associates,Tamil Nadu,2024-01-11,0.0,LOW,Active,0
+24IDKND4811O1Z0,Modern Distributors,Gujarat,2022-08-09,0.0,LOW,Active,0
+24TSMCW8010Q1ZX,Royal Imports,Gujarat,2023-03-24,0.0,LOW,Active,0
+29KOSDX8569B1Z4,Apex Suppliers,Karnataka,2024-03-17,0.0,LOW,Active,0
+09QTLTS7758Q1Z5,Sri Imports,Uttar Pradesh,2022-07-25,0.0,LOW,Active,0
+19JLNPY0235Q1ZW,Indo Exports,West Bengal,2023-05-02,0.0,LOW,Active,0
+09IEDVT9255T1ZK,Apex Ventures,Uttar Pradesh,2022-06-01,0.0,LOW,Active,0
+29DHLXH9979V1ZH,Modern Pvt Ltd,Karnataka,2022-07-14,0.0,LOW,Active,0
+36VTAXY5708A1ZN,Indo Distributors,Telangana,2022-09-16,0.0,LOW,Active,0
+19NVHCS8442E1ZH,Modern Imports,West Bengal,2024-03-10,0.0,LOW,Active,0
+33TFBEI4760W1ZK,Royal Solutions,Tamil Nadu,2022-03-31,0.0,LOW,Active,0
+36IVRWA6013H1ZC,Pioneer Corp,Telangana,2022-11-18,0.0,LOW,Active,0
+19VTHFW9870C1ZV,Prime Trading Co,West Bengal,2023-09-14,0.0,LOW,Active,0
+27KGJPQ4613H1ZI,Pioneer Logistics,Maharashtra,2024-01-05,0.0,LOW,Active,0
+09POHFZ8744H1ZR,Global Suppliers,Uttar Pradesh,2022-06-18,0.0,LOW,Active,0
+08RJKDW8866A1ZI,NextGen Pvt Ltd,Rajasthan,2022-11-21,0.0,LOW,Active,0
+09BUGIK4392X1ZE,Shri Ventures,Uttar Pradesh,2023-02-02,0.0,LOW,Active,0
+19KOEFQ9636A1Z1,New Exports,West Bengal,2023-03-15,0.0,LOW,Active,0
+08TORNJ1158H1ZI,Apex Exports,Rajasthan,2022-08-04,0.0,LOW,Active,0
+09FTYAA9134F1ZI,Sri Services,Uttar Pradesh,2022-12-25,0.0,LOW,Active,0
+07ATVJK8880Q1ZQ,Sri Corp,Delhi,2022-03-12,0.0,LOW,Active,0
+33TUFPI3502G1Z6,Pioneer Manufacturing,Tamil Nadu,2022-11-17,0.0,LOW,Active,0
+24LFKHH7539X1ZP,Pro Solutions,Gujarat,2023-03-08,0.0,LOW,Active,0
+19FZKGJ5638C1Z6,Global Pvt Ltd,West Bengal,2023-09-17,0.0,LOW,Active,0
+19PCKVN8704N1ZJ,Bharat Corp,West Bengal,2024-03-19,0.0,LOW,Active,0
+27IOKAR7753U1ZF,Elite Logistics,Maharashtra,2023-01-15,0.0,LOW,Active,0
+36OTTXL0105D1ZA,Elite Solutions,Telangana,2022-09-10,0.0,LOW,Active,0
+27XMQND8401J1ZH,Bharat Imports,Maharashtra,2023-08-09,0.0,LOW,Active,0
+32QDNFP7524K1Z8,NextGen Logistics,Kerala,2022-08-07,0.0,LOW,Active,0
+27IEMZA7104D1Z3,Elite Trading Co,Maharashtra,2023-11-21,0.0,LOW,Active,0
+33JOFQY2885J1ZN,Star Associates,Tamil Nadu,2023-11-21,0.0,LOW,Active,0
+36ORCDS2217S1ZO,Tech Logistics,Telangana,2023-01-24,0.0,LOW,Active,0
+07EUZCU1183B1Z8,Elite Distributors,Delhi,2023-07-28,0.0,LOW,Active,0
+19INDOJ3435Q1Z5,Prime Trading Co,West Bengal,2023-11-01,0.0,LOW,Active,0
+24SVOMU6543A1ZN,Apex Distributors,Gujarat,2023-06-12,0.0,LOW,Active,0
+07QWXEJ9913G1Z0,Indo Exports,Delhi,2023-10-13,0.0,LOW,Active,0
+33XXNAH6639W1ZG,Shri Enterprises,Tamil Nadu,2022-11-27,0.0,LOW,Active,0
+19ZQMMW7800W1Z9,Global Corp,West Bengal,2024-02-12,0.0,LOW,Active,0
+33KVBQB0591T1Z1,Bharat Trading Co,Tamil Nadu,2023-01-26,0.0,LOW,Active,0
+32SJARK6017E1ZH,Global Suppliers,Kerala,2022-05-16,0.0,LOW,Active,0
+27HFNET8023K1ZT,New Suppliers,Maharashtra,2023-09-24,0.0,LOW,Active,0
+33DCSEP9772L1ZT,Smart Ventures,Tamil Nadu,2022-05-14,0.0,LOW,Active,0
+07TTIJH2548I1ZC,Indo Associates,Delhi,2022-08-20,0.0,LOW,Active,0
+19GMPJQ4680S1ZO,Pro Pvt Ltd,West Bengal,2022-07-29,0.0,LOW,Active,0
+09JVUFS5870Y1ZD,Prime Suppliers,Uttar Pradesh,2022-11-11,0.0,LOW,Active,0
+24ACRED5335B1ZK,Modern Imports,Gujarat,2024-02-08,0.0,LOW,Active,0
+27EMIXE3157O1ZT,Royal Manufacturing,Maharashtra,2023-10-20,0.0,LOW,Active,0
+19VGJIR3987Q1Z6,Royal Associates,West Bengal,2023-04-27,0.0,LOW,Active,0
+32KANXX9919Y1Z8,Bharat Traders,Kerala,2022-07-03,0.0,LOW,Active,0
+33ITULE0183C1ZB,Prime Distributors,Tamil Nadu,2022-10-19,0.0,LOW,Active,0
+33SEOUA1053G1ZU,Star Suppliers,Tamil Nadu,2024-01-05,0.0,LOW,Active,0
+07TCDTD7887N1ZP,New Imports,Delhi,2023-08-20,0.0,LOW,Active,0
+19RZAXE2350T1ZP,Smart Corp,West Bengal,2022-05-10,0.0,LOW,Active,0
+19EFLIR4238B1ZG,Global Trading Co,West Bengal,2023-04-27,0.0,LOW,Active,0
+09RVMCR1880K1Z8,NextGen Manufacturing,Uttar Pradesh,2023-10-01,0.0,LOW,Active,0
+19AQRKB4718O1ZW,Pioneer Exports,West Bengal,2023-03-08,0.0,LOW,Active,0
+36ZCELT8009W1ZG,NextGen Suppliers,Telangana,2022-09-10,0.0,LOW,Active,0
+09BHDMJ8623J1Z1,Tech Trading Co,Uttar Pradesh,2023-08-29,0.0,LOW,Active,0
+24JAIQP3072C1ZY,National Corp,Gujarat,2022-05-27,0.0,LOW,Active,0

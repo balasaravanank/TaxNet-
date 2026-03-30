@@ -11,15 +11,15 @@ async function fetchJSON<T>(url: string): Promise<T> {
 }
 
 export const api = {
-  stats:       () => fetchJSON<DashboardStats>(`${BASE}/dashboard-stats`),
-  graph:       () => fetchJSON<GraphData>(`${BASE}/graph`),
-  companies:   () => fetchJSON<Company[]>(`${BASE}/companies`),
-  rings:       () => fetchJSON<FraudRing[]>(`${BASE}/fraud-rings`),
-  anomalies:   () => fetchJSON<Company[]>(`${BASE}/anomalies`),
-  company:     (gstin: string) => fetchJSON<EntityDetail>(`${BASE}/company/${gstin}`),
-  refresh:     () => fetch(`${BASE}/refresh`, { method: "POST" }).then(r => r.json()),
-  explain:     (gstin: string) =>
-    fetch(`${BASE}/explain`, {
+  stats:       (period?: string) => fetchJSON<DashboardStats>(`${BASE}/dashboard-stats${period ? `?period=${period}` : ''}`),
+  graph:       (period?: string) => fetchJSON<GraphData>(`${BASE}/graph${period ? `?period=${period}` : ''}`),
+  companies:   (period?: string) => fetchJSON<Company[]>(`${BASE}/companies${period ? `?period=${period}` : ''}`),
+  rings:       (period?: string) => fetchJSON<FraudRing[]>(`${BASE}/fraud-rings${period ? `?period=${period}` : ''}`),
+  anomalies:   (period?: string) => fetchJSON<Company[]>(`${BASE}/anomalies${period ? `?period=${period}` : ''}`),
+  company:     (gstin: string, period?: string) => fetchJSON<EntityDetail>(`${BASE}/company/${gstin}${period ? `?period=${period}` : ''}`),
+  refresh:     (period?: string) => fetch(`${BASE}/refresh${period ? `?period=${period}` : ''}`, { method: "POST" }).then(r => r.json()),
+  explain:     (gstin: string, period?: string) =>
+    fetch(`${BASE}/explain${period ? `?period=${period}` : ''}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ gstin }),

@@ -25,7 +25,7 @@ def get_connection():
 
 # ─── Feature Extraction ───────────────────────────────────────────────────────
 
-def extract_features(G, node_metrics, shell_scores):
+def extract_features(G, node_metrics, shell_scores, days=None):
     """
     Compute 6 fraud features per entity:
     1. tax_mismatch_ratio
@@ -49,10 +49,18 @@ def extract_features(G, node_metrics, shell_scores):
     out_tax_map = {r["gstin"]: r["out_tax"] or 0 for r in gstr1}
     in_tax_map  = {r["gstin"]: r["in_tax"]  or 0 for r in gstr3b}
 
+    # Build optional date filter based on latest invoice available
+    date_filter = ""
+    if days:
+        latest = conn.execute("SELECT MAX(invoice_date) FROM invoices").fetchone()[0]
+        if latest:
+            date_filter = f"WHERE invoice_date >= date('{latest}', '-{days} days')"
+
     # Monthly invoice counts per company (for spike detection)
-    monthly_counts = conn.execute("""
+    monthly_counts = conn.execute(f"""
         SELECT seller_gstin, strftime('%Y-%m', invoice_date) as month, COUNT(*) as cnt
         FROM invoices
+        {date_filter}
         GROUP BY seller_gstin, month
     """).fetchall()
 
@@ -61,9 +69,10 @@ def extract_features(G, node_metrics, shell_scores):
         monthly_by_gstin[row["seller_gstin"]].append(row["cnt"])
 
     # Duplicate invoices: same (seller, buyer, amount, date)
-    duplicates = conn.execute("""
+    duplicates = conn.execute(f"""
         SELECT seller_gstin, COUNT(*) - 1 as dup_count
         FROM invoices
+        {date_filter}
         GROUP BY seller_gstin, buyer_gstin, invoice_amount, invoice_date
         HAVING COUNT(*) > 1
     """).fetchall()
@@ -284,10 +293,10 @@ def save_scores(features, if_results, composite_scores):
 
 # ─── Full Scoring Pipeline ────────────────────────────────────────────────────
 
-def run_fraud_scoring(G, node_metrics, shell_scores):
+def run_fraud_scoring(G, node_metrics, shell_scores, days=None):
     """Main pipeline: extract → IF → Z-Score → composite → persist."""
     print("  Computing features...")
-    features  = extract_features(G, node_metrics, shell_scores)
+    features  = extract_features(G, node_metrics, shell_scores, days=days)
 
     print("  Running Isolation Forest...")
     if_results = run_isolation_forest(features)

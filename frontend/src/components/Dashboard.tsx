@@ -32,6 +32,7 @@ import {
   UserIcon,
   LogoutIcon,
   ChevronDownIcon,
+  CalendarIcon,
 } from "./Icons";
 import type {
   DashboardStats, GraphData, Company, FraudRing, GraphNode
@@ -59,6 +60,7 @@ export function Dashboard() {
   const [showHistory, setShowHistory]  = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showAdminConsole, setShowAdminConsole] = useState(false);
+  const [period, setPeriod] = useState<string>("all");
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
   // Notification state
@@ -79,8 +81,9 @@ export function Dashboard() {
   const load = useCallback(async () => {
     setLoading(true);
     try {
+      const p = period === "all" ? undefined : period;
       const [s, g, c, r] = await Promise.all([
-        api.stats(), api.graph(), api.companies(), api.rings(),
+        api.stats(p), api.graph(p), api.companies(p), api.rings(p),
       ]);
       setStats(s); setGraph(g); setCompanies(c); setRings(r);
     } catch (e) {
@@ -88,7 +91,7 @@ export function Dashboard() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [period]);
 
   useEffect(() => { load(); }, [load]);
 
@@ -103,7 +106,8 @@ export function Dashboard() {
 
   const handleRefresh = async () => {
     setRefreshing(true);
-    await api.refresh();
+    const p = period === "all" ? undefined : period;
+    await api.refresh(p);
     await load();
     setHasRun(true);
     setRefreshing(false);
@@ -286,7 +290,7 @@ export function Dashboard() {
               gap: "6px",
             }}>
               <ActivityIcon size={14} />
-              {graph?.nodes?.length ?? 0} Nodes · {graph?.edges?.length ?? 0} Edges
+              {graph?.nodes?.length ?? 0} Nodes · {graph?.links?.length ?? 0} Edges
             </div>
           </div>
         </header>
@@ -373,6 +377,7 @@ export function Dashboard() {
         {detailGstin && (
           <EntityDetail
             gstin={detailGstin}
+            period={period === "all" ? undefined : period}
             onClose={() => { setDetailGstin(null); setSelectedNode(null); }}
           />
         )}
@@ -494,6 +499,79 @@ export function Dashboard() {
 
         {/* Actions */}
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          {/* Time Filter */}
+          <div style={{ position: "relative", display: "inline-block" }}>
+            <div style={{
+              position: "absolute",
+              left: "12px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              color: "var(--text-secondary)",
+              pointerEvents: "none",
+              display: "flex"
+            }}>
+              <CalendarIcon size={16} />
+            </div>
+            <select
+              value={period}
+              onChange={(e) => setPeriod(e.target.value)}
+              disabled={loading || refreshing || uploading}
+              style={{
+                appearance: "none",
+                WebkitAppearance: "none",
+                padding: "8px 36px 8px 36px",
+                borderRadius: "8px",
+                background: "var(--bg-elevated)",
+                border: "1px solid var(--border)",
+                color: "var(--text-primary)",
+                fontSize: "13.5px",
+                fontWeight: 600,
+                cursor: "pointer",
+                outline: "none",
+                minWidth: "160px",
+                transition: "all 0.2s ease",
+                boxShadow: "0 1px 2px rgba(0,0,0,0.05)",
+                opacity: (loading || refreshing || uploading) ? 0.6 : 1
+              }}
+              onMouseEnter={(e) => {
+                if (!loading && !refreshing && !uploading) {
+                  e.currentTarget.style.borderColor = "var(--primary)";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!loading && !refreshing && !uploading) {
+                  e.currentTarget.style.borderColor = "var(--border)";
+                }
+              }}
+              onFocus={(e) => { 
+                e.currentTarget.style.borderColor = "var(--primary)"; 
+                e.currentTarget.style.boxShadow = "0 0 0 2px rgba(37,99,235,0.2)"; 
+              }}
+              onBlur={(e) => { 
+                e.currentTarget.style.borderColor = "var(--border)"; 
+                e.currentTarget.style.boxShadow = "0 1px 2px rgba(0,0,0,0.05)"; 
+              }}
+            >
+              <option value="14d">Last 14 Days</option>
+              <option value="1m">Last 1 Month</option>
+              <option value="3m">Last 3 Months</option>
+              <option value="6m">Last 6 Months</option>
+              <option value="1y">Last 1 Year</option>
+              <option value="all">All Time</option>
+            </select>
+            <div style={{
+              position: "absolute",
+              right: "12px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              color: "var(--text-secondary)",
+              pointerEvents: "none",
+              display: "flex"
+            }}>
+              <ChevronDownIcon size={16} />
+            </div>
+          </div>
+
           {/* Status Badge */}
           <div style={{
             display: "flex",
@@ -778,7 +856,7 @@ export function Dashboard() {
                   Transaction Network
                 </h3>
                 <p style={{ fontSize: "13px", color: "var(--text-muted)", marginTop: "2px" }}>
-                  {graph?.nodes?.length ?? 0} entities · {graph?.edges?.length ?? 0} connections
+                  {graph?.nodes?.length ?? 0} entities · {graph?.links?.length ?? 0} connections
                 </p>
               </div>
             </div>

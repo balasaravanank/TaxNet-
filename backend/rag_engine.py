@@ -7,6 +7,8 @@ import os
 import json
 from pathlib import Path
 
+
+
 # ─── Configuration ────────────────────────────────────────────────────────────
 
 CHROMA_DB_PATH   = Path(__file__).parent / "data" / "chroma_db"
@@ -30,7 +32,8 @@ def _get_collection():
     try:
         import chromadb
         from chromadb.utils import embedding_functions
-    except ImportError:
+    except Exception as e:
+        print(f"⚠ ChromaDB module could not be loaded: {e}")
         return None
 
     if not CHROMA_DB_PATH.exists():

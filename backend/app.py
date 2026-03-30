@@ -3,6 +3,14 @@ Flask REST API — GST Fraud Identification System
 Team Code Novas | ITERYX '26
 """
 
+# Workaround for ChromaDB requiring sqlite3 >= 3.35.0 on older Linux systems (e.g., Azure App Service)
+try:
+    __import__('pysqlite3')
+    import sys
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+except ImportError:
+    pass
+
 import sqlite3
 import json
 import os
@@ -114,18 +122,34 @@ def require_auth(roles=None):
 
 _cache = {}
 
-def get_analysis():
-    """Run analysis once and cache results."""
-    if "G" not in _cache:
-        refresh_analysis()
-    return _cache
+def parse_period_to_days(period_str):
+    if not period_str or period_str == "all":
+        return None
+    if period_str == "14d": return 14
+    if period_str == "1m": return 30
+    if period_str == "3m": return 90
+    if period_str == "6m": return 180
+    if period_str == "1y": return 365
+    try:
+        if period_str.endswith('d'): return int(period_str[:-1])
+    except:
+        pass
+    return None
+
+def get_analysis(days=None):
+    """Run analysis once and cache results per timeframe."""
+    cache_key = f"analysis_{days}" if days else "analysis_all"
+    if cache_key not in _cache:
+        refresh_analysis(days=days)
+    return _cache[cache_key]
 
 
-def refresh_analysis():
-    print("▶ Running graph + fraud analysis...")
-    G, metrics, rings, shells = run_full_analysis()
-    features, if_results, composite = run_fraud_scoring(G, metrics, shells)
-    _cache.update({
+def refresh_analysis(days=None):
+    print(f"▶ Running graph + fraud analysis (Days: {days})...")
+    G, metrics, rings, shells = run_full_analysis(days=days)
+    features, if_results, composite = run_fraud_scoring(G, metrics, shells, days=days)
+    cache_key = f"analysis_{days}" if days else "analysis_all"
+    _cache[cache_key] = {
         "G":         G,
         "metrics":   metrics,
         "rings":     rings,
@@ -133,7 +157,7 @@ def refresh_analysis():
         "features":  features,
         "if_results": if_results,
         "composite": composite,
-    })
+    }
     print(f"✓ Analysis done: {G.number_of_nodes()} nodes, {len(rings)} rings found")
 
 
@@ -272,26 +296,35 @@ def health():
 @app.route("/api/refresh", methods=["POST"])
 def refresh():
     """Re-run full analysis (e.g. after upload)."""
-    refresh_analysis()
+    days = parse_period_to_days(request.args.get("period"))
+    refresh_analysis(days=days)
     return jsonify({"status": "ok", "message": "Analysis refreshed"})
 
 
 @app.route("/api/dashboard-stats")
 def dashboard_stats():
-    cache = get_analysis()
+    days = parse_period_to_days(request.args.get("period"))
+    cache = get_analysis(days=days)
     db = get_db()
+    
+    date_filter = ""
+    if days:
+        latest = db.execute("SELECT MAX(invoice_date) FROM invoices").fetchone()[0]
+        if latest:
+            date_filter = f"WHERE invoice_date >= date('{latest}', '-{days} days')"
 
     total_entities = db.execute("SELECT COUNT(*) FROM companies").fetchone()[0]
     critical = db.execute("SELECT COUNT(*) FROM companies WHERE risk_level='CRITICAL'").fetchone()[0]
     high     = db.execute("SELECT COUNT(*) FROM companies WHERE risk_level='HIGH'").fetchone()[0]
     medium   = db.execute("SELECT COUNT(*) FROM companies WHERE risk_level='MEDIUM'").fetchone()[0]
-    total_invoices = db.execute("SELECT COUNT(*) FROM invoices").fetchone()[0]
-    total_value = db.execute("SELECT SUM(invoice_amount) FROM invoices").fetchone()[0] or 0
+    total_invoices = db.execute(f"SELECT COUNT(*) FROM invoices {date_filter}").fetchone()[0]
+    total_value = db.execute(f"SELECT SUM(invoice_amount) FROM invoices {date_filter}").fetchone()[0] or 0
     rings_detected = db.execute("SELECT COUNT(*) FROM fraud_rings").fetchone()[0]
-    suspicious_value = db.execute("""
+    suspicious_value = db.execute(f"""
         SELECT SUM(i.invoice_amount) FROM invoices i
         JOIN companies c ON i.seller_gstin = c.gstin
         WHERE c.risk_level IN ('CRITICAL','HIGH')
+        {'AND i.invoice_date >= date("' + latest + '", "-' + str(days) + ' days")' if days and latest else ''}
     """).fetchone()[0] or 0
 
     db.close()
@@ -310,6 +343,9 @@ def dashboard_stats():
 
 @app.route("/api/companies")
 def companies():
+    days = parse_period_to_days(request.args.get("period"))
+    # Ensure cache is fresh for this period
+    get_analysis(days=days)
     db = get_db()
     rows = db.execute(
         "SELECT * FROM companies ORDER BY fraud_score DESC"
@@ -326,7 +362,8 @@ def entities():
 
 @app.route("/api/company/<gstin>")
 def company_detail(gstin):
-    cache = get_analysis()
+    days = parse_period_to_days(request.args.get("period"))
+    cache = get_analysis(days=days)
     db = get_db()
 
     company = db.execute("SELECT * FROM companies WHERE gstin=?", (gstin,)).fetchone()
@@ -389,7 +426,8 @@ def company_detail(gstin):
 
 @app.route("/api/graph")
 def graph():
-    cache = get_analysis()
+    days = parse_period_to_days(request.args.get("period"))
+    cache = get_analysis(days=days)
     G = cache["G"]
     composite = cache.get("composite", {})
     data = graph_to_json(G, fraud_scores=composite)
@@ -446,7 +484,8 @@ def explain():
         return jsonify({"error": "gstin is required"}), 400
 
     # Fetch full entity data from DB/cache
-    cache = get_analysis()
+    days = parse_period_to_days(request.args.get("period"))
+    cache = get_analysis(days=days)
     db    = get_db()
 
     company = db.execute("SELECT * FROM companies WHERE gstin=?", (gstin,)).fetchone()

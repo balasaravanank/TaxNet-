@@ -6,19 +6,10 @@ import sqlite3
 from pathlib import Path
 import json
 from datetime import datetime
-import hashlib
-import secrets
 
 DB_PATH = Path(__file__).parent / "data" / "gst_fraud.db"
 SNAPSHOTS_DIR = Path(__file__).parent / "data" / "snapshots"
 SNAPSHOTS_META = SNAPSHOTS_DIR / "snapshots.json"
-
-def hash_password(password: str, salt: str = None) -> tuple:
-    """Hash password with salt using SHA-256."""
-    if salt is None:
-        salt = secrets.token_hex(16)
-    hashed = hashlib.sha256((password + salt).encode()).hexdigest()
-    return hashed, salt
 
 def init_upload_history_table():
     """Create upload_history table if it doesn't exist."""
@@ -56,25 +47,6 @@ def init_users_table():
         )
     """)
     conn.commit()
-    
-    # Check if default users exist
-    existing = conn.execute("SELECT COUNT(*) FROM users").fetchone()[0]
-    if existing == 0:
-        # Create default demo users
-        default_users = [
-            ('admin@cbic.gov.in', 'Admin@2026', 'System Administrator', 'admin'),
-            ('auditor@cbic.gov.in', 'Audit@2026', 'CBIC Tax Auditor', 'auditor'),
-            ('analyst@gst.gov.in', 'Analyst@2026', 'Compliance Analyst', 'analyst'),
-        ]
-        for email, password, name, role in default_users:
-            hashed, salt = hash_password(password)
-            conn.execute(
-                "INSERT INTO users (email, password_hash, password_salt, name, role, created_at) VALUES (?,?,?,?,?,?)",
-                (email, hashed, salt, name, role, datetime.now().isoformat())
-            )
-        conn.commit()
-        print("✓ Default demo users created")
-    
     conn.close()
     print("✓ users table created/verified")
 

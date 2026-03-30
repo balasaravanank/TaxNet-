@@ -7,10 +7,11 @@ import { XIcon, BotIcon, LoaderIcon, FileTextIcon, SparklesIcon, LinkIcon, Build
 
 interface Props {
   gstin:   string | null;
+  period?: string;
   onClose: () => void;
 }
 
-export function EntityDetail({ gstin, onClose }: Props) {
+export function EntityDetail({ gstin, period, onClose }: Props) {
   const { can } = useAuth();
   const [detail,   setDetail]   = useState<EntityDetail | null>(null);
   const [loading,  setLoading]  = useState(false);
@@ -22,10 +23,10 @@ export function EntityDetail({ gstin, onClose }: Props) {
     if (!gstin) { setDetail(null); setExplain(null); return; }
     setLoading(true);
     setExplain(null);
-    api.company(gstin)
+    api.company(gstin, period)
       .then(d => { setDetail(d); setLoading(false); })
       .catch(() => setLoading(false));
-  }, [gstin]);
+  }, [gstin, period]);
 
   // Draw radar chart
   useEffect(() => {
@@ -46,7 +47,7 @@ export function EntityDetail({ gstin, onClose }: Props) {
     if (!gstin || explainLoading) return;
     setExplainLoading(true);
     try {
-      const result = await api.explain(gstin);
+      const result = await api.explain(gstin, period);
       setExplain(result);
     } catch {
       setExplain({

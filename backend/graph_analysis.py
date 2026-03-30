@@ -25,12 +25,23 @@ def get_connection():
 
 # ─── Build Graph ──────────────────────────────────────────────────────────────
 
-def build_transaction_graph():
+def build_transaction_graph(days=None):
     """Build a weighted directed graph from the invoices table."""
     conn = get_connection()
-    invoices = conn.execute(
-        "SELECT seller_gstin, buyer_gstin, total_tax, invoice_amount FROM invoices"
-    ).fetchall()
+    
+    if days:
+        latest = conn.execute("SELECT MAX(invoice_date) FROM invoices").fetchone()[0]
+        if latest:
+            invoices = conn.execute(
+                f"SELECT seller_gstin, buyer_gstin, total_tax, invoice_amount FROM invoices WHERE invoice_date >= date('{latest}', '-{days} days')"
+            ).fetchall()
+        else:
+            invoices = conn.execute("SELECT seller_gstin, buyer_gstin, total_tax, invoice_amount FROM invoices").fetchall()
+    else:
+        invoices = conn.execute(
+            "SELECT seller_gstin, buyer_gstin, total_tax, invoice_amount FROM invoices"
+        ).fetchall()
+        
     conn.close()
 
     G = nx.DiGraph()
@@ -277,9 +288,9 @@ def save_rings_to_db(rings):
 
 # ─── Full Analysis Pipeline ───────────────────────────────────────────────────
 
-def run_full_analysis():
+def run_full_analysis(days=None):
     """Build graph, detect rings, compute metrics. Returns (G, metrics, rings, shell_scores)."""
-    G = build_transaction_graph()
+    G = build_transaction_graph(days=days)
     metrics, rings = compute_node_metrics(G)
     shell_scores = detect_shell_companies(G)
     pr_anomalies = pagerank_anomaly_scores(metrics)

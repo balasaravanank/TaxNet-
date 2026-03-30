@@ -4,6 +4,7 @@ interface IconProps {
   size?: number;
   color?: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export const ShieldIcon = ({ size = 24, color = "currentColor", className }: IconProps) => (
@@ -310,8 +311,8 @@ export const LogoutIcon = ({ size = 24, color = "currentColor", className }: Ico
   </svg>
 );
 
-export const ChevronDownIcon = ({ size = 24, color = "currentColor", className }: IconProps) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+export const ChevronDownIcon = ({ size = 24, color = "currentColor", className, style }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} style={style}>
     <polyline points="6 9 12 15 18 9"/>
   </svg>
 );
