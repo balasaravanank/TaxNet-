@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import type { EntityDetail, ExplainResult } from "../lib/types";
 import { scoreColor, riskClass, fmtCurrency, api } from "../lib/api";
+import { useAuth } from "../lib/AuthContext";
 import { XIcon, BotIcon, LoaderIcon, FileTextIcon, SparklesIcon, LinkIcon, BuildingIcon, BarChartIcon, ActivityIcon } from "./Icons";
 
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
 }
 
 export function EntityDetail({ gstin, onClose }: Props) {
+  const { can } = useAuth();
   const [detail,   setDetail]   = useState<EntityDetail | null>(null);
   const [loading,  setLoading]  = useState(false);
   const [explain,  setExplain]  = useState<ExplainResult | null>(null);
@@ -155,33 +157,35 @@ export function EntityDetail({ gstin, onClose }: Props) {
                 </div>
               </div>
               
-              {/* AI Button */}
-              <button
-                className="btn btn--primary"
-                onClick={handleExplain}
-                disabled={explainLoading}
-                style={{ 
-                  display: "flex", 
-                  alignItems: "center", 
-                  gap: "10px",
-                  padding: "16px 24px",
-                  fontSize: "15px",
-                  fontWeight: 600,
-                  borderRadius: "14px",
-                }}
-              >
-                {explainLoading ? (
-                  <>
-                    <LoaderIcon size={18} />
-                    Analyzing...
-                  </>
-                ) : (
-                  <>
-                    <SparklesIcon size={18} />
-                    Explain with AI
-                  </>
-                )}
-              </button>
+              {/* AI Button - Only for auditors */}
+              {can("use_rag_explain") && (
+                <button
+                  className="btn btn--primary"
+                  onClick={handleExplain}
+                  disabled={explainLoading}
+                  style={{ 
+                    display: "flex", 
+                    alignItems: "center", 
+                    gap: "10px",
+                    padding: "16px 24px",
+                    fontSize: "15px",
+                    fontWeight: 600,
+                    borderRadius: "14px",
+                  }}
+                >
+                  {explainLoading ? (
+                    <>
+                      <LoaderIcon size={18} />
+                      Analyzing...
+                    </>
+                  ) : (
+                    <>
+                      <SparklesIcon size={18} />
+                      Explain with AI
+                    </>
+                  )}
+                </button>
+              )}
             </>
           )}
 

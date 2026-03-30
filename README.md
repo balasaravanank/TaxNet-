@@ -1,6 +1,6 @@
-# GST FraudNet
+# GST TaxNet
 
-GST FraudNet is an AI-based system designed to identify GST fraud rings, shell companies, and tax mismatches using graph analysis and machine learning.
+GST TaxNet is an AI-based system designed to identify GST fraud rings, shell companies, and tax mismatches using graph analysis and machine learning.
 
 ## Table of Contents
 - [Overview](#overview)

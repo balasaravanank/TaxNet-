@@ -7,7 +7,11 @@ import sqlite3
 import json
 import os
 import io
+import secrets
+import hashlib
 from pathlib import Path
+from datetime import datetime, timedelta
+from functools import wraps
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 from dotenv import load_dotenv
@@ -24,7 +28,7 @@ from rag_engine import explain_entity
 # ─── App Setup ────────────────────────────────────────────────────────────────
 
 app = Flask(__name__, static_folder="../frontend/dist", static_url_path="/")
-CORS(app, resources={r"/api/*": {"origins": "*"}})
+CORS(app, resources={r"/api/*": {"origins": "*"}}, supports_credentials=True)
 
 DB_PATH = Path(__file__).parent / "data" / "gst_fraud.db"
 
@@ -33,6 +37,75 @@ def get_db():
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
+
+
+# ─── Authentication Helpers ───────────────────────────────────────────────────
+
+def hash_password(password: str, salt: str = None) -> tuple:
+    """Hash password with salt using SHA-256."""
+    if salt is None:
+        salt = secrets.token_hex(16)
+    hashed = hashlib.sha256((password + salt).encode()).hexdigest()
+    return hashed, salt
+
+def verify_password(password: str, password_hash: str, salt: str) -> bool:
+    """Verify password against stored hash."""
+    hashed, _ = hash_password(password, salt)
+    return hashed == password_hash
+
+def create_session(user_id: int) -> str:
+    """Create a new session token for user."""
+    token = secrets.token_urlsafe(32)
+    expires_at = (datetime.now() + timedelta(hours=24)).isoformat()
+    db = get_db()
+    db.execute(
+        "INSERT INTO sessions (token, user_id, created_at, expires_at) VALUES (?,?,?,?)",
+        (token, user_id, datetime.now().isoformat(), expires_at)
+    )
+    db.commit()
+    db.close()
+    return token
+
+def get_current_user(token: str):
+    """Get user from session token."""
+    if not token:
+        return None
+    db = get_db()
+    session = db.execute(
+        "SELECT user_id, expires_at FROM sessions WHERE token = ?", (token,)
+    ).fetchone()
+    if not session:
+        db.close()
+        return None
+    if datetime.fromisoformat(session["expires_at"]) < datetime.now():
+        db.execute("DELETE FROM sessions WHERE token = ?", (token,))
+        db.commit()
+        db.close()
+        return None
+    user = db.execute(
+        "SELECT id, email, name, role, is_active FROM users WHERE id = ?",
+        (session["user_id"],)
+    ).fetchone()
+    db.close()
+    if user and user["is_active"]:
+        return dict(user)
+    return None
+
+def require_auth(roles=None):
+    """Decorator to require authentication and optionally specific roles."""
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            token = request.headers.get("Authorization", "").replace("Bearer ", "")
+            user = get_current_user(token)
+            if not user:
+                return jsonify({"error": "Authentication required"}), 401
+            if roles and user["role"] not in roles:
+                return jsonify({"error": "Insufficient permissions"}), 403
+            request.current_user = user
+            return f(*args, **kwargs)
+        return decorated_function
+    return decorator
 
 
 # ─── Cache (analysis results) ─────────────────────────────────────────────────
@@ -62,7 +135,132 @@ def refresh_analysis():
     print(f"✓ Analysis done: {G.number_of_nodes()} nodes, {len(rings)} rings found")
 
 
-# ─── Routes ───────────────────────────────────────────────────────────────────
+# ─── Auth Routes ──────────────────────────────────────────────────────────────
+
+@app.route("/api/auth/login", methods=["POST"])
+def login():
+    """Authenticate user and return session token."""
+    data = request.get_json() or {}
+    email = data.get("email", "").strip().lower()
+    password = data.get("password", "")
+    
+    if not email or not password:
+        return jsonify({"error": "Email and password required"}), 400
+    
+    db = get_db()
+    user = db.execute(
+        "SELECT * FROM users WHERE LOWER(email) = ? AND is_active = 1",
+        (email,)
+    ).fetchone()
+    
+    if not user:
+        db.close()
+        return jsonify({"error": "Invalid credentials"}), 401
+    
+    if not verify_password(password, user["password_hash"], user["password_salt"]):
+        db.close()
+        return jsonify({"error": "Invalid credentials"}), 401
+    
+    # Update last login
+    db.execute(
+        "UPDATE users SET last_login = ? WHERE id = ?",
+        (datetime.now().isoformat(), user["id"])
+    )
+    db.commit()
+    db.close()
+    
+    # Create session
+    token = create_session(user["id"])
+    
+    return jsonify({
+        "status": "ok",
+        "token": token,
+        "user": {
+            "id": user["id"],
+            "email": user["email"],
+            "name": user["name"],
+            "role": user["role"]
+        }
+    })
+
+@app.route("/api/auth/logout", methods=["POST"])
+def logout():
+    """Invalidate session token."""
+    token = request.headers.get("Authorization", "").replace("Bearer ", "")
+    if token:
+        db = get_db()
+        db.execute("DELETE FROM sessions WHERE token = ?", (token,))
+        db.commit()
+        db.close()
+    return jsonify({"status": "ok"})
+
+@app.route("/api/auth/me")
+def get_me():
+    """Get current user info from token."""
+    token = request.headers.get("Authorization", "").replace("Bearer ", "")
+    user = get_current_user(token)
+    if not user:
+        return jsonify({"error": "Not authenticated"}), 401
+    return jsonify({"user": user})
+
+@app.route("/api/auth/users")
+@require_auth(roles=["admin"])
+def list_users():
+    """List all users (admin only)."""
+    db = get_db()
+    users = db.execute(
+        "SELECT id, email, name, role, created_at, last_login, is_active FROM users"
+    ).fetchall()
+    db.close()
+    return jsonify({"users": [dict(u) for u in users]})
+
+@app.route("/api/auth/users", methods=["POST"])
+@require_auth(roles=["admin"])
+def create_user():
+    """Create new user (admin only)."""
+    data = request.get_json() or {}
+    email = data.get("email", "").strip().lower()
+    password = data.get("password", "")
+    name = data.get("name", "").strip()
+    role = data.get("role", "analyst")
+    
+    if not email or not password or not name:
+        return jsonify({"error": "Email, password, and name required"}), 400
+    
+    if role not in ("admin", "auditor", "analyst"):
+        return jsonify({"error": "Invalid role"}), 400
+    
+    hashed, salt = hash_password(password)
+    
+    try:
+        db = get_db()
+        db.execute(
+            "INSERT INTO users (email, password_hash, password_salt, name, role, created_at) VALUES (?,?,?,?,?,?)",
+            (email, hashed, salt, name, role, datetime.now().isoformat())
+        )
+        db.commit()
+        user_id = db.execute("SELECT last_insert_rowid()").fetchone()[0]
+        db.close()
+        return jsonify({"status": "ok", "user_id": user_id})
+    except sqlite3.IntegrityError:
+        return jsonify({"error": "Email already exists"}), 409
+
+@app.route("/api/auth/users/<int:user_id>", methods=["DELETE"])
+@require_auth(roles=["admin"])
+def delete_user(user_id):
+    """Deactivate user (admin only)."""
+    if request.current_user["id"] == user_id:
+        return jsonify({"error": "Cannot delete yourself"}), 400
+    
+    db = get_db()
+    db.execute("UPDATE users SET is_active = 0 WHERE id = ?", (user_id,))
+    db.execute("DELETE FROM sessions WHERE user_id = ?", (user_id,))
+    db.commit()
+    db.close()
+    return jsonify({"status": "ok"})
+
+
+# ─── API Routes ───────────────────────────────────────────────────────────────
 
 @app.route("/api/health")
 def health():
@@ -665,4 +863,5 @@ if __name__ == "__main__":
         print("   python generate_data.py")
     else:
         refresh_analysis()
-    app.run(host="0.0.0.0", port=5000, debug=False)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)

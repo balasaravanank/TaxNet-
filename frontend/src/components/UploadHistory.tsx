@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { api } from "../lib/api";
+import { useAuth } from "../lib/AuthContext";
 import {
   XIcon,
   RefreshIcon,
@@ -40,6 +41,7 @@ interface UploadHistoryProps {
 type TabType = "history" | "snapshots" | "manage";
 
 export function UploadHistory({ show, onClose, onDataChange }: UploadHistoryProps) {
+  const { can } = useAuth();
   const [activeTab, setActiveTab] = useState<TabType>("history");
   const [history, setHistory] = useState<UploadRecord[]>([]);
   const [snapshots, setSnapshots] = useState<Snapshot[]>([]);
@@ -257,33 +259,35 @@ export function UploadHistory({ show, onClose, onDataChange }: UploadHistoryProp
           }}
         >
           {[
-            { id: "history" as TabType, label: "Upload History", icon: ClockIcon },
-            { id: "snapshots" as TabType, label: "Snapshots", icon: DatabaseIcon },
-            { id: "manage" as TabType, label: "Manage Data", icon: TrashIcon },
-          ].map(({ id, label, icon: Icon }) => (
-            <button
-              key={id}
-              onClick={() => setActiveTab(id)}
-              style={{
-                padding: "14px 20px",
-                border: "none",
-                background: "transparent",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                fontSize: "14px",
-                fontWeight: 600,
-                color: activeTab === id ? "var(--primary)" : "var(--text-secondary)",
-                borderBottom: activeTab === id ? "2px solid var(--primary)" : "2px solid transparent",
-                marginBottom: "-1px",
-                transition: "all 0.2s",
-              }}
-            >
-              <Icon size={16} />
-              {label}
-            </button>
-          ))}
+            { id: "history" as TabType, label: "Upload History", icon: ClockIcon, permission: null },
+            { id: "snapshots" as TabType, label: "Snapshots", icon: DatabaseIcon, permission: "create_snapshot" as const },
+            { id: "manage" as TabType, label: "Manage Data", icon: TrashIcon, permission: "clear_data" as const },
+          ]
+            .filter(tab => !tab.permission || can(tab.permission))
+            .map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => setActiveTab(id)}
+                style={{
+                  padding: "14px 20px",
+                  border: "none",
+                  background: "transparent",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  fontSize: "14px",
+                  fontWeight: 600,
+                  color: activeTab === id ? "var(--primary)" : "var(--text-secondary)",
+                  borderBottom: activeTab === id ? "2px solid var(--primary)" : "2px solid transparent",
+                  marginBottom: "-1px",
+                  transition: "all 0.2s",
+                }}
+              >
+                <Icon size={16} />
+                {label}
+              </button>
+            ))}
         </div>
 
         {/* Message */}

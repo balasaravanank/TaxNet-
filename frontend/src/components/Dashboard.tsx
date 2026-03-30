@@ -6,7 +6,10 @@ import { RingExplorer }    from "./RingExplorer";
 import { EntityDetail }    from "./EntityDetail";
 import { Notification }    from "./Notification";
 import { UploadHistory }   from "./UploadHistory";
+import { AdminConsole }    from "./AdminConsole2";
 import { api, fmtCurrency } from "../lib/api";
+import { useAuth } from "../lib/AuthContext";
+import { ROLE_CONFIG } from "../lib/permissions";
 import { 
   ShieldIcon, 
   RefreshIcon, 
@@ -26,6 +29,9 @@ import {
   XIcon,
   LinkIcon,
   DatabaseIcon,
+  UserIcon,
+  LogoutIcon,
+  ChevronDownIcon,
 } from "./Icons";
 import type {
   DashboardStats, GraphData, Company, FraudRing, GraphNode
@@ -35,6 +41,7 @@ type Page = "dashboard" | "graph";
 type Tab = "leaderboard" | "rings";
 
 export function Dashboard() {
+  const { user, logout, can } = useAuth();
   const [stats,     setStats]     = useState<DashboardStats | null>(null);
   const [graph,     setGraph]     = useState<GraphData | null>(null);
   const [companies, setCompanies] = useState<Company[]>([]);
@@ -50,6 +57,8 @@ export function Dashboard() {
   const [hasRun,       setHasRun]       = useState(false);
   const [uploading,    setUploading]    = useState(false);
   const [showHistory, setShowHistory]  = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
+  const [showAdminConsole, setShowAdminConsole] = useState(false);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
   // Notification state
@@ -507,45 +516,214 @@ export function Dashboard() {
             System Active
           </div>
 
-          {/* CSV Upload */}
-          <input
-            ref={fileInputRef}
-            type="file"
-            accept=".csv"
-            style={{ display: "none" }}
-            onChange={handleFileUpload}
-          />
-          <button
-            className="btn btn--ghost"
-            onClick={() => fileInputRef.current?.click()}
-            disabled={uploading}
-            title="Upload GSTR CSV"
-            style={{ padding: "10px 18px", fontSize: "14px" }}
-          >
-            {uploading ? <LoaderIcon size={16} /> : <UploadIcon size={16} />}
-            {uploading ? "Uploading..." : "Upload CSV"}
-          </button>
+          {/* CSV Upload - Admin only */}
+          {can("upload_data") && (
+            <>
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept=".csv"
+                style={{ display: "none" }}
+                onChange={handleFileUpload}
+              />
+              <button
+                className="btn btn--ghost"
+                onClick={() => fileInputRef.current?.click()}
+                disabled={uploading}
+                title="Upload GSTR CSV"
+                style={{ padding: "10px 18px", fontSize: "14px" }}
+              >
+                {uploading ? <LoaderIcon size={16} /> : <UploadIcon size={16} />}
+                {uploading ? "Uploading..." : "Upload CSV"}
+              </button>
+            </>
+          )}
 
-          {/* Data Management */}
-          <button
-            className="btn btn--ghost"
-            onClick={() => setShowHistory(true)}
-            title="Data Management"
-            style={{ padding: "10px 18px", fontSize: "14px" }}
-          >
-            <DatabaseIcon size={16} />
-            Data
-          </button>
+          {/* Data Management - Admin only */}
+          {can("manage_data") && (
+            <button
+              className="btn btn--ghost"
+              onClick={() => setShowHistory(true)}
+              title="Data Management"
+              style={{ padding: "10px 18px", fontSize: "14px" }}
+            >
+              <DatabaseIcon size={16} />
+              Data
+            </button>
+          )}
           
-          <button
-            className="btn btn--primary"
-            onClick={handleRefresh}
-            disabled={refreshing || loading}
-            style={{ padding: "10px 18px", fontSize: "14px" }}
-          >
-            {refreshing ? <LoaderIcon size={16} /> : <RefreshIcon size={16} />}
-            {refreshing ? "Refreshing..." : "Refresh"}
-          </button>
+          {/* Refresh/Analysis - Auditor and Admin */}
+          {can("run_analysis") && (
+            <button
+              className="btn btn--primary"
+              onClick={handleRefresh}
+              disabled={refreshing || loading}
+              style={{ padding: "10px 18px", fontSize: "14px" }}
+            >
+              {refreshing ? <LoaderIcon size={16} /> : <RefreshIcon size={16} />}
+              {refreshing ? "Refreshing..." : "Refresh"}
+            </button>
+          )}
+
+          {/* User Menu */}
+          <div style={{ position: "relative", marginLeft: "8px" }}>
+            <button
+              className="btn btn--ghost"
+              onClick={() => setShowUserMenu(!showUserMenu)}
+              style={{ 
+                padding: "8px 12px", 
+                display: "flex", 
+                alignItems: "center", 
+                gap: "8px",
+                borderRadius: "8px",
+              }}
+            >
+              <div
+                style={{
+                  width: "32px",
+                  height: "32px",
+                  borderRadius: "8px",
+                  background: user?.role ? ROLE_CONFIG[user.role]?.bg : "var(--primary-light)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <UserIcon size={16} color={user?.role ? ROLE_CONFIG[user.role]?.color : "var(--primary)"} />
+              </div>
+              <div style={{ textAlign: "left", lineHeight: 1.2 }}>
+                <div style={{ fontSize: "13px", fontWeight: 600, color: "var(--text-primary)" }}>
+                  {user?.name || "User"}
+                </div>
+                <div style={{ 
+                  fontSize: "10px", 
+                  textTransform: "uppercase", 
+                  letterSpacing: "0.05em",
+                  color: user?.role ? ROLE_CONFIG[user.role]?.color : "var(--text-secondary)",
+                }}>
+                  {user?.role ? ROLE_CONFIG[user.role]?.label : "unknown"}
+                </div>
+              </div>
+              <ChevronDownIcon 
+                size={14} 
+                color="var(--text-secondary)" 
+                style={{ 
+                  transform: showUserMenu ? "rotate(180deg)" : "rotate(0deg)",
+                  transition: "transform 0.2s ease",
+                }} 
+              />
+            </button>
+
+            {/* Dropdown */}
+            {showUserMenu && (
+              <>
+                <div
+                  style={{
+                    position: "fixed",
+                    inset: 0,
+                    zIndex: 99,
+                  }}
+                  onClick={() => setShowUserMenu(false)}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "calc(100% + 8px)",
+                    right: 0,
+                    background: "var(--bg-surface)",
+                    border: "1px solid var(--border)",
+                    borderRadius: "12px",
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
+                    minWidth: "200px",
+                    overflow: "hidden",
+                    zIndex: 100,
+                    animation: "fadeIn 0.15s ease",
+                  }}
+                >
+                  <div style={{ padding: "16px", borderBottom: "1px solid var(--border)" }}>
+                    <div style={{ fontSize: "14px", fontWeight: 600, color: "var(--text-primary)" }}>
+                      {user?.name}
+                    </div>
+                    <div style={{ fontSize: "12px", color: "var(--text-secondary)", marginTop: "2px" }}>
+                      {user?.email}
+                    </div>
+                    <div
+                      style={{
+                        marginTop: "8px",
+                        padding: "4px 10px",
+                        fontSize: "10px",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.08em",
+                        borderRadius: "6px",
+                        display: "inline-block",
+                        background: user?.role ? ROLE_CONFIG[user.role]?.bg : "var(--primary-light)",
+                        color: user?.role ? ROLE_CONFIG[user.role]?.color : "var(--primary)",
+                      }}
+                    >
+                      {user?.role ? ROLE_CONFIG[user.role]?.label : "unknown"}
+                    </div>
+                  </div>
+                  
+                  {/* Admin Console - Admin only */}
+                  {user?.role === 'admin' && (
+                    <button
+                      onClick={() => {
+                        setShowUserMenu(false);
+                        setShowAdminConsole(true);
+                      }}
+                      style={{
+                        width: "100%",
+                        padding: "12px 16px",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px",
+                        background: "transparent",
+                        border: "none",
+                        color: "var(--text-primary)",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                        cursor: "pointer",
+                        transition: "background 0.15s ease",
+                        borderBottom: "1px solid var(--border)",
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.background = "rgba(59,130,246,0.08)"}
+                      onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
+                    >
+                      <ShieldIcon size={16} />
+                      Admin Console
+                    </button>
+                  )}
+
+                  <button
+                    onClick={() => {
+                      setShowUserMenu(false);
+                      logout();
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "12px 16px",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                      background: "transparent",
+                      border: "none",
+                      color: "var(--error)",
+                      fontSize: "13px",
+                      fontWeight: 500,
+                      cursor: "pointer",
+                      transition: "background 0.15s ease",
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.background = "rgba(239,68,68,0.08)"}
+                    onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
+                  >
+                    <LogoutIcon size={16} />
+                    Sign Out
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </header>
 
@@ -770,7 +948,6 @@ export function Dashboard() {
       <UploadHistory
         show={showHistory}
         onClose={() => setShowHistory(false)}
-        onDataChange={load}
       />
 
       <style>{`
@@ -866,6 +1043,12 @@ export function Dashboard() {
           }
         }
       `}</style>
+      
+      {/* Admin Console Modal */}
+      <AdminConsole
+        isOpen={showAdminConsole}
+        onClose={() => setShowAdminConsole(false)}
+      />
     </div>
   );
 }
