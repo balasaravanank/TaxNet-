@@ -295,8 +295,10 @@ def ingest():
     try:
         import pandas as pd
         import uuid
+        from datetime import datetime
 
         content = f.read().decode("utf-8")
+        file_size = len(content)
         df = pd.read_csv(io.StringIO(content))
 
         # Normalize column names to lowercase
@@ -325,18 +327,41 @@ def ingest():
             r[0] for r in db.execute("SELECT gstin FROM companies").fetchall()
         }
 
+        # Build a map of GSTIN -> company name from CSV if columns exist
+        gstin_names = {}
+        if "seller_name" in df.columns:
+            for _, row in df.iterrows():
+                gstin_names[str(row["seller_gstin"])] = str(row["seller_name"])
+        if "buyer_name" in df.columns:
+            for _, row in df.iterrows():
+                gstin_names[str(row["buyer_gstin"])] = str(row["buyer_name"])
+
         new_companies = []
+        updated_companies = []
         for gstin in set(df["seller_gstin"].tolist() + df["buyer_gstin"].tolist()):
-            if gstin not in existing_gstins:
+            gstin_str = str(gstin)
+            # Use name from CSV if available, otherwise generate from GSTIN
+            name = gstin_names.get(gstin_str, f"Entity {gstin_str[:12]}")
+            
+            if gstin_str not in existing_gstins:
                 new_companies.append((
-                    str(gstin), f"Entity {str(gstin)[:12]}", "Unknown",
-                    "2020-01-01", 0.0, "LOW"
+                    gstin_str, name, "Unknown",
+                    "2020-01-01", 0.0, "LOW", "Active", 0
                 ))
-                existing_gstins.add(gstin)
+                existing_gstins.add(gstin_str)
+            elif gstin_str in gstin_names:
+                # Update existing company name if CSV provides a name
+                updated_companies.append((name, gstin_str))
 
         if new_companies:
             db.executemany(
-                "INSERT OR IGNORE INTO companies VALUES (?,?,?,?,?,?)", new_companies
+                "INSERT OR IGNORE INTO companies VALUES (?,?,?,?,?,?,?,?)", new_companies
+            )
+        
+        # Update names for existing companies if CSV had names
+        if updated_companies:
+            db.executemany(
+                "UPDATE companies SET name = ? WHERE gstin = ?", updated_companies
             )
 
         # Insert invoices
@@ -364,6 +389,22 @@ def ingest():
             except Exception:
                 continue
 
+        # Log upload to history
+        upload_id = "UPL" + uuid.uuid4().hex[:8].upper()
+        db.execute(
+            "INSERT INTO upload_history VALUES (?,?,?,?,?,?,?,?)",
+            (
+                upload_id,
+                f.filename,
+                datetime.now().isoformat(),
+                inserted,
+                len(new_companies),
+                file_size,
+                content if file_size < 50000 else None,  # Store content if < 50KB
+                "success"
+            )
+        )
+        
         db.commit()
         db.close()
 
@@ -387,6 +428,219 @@ def upload():
     """Legacy endpoint — re-runs analysis without file upload."""
     refresh_analysis()
     return jsonify({"status": "ok", "message": "Data re-analyzed successfully"})
+
+
+# ─── Upload History & Database Management ─────────────────────────────────────
+
+@app.route("/api/upload-history")
+def upload_history():
+    """Get all CSV upload history records."""
+    try:
+        limit = request.args.get("limit", type=int)
+        db = get_db()
+        
+        query = "SELECT * FROM upload_history ORDER BY upload_date DESC"
+        if limit:
+            query += f" LIMIT {limit}"
+        
+        rows = db.execute(query).fetchall()
+        db.close()
+        
+        history = []
+        for row in rows:
+            history.append({
+                "upload_id": row["upload_id"],
+                "filename": row["filename"],
+                "upload_date": row["upload_date"],
+                "records_inserted": row["records_inserted"],
+                "new_entities": row["new_entities"],
+                "file_size": row["file_size"],
+                "status": row["status"],
+                "has_content": bool(row["csv_content"])
+            })
+        
+        return jsonify({"history": history})
+    except Exception as e:
+        return jsonify({"error": f"Failed to fetch history: {str(e)}"}), 500
+
+
+@app.route("/api/upload-history/<upload_id>/content")
+def upload_content(upload_id):
+    """Get CSV content for a specific upload (if stored)."""
+    try:
+        db = get_db()
+        row = db.execute(
+            "SELECT csv_content, filename FROM upload_history WHERE upload_id = ?",
+            (upload_id,)
+        ).fetchone()
+        db.close()
+        
+        if not row or not row["csv_content"]:
+            return jsonify({"error": "CSV content not available"}), 404
+        
+        return jsonify({
+            "filename": row["filename"],
+            "content": row["csv_content"]
+        })
+    except Exception as e:
+        return jsonify({"error": f"Failed to fetch content: {str(e)}"}), 500
+
+
+@app.route("/api/snapshot", methods=["POST"])
+def create_snapshot():
+    """Create a backup snapshot of current database."""
+    try:
+        from datetime import datetime
+        import shutil
+        
+        SNAPSHOTS_DIR = Path(__file__).parent / "data" / "snapshots"
+        SNAPSHOTS_META = SNAPSHOTS_DIR / "snapshots.json"
+        SNAPSHOTS_DIR.mkdir(exist_ok=True)
+        
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        snapshot_id = f"snapshot_{timestamp}"
+        snapshot_file = SNAPSHOTS_DIR / f"{snapshot_id}.db"
+        
+        # Copy database file
+        shutil.copy2(DB_PATH, snapshot_file)
+        
+        # Get database stats
+        db = get_db()
+        companies_count = db.execute("SELECT COUNT(*) FROM companies").fetchone()[0]
+        invoices_count = db.execute("SELECT COUNT(*) FROM invoices").fetchone()[0]
+        db.close()
+        
+        # Update metadata
+        metadata = {"snapshots": []}
+        if SNAPSHOTS_META.exists():
+            with open(SNAPSHOTS_META, 'r') as f:
+                metadata = json.load(f)
+        
+        metadata["snapshots"].append({
+            "id": snapshot_id,
+            "created_at": datetime.now().isoformat(),
+            "file": f"{snapshot_id}.db",
+            "companies_count": companies_count,
+            "invoices_count": invoices_count
+        })
+        
+        with open(SNAPSHOTS_META, 'w') as f:
+            json.dump(metadata, f, indent=2)
+        
+        return jsonify({
+            "status": "ok",
+            "message": f"Snapshot created: {snapshot_id}",
+            "snapshot_id": snapshot_id,
+            "companies": companies_count,
+            "invoices": invoices_count
+        })
+    except Exception as e:
+        return jsonify({"error": f"Snapshot failed: {str(e)}"}), 500
+
+
+@app.route("/api/snapshots")
+def list_snapshots():
+    """List all available database snapshots."""
+    try:
+        SNAPSHOTS_DIR = Path(__file__).parent / "data" / "snapshots"
+        SNAPSHOTS_META = SNAPSHOTS_DIR / "snapshots.json"
+        
+        if not SNAPSHOTS_META.exists():
+            return jsonify({"snapshots": []})
+        
+        with open(SNAPSHOTS_META, 'r') as f:
+            metadata = json.load(f)
+        
+        return jsonify(metadata)
+    except Exception as e:
+        return jsonify({"error": f"Failed to list snapshots: {str(e)}"}), 500
+
+
+@app.route("/api/restore/<snapshot_id>", methods=["POST"])
+def restore_snapshot(snapshot_id):
+    """Restore database from a snapshot."""
+    try:
+        import shutil
+        
+        SNAPSHOTS_DIR = Path(__file__).parent / "data" / "snapshots"
+        snapshot_file = SNAPSHOTS_DIR / f"{snapshot_id}.db"
+        
+        if not snapshot_file.exists():
+            return jsonify({"error": "Snapshot not found"}), 404
+        
+        # Create backup of current state before restoring
+        backup_file = Path(__file__).parent / "data" / "gst_fraud_pre_restore.db"
+        shutil.copy2(DB_PATH, backup_file)
+        
+        # Restore from snapshot
+        shutil.copy2(snapshot_file, DB_PATH)
+        
+        # Refresh analysis with restored data
+        refresh_analysis()
+        
+        return jsonify({
+            "status": "ok",
+            "message": f"Database restored from {snapshot_id}",
+            "backup": "Pre-restore backup saved as gst_fraud_pre_restore.db"
+        })
+    except Exception as e:
+        return jsonify({"error": f"Restore failed: {str(e)}"}), 500
+
+
+@app.route("/api/clear-data", methods=["POST"])
+def clear_data():
+    """Clear all invoices and optionally companies/history (reset database for testing)."""
+    try:
+        data = request.get_json() or {}
+        clear_companies = data.get("clear_companies", False)
+        clear_history = data.get("clear_history", False)
+        confirmation = data.get("confirmation", "")
+        
+        # Require confirmation token to prevent accidents
+        if confirmation != "CLEAR_ALL_DATA":
+            return jsonify({
+                "error": "Confirmation required. Send {\"confirmation\": \"CLEAR_ALL_DATA\"}"
+            }), 400
+        
+        db = get_db()
+        
+        # Get counts before clearing
+        invoices_count = db.execute("SELECT COUNT(*) FROM invoices").fetchone()[0]
+        companies_count = db.execute("SELECT COUNT(*) FROM companies").fetchone()[0]
+        history_count = db.execute("SELECT COUNT(*) FROM upload_history").fetchone()[0]
+        
+        # Clear tables
+        db.execute("DELETE FROM invoices")
+        db.execute("DELETE FROM fraud_rings")
+        db.execute("DELETE FROM entity_scores")
+        
+        if clear_companies:
+            db.execute("DELETE FROM companies")
+        
+        if clear_history:
+            db.execute("DELETE FROM upload_history")
+        
+        db.commit()
+        db.close()
+        
+        # Refresh analysis
+        refresh_analysis()
+        
+        message = f"Cleared {invoices_count} invoices"
+        if clear_companies:
+            message += f", {companies_count} companies"
+        if clear_history:
+            message += f", {history_count} history records"
+        
+        return jsonify({
+            "status": "ok",
+            "message": message,
+            "invoices_cleared": invoices_count,
+            "companies_cleared": companies_count if clear_companies else 0,
+            "history_cleared": history_count if clear_history else 0
+        })
+    except Exception as e:
+        return jsonify({"error": f"Clear failed: {str(e)}"}), 500
 
 
 # ─── Serve React frontend ─────────────────────────────────────────────────────

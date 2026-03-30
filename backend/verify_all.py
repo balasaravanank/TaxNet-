@@ -15,6 +15,11 @@ def post(path, body):
     )
     return json.loads(urllib.request.urlopen(req, timeout=30).read())
 
+def post_empty(path):
+    """POST with no body."""
+    req = urllib.request.Request(f"{BASE}{path}", method="POST")
+    return json.loads(urllib.request.urlopen(req, timeout=30).read())
+
 ok = 0; fail = 0
 
 def check(name, cond, detail=""):
@@ -93,6 +98,57 @@ check("Explanation is non-empty",             len(ex.get("explanation","")) > 10
 check("Sources list returned",                len(ex.get("sources",[])) > 0)
 check("Fallback model (no API key set)",      ex.get("llm_model") == "rule-based-fallback"
       or "claude" in ex.get("llm_model","") or "gpt" in ex.get("llm_model",""))
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# UPLOAD HISTORY & DATA MANAGEMENT TESTS
+# ═══════════════════════════════════════════════════════════════════════════════
+print("\n  Testing Upload History & Data Management...")
+
+# Upload History endpoint
+hist = get("/upload-history")
+check("Upload history endpoint works",  "history" in hist)
+check("History is a list",              isinstance(hist["history"], list))
+
+# If there are history records, verify structure
+if hist["history"]:
+    record = hist["history"][0]
+    check("History has upload_id",      "upload_id" in record)
+    check("History has filename",       "filename" in record)
+    check("History has upload_date",    "upload_date" in record)
+    check("History has records_inserted", "records_inserted" in record)
+
+# Upload history with limit parameter
+hist_limited = get("/upload-history?limit=5")
+check("History limit param works",      len(hist_limited["history"]) <= 5)
+
+# Snapshots list endpoint
+snaps = get("/snapshots")
+check("Snapshots list endpoint works",  "snapshots" in snaps)
+check("Snapshots is a list",            isinstance(snaps["snapshots"], list))
+
+# Create a snapshot
+print("\n  Creating test snapshot...")
+snap_result = post_empty("/snapshot")
+check("Snapshot creation works",        snap_result.get("status") == "ok")
+check("Snapshot returns ID",            "snapshot_id" in snap_result)
+
+# Verify snapshot appeared
+snaps_after = get("/snapshots")
+check("Snapshot appears in list",       len(snaps_after["snapshots"]) > len(snaps["snapshots"]))
+
+# Verify snapshot structure
+if snaps_after["snapshots"]:
+    snap = snaps_after["snapshots"][0]
+    check("Snapshot has id",            "id" in snap)
+    check("Snapshot has created_at",    "created_at" in snap)
+    check("Snapshot has counts",        "companies_count" in snap and "invoices_count" in snap)
+
+# Clear data endpoint - test without confirmation (should fail)
+try:
+    bad_clear = post("/clear-data", {"confirmation": "wrong"})
+    check("Clear data rejects bad confirm", bad_clear.get("error") is not None)
+except urllib.error.HTTPError as e:
+    check("Clear data rejects bad confirm", e.code == 400)
 
 print()
 print("=" * 55)

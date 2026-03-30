@@ -1,0 +1,11 @@
+{
+  "snapshots": [
+    {
+      "id": "snapshot_20260330_213257",
+      "created_at": "2026-03-30T21:32:57.448025",
+      "file": "snapshot_20260330_213257.db",
+      "companies_count": 0,
+      "invoices_count": 0
+    }
+  ]
+}

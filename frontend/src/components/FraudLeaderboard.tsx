@@ -1,6 +1,7 @@
 import React from "react";
 import type { Company } from "../lib/types";
 import { riskClass, scoreColor, fmtCurrency } from "../lib/api";
+import { AlertCircleIcon, BarChartIcon } from "./Icons";
 
 interface Props {
   companies:    Company[];
@@ -14,22 +15,62 @@ export function FraudLeaderboard({ companies, loading, onSelect, selected }: Pro
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100%", overflow: "hidden" }}>
+      {/* Header */}
       <div style={{
-        padding: "12px 16px",
+        padding: "var(--space-4) var(--space-5)",
         borderBottom: "1px solid var(--border)",
-        display: "flex", alignItems: "center", justifyContent: "space-between",
+        display: "flex", 
+        alignItems: "center", 
+        justifyContent: "space-between",
+        background: "var(--bg-surface)",
       }}>
-        <div style={{ fontWeight: 600, fontSize: "13px", color: "var(--text-primary)" }}>
-          🚨 Fraud Leaderboard
-        </div>
-        <div style={{ fontSize: "10px", color: "var(--text-muted)" }}>
-          Top {top.length} entities
-        </div>
+        <h3 style={{ 
+          fontWeight: 700, 
+          fontSize: "var(--text-base)", 
+          color: "var(--text-primary)",
+          display: "flex",
+          alignItems: "center",
+          gap: "var(--space-2)",
+        }}>
+          <AlertCircleIcon size={18} color="var(--red)" />
+          Fraud Leaderboard
+        </h3>
+        <span style={{ 
+          fontSize: "var(--text-xs)", 
+          color: "var(--text-muted)",
+          background: "var(--bg-elevated)",
+          padding: "var(--space-1) var(--space-3)",
+          borderRadius: "var(--radius-full)",
+        }}>
+          Top {top.length}
+        </span>
       </div>
 
+      {/* List */}
       <div style={{ overflowY: "auto", flex: 1 }}>
         {loading ? (
           <Skeleton />
+        ) : top.length === 0 ? (
+          <div style={{ 
+            padding: "var(--space-8)", 
+            textAlign: "center", 
+            color: "var(--text-muted)",
+            fontSize: "var(--text-sm)",
+          }}>
+            <div style={{ 
+              width: "48px", 
+              height: "48px", 
+              margin: "0 auto var(--space-3)",
+              background: "var(--bg-elevated)",
+              borderRadius: "var(--radius-lg)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}>
+              <BarChartIcon size={24} color="var(--text-muted)" />
+            </div>
+            No entities analyzed yet
+          </div>
         ) : top.map((c, i) => (
           <LeaderboardRow
             key={c.gstin}
@@ -52,57 +93,92 @@ function LeaderboardRow({ rank, company, isSelected, onClick }: {
 
   return (
     <div
+      className="leaderboard-row"
       onClick={onClick}
       style={{
-        padding: "10px 16px",
-        display: "flex", alignItems: "center", gap: "10px",
+        padding: "var(--space-4) var(--space-5)",
+        display: "flex", 
+        alignItems: "center", 
+        gap: "var(--space-4)",
         cursor: "pointer",
-        background: isSelected ? "rgba(0,212,255,0.06)" : "transparent",
-        borderLeft: isSelected ? "2px solid var(--cyan)" : "2px solid transparent",
+        background: isSelected ? "var(--primary-light)" : "transparent",
+        borderLeft: isSelected ? "3px solid var(--primary)" : "3px solid transparent",
         borderBottom: "1px solid var(--border)",
-        transition: "background 150ms ease",
+        transition: "all var(--duration) var(--ease)",
+        minHeight: "48px",
       }}
-      onMouseEnter={e => { if (!isSelected) e.currentTarget.style.background = "rgba(0,212,255,0.03)"; }}
+      onMouseEnter={e => { if (!isSelected) e.currentTarget.style.background = "var(--bg-elevated)"; }}
       onMouseLeave={e => { if (!isSelected) e.currentTarget.style.background = "transparent"; }}
     >
       {/* Rank */}
       <div style={{
-        width: "20px", textAlign: "center",
-        fontSize: "11px", fontWeight: 700,
+        width: "32px", 
+        height: "32px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: "var(--radius-sm)",
+        background: isPodium ? `${podiumColors[rank - 1]}15` : "var(--bg-elevated)",
+        fontSize: "var(--text-sm)",
+        fontWeight: 700,
         color: isPodium ? podiumColors[rank - 1] : "var(--text-muted)",
         fontFamily: "var(--font-mono)",
         flexShrink: 0,
       }}>
-        {isPodium ? ["🥇","🥈","🥉"][rank-1] : rank}
+        {rank}
       </div>
 
-      {/* Info */}
+      {/* Company Info */}
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{
-          fontSize: "12px", fontWeight: 500,
+          fontSize: "var(--text-sm)", 
+          fontWeight: 600,
           color: "var(--text-primary)",
-          overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+          overflow: "hidden", 
+          textOverflow: "ellipsis", 
+          whiteSpace: "nowrap",
+          marginBottom: "2px",
         }}>
           {company.company_name}
         </div>
-        <div style={{ fontSize: "10px", color: "var(--text-muted)", fontFamily: "var(--font-mono)", marginTop: "2px" }}>
-          {company.gstin.slice(0, 10)}…
+        <div style={{ 
+          fontSize: "var(--text-xs)", 
+          color: "var(--text-muted)", 
+          fontFamily: "var(--font-mono)",
+        }}>
+          {company.gstin.slice(0, 12)}…
         </div>
       </div>
 
-      {/* Score + badge */}
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "4px", flexShrink: 0 }}>
+      {/* Score & Badge */}
+      <div style={{ 
+        display: "flex", 
+        flexDirection: "column", 
+        alignItems: "flex-end", 
+        gap: "var(--space-1)", 
+        flexShrink: 0 
+      }}>
         <div style={{
-          fontSize: "14px", fontWeight: 700,
+          fontSize: "var(--text-lg)", 
+          fontWeight: 700,
           color: scoreColor(company.fraud_score),
           fontFamily: "var(--font-mono)",
         }}>
-          {company.fraud_score.toFixed(1)}
+          {Math.round(company.fraud_score)}
         </div>
         <span className={riskClass(company.risk_level)}>
           {company.risk_level}
         </span>
       </div>
+      
+      <style>{`
+        @media (max-width: 640px) {
+          .leaderboard-row {
+            padding: 12px 16px !important;
+            gap: 10px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
@@ -112,15 +188,18 @@ function Skeleton() {
     <>
       {Array.from({ length: 8 }).map((_, i) => (
         <div key={i} style={{
-          padding: "12px 16px", borderBottom: "1px solid var(--border)",
-          display: "flex", gap: "10px", alignItems: "center",
+          padding: "var(--space-4) var(--space-5)", 
+          borderBottom: "1px solid var(--border)",
+          display: "flex", 
+          gap: "var(--space-4)", 
+          alignItems: "center",
         }}>
-          <div style={{ width: 20, height: 16, background: "var(--bg-card-hover)", borderRadius: 4 }} />
+          <div className="skeleton" style={{ width: 32, height: 32, borderRadius: "var(--radius-sm)" }} />
           <div style={{ flex: 1 }}>
-            <div style={{ height: 12, background: "var(--bg-card-hover)", borderRadius: 4, marginBottom: 6 }} />
-            <div style={{ height: 10, width: "60%", background: "var(--bg-card-hover)", borderRadius: 4 }} />
+            <div className="skeleton" style={{ height: 16, marginBottom: 6, borderRadius: "var(--radius-sm)" }} />
+            <div className="skeleton" style={{ height: 12, width: "60%", borderRadius: "var(--radius-sm)" }} />
           </div>
-          <div style={{ width: 36, height: 20, background: "var(--bg-card-hover)", borderRadius: 4 }} />
+          <div className="skeleton" style={{ width: 48, height: 24, borderRadius: "var(--radius-sm)" }} />
         </div>
       ))}
     </>

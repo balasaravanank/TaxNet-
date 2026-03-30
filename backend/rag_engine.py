@@ -1,7 +1,6 @@
 """
 rag_engine.py — RAG Explanation Engine
 ChromaDB retrieval + LLM generation for fraud investigation summaries.
-Team Code Novas | ITERYX '26
 """
 
 import os
