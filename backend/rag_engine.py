@@ -12,7 +12,8 @@ from pathlib import Path
 CHROMA_DB_PATH   = Path(__file__).parent / "data" / "chroma_db"
 COLLECTION_NAME  = "gst_fraud_knowledge"
 RAG_TOP_K        = int(os.getenv("RAG_TOP_K", "5"))
-LLM_MODEL        = os.getenv("LLM_MODEL", "claude-sonnet-4-20250514")
+LLM_MODEL        = os.getenv("LLM_MODEL", "llama-3.3-70b-versatile")
+GROQ_KEY         = os.getenv("GROQ_API_KEY", "")
 ANTHROPIC_KEY    = os.getenv("ANTHROPIC_API_KEY", "")
 OPENAI_KEY       = os.getenv("OPENAI_API_KEY", "")
 
@@ -167,13 +168,27 @@ Generate the investigation summary now:"""
 def call_llm(prompt: str) -> str:
     """Call the LLM API and return the generated text."""
 
-    # Try Anthropic Claude first
+    # Try Groq first (FREE!)
+    if GROQ_KEY:
+        try:
+            from groq import Groq
+            client = Groq(api_key=GROQ_KEY)
+            response = client.chat.completions.create(
+                model=LLM_MODEL,
+                max_tokens=600,
+                messages=[{"role": "user", "content": prompt}],
+            )
+            return response.choices[0].message.content.strip()
+        except Exception as e:
+            print(f"⚠ Groq API error: {e}")
+
+    # Fallback: Anthropic Claude
     if ANTHROPIC_KEY:
         try:
             import anthropic
             client = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
             message = client.messages.create(
-                model=LLM_MODEL,
+                model="claude-sonnet-4-20250514",
                 max_tokens=600,
                 messages=[{"role": "user", "content": prompt}],
             )
@@ -343,5 +358,5 @@ def explain_entity(gstin: str, fraud_data: dict) -> dict:
         "explanation": explanation,
         "sources":     [c["source"] for c in context_chunks],
         "rag_enabled": len(context_chunks) > 0,
-        "llm_model":   LLM_MODEL if (ANTHROPIC_KEY or OPENAI_KEY) else "rule-based-fallback",
+        "llm_model":   LLM_MODEL if (GROQ_KEY or ANTHROPIC_KEY or OPENAI_KEY) else "rule-based-fallback",
     }
