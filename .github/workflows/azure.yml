@@ -31,7 +31,6 @@ jobs:
 
     - name: Install backend dependencies
       run: |
-        cd backend
         pip install -r requirements.txt
 
     - name: Deploy to Azure Web App
