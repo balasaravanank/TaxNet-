@@ -1,0 +1,66 @@
+# Node.js
+node_modules/
+dist/
+dist-ssr/
+build/
+*.local
+.npm/
+.yarn/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# SQLite
+*.sqlite3
+# Except we might want the specific mock DB if it's meant to be shared
+# but usually we ignore databases. We will let the user's DB be tracked if it's small, otherwise ignore it:
+# *.db (decided not to include since user might want their populated DB for the hackathon, wait, let's ignore sqlite if it's too large, but for a hackathon they always push their .db)
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Project specific
+.agent/
+.antigravityignore

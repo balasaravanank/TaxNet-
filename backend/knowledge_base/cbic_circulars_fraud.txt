@@ -1,0 +1,115 @@
+CBIC CIRCULAR 131/1/2020-GST — STANDARD OPERATING PROCEDURE FOR NON-FILERS OF GST RETURNS
+
+ISSUED BY: Central Board of Indirect Taxes and Customs (CBIC)
+DATE: January 23, 2020
+SUBJECT: Standard Operating Procedure (SOP) for Non-Filers — Circular Trading and Fake Invoice Fraud
+
+---
+
+PURPOSE:
+This circular provides guidelines for GST officers to identify and take action against registered taxable persons who are involved in creating and passing of fake Input Tax Credit (ITC) through fake/shell entities with no actual supply of goods and services.
+
+---
+
+BACKGROUND:
+The CBIC has observed a specific pattern of fraud where networks of companies are created for the sole purpose of fraudulently passing on ITC to genuine businesses. These companies:
+  1. Issue fake invoices for goods and services never actually supplied
+  2. Claim ITC from other fake entities in a circular pattern
+  3. Collect the fraudulent ITC refund and then disappear (fly-by-night operators)
+  4. Never file returns after the initial registration period
+
+---
+
+STAGE 1 — RED FLAGS FOR IDENTIFICATION:
+
+The following indicators should trigger detailed examination:
+
+Indicator A — MISMATCHED GSTR-1 AND GSTR-3B FILINGS:
+  - Discrepancy between output tax declared in GSTR-3B and output tax appearing in counter-party's GSTR-2A is a primary red flag.
+  - A supplier showing high GSTR-1 filings (many invoices issued) but near-zero GSTR-3B payments indicates the supplier is issuing invoices without remitting tax.
+  - ITC of buyer reflected in GSTR-2A that is NOT matched by actual payment in supplier's GSTR-3B creates an uncovered gap.
+
+Indicator B — COMMON ADDRESSES / PROMOTERS:
+  - Multiple GSTINs registered at the same address (especially a virtual office or shared workspace)
+  - Multiple GSTINs linked to the same PAN
+  - Common Directors / Partners across multiple entities
+  - All GSTINs registered in the same month/quarter
+
+Indicator C — RAPID SCALE-UP FOLLOWED BY COLLAPSE:
+  - New registration (less than 6 months old) with extremely high invoice volumes
+  - Sudden spike in ITC claims without proportional growth in business registration details
+  - Cessation of filing after one or two cycles of ITC claim
+  - Registration cancelled voluntarily after claiming large ITC
+
+Indicator D — TRANSACTION STRUCTURE ANOMALIES:
+  - Large round-number invoice amounts (e.g., exactly Rs. 10,00,000 — natural invoices have odd amounts)
+  - Same invoice amount repeated across multiple buyers (signature of bulk fake invoice generation)
+  - Invoice dates clustered at month-end (last-minute entries to game filing periods)
+  - All invoices within a ring showing identical GST rates (real businesses have varied rates)
+
+---
+
+STAGE 2 — VERIFICATION PROCEDURE:
+
+Step 1: Cross-verify GSTR-1 of supplier with GSTR-2A of buyer.
+Step 2: Check if supplier's GSTR-3B shows payment of tax that matches the ITC claimed by buyer.
+Step 3: Conduct physical verification of supplier's business premises.
+Step 4: Verify the existence of goods — transportation records, e-way bills, inventory records.
+Step 5: Examine bank account transactions to verify actual payment flows.
+Step 6: If bank account shows no corresponding transfer for the claimed invoice amount, the invoice is fake.
+
+---
+
+STAGE 3 — ENFORCEMENT ACTIONS:
+
+Upon confirmation of fake ITC:
+Action 1: Block the ITC in electronic credit ledger (Rule 86A of CGST Rules 2017)
+Action 2: Issue show cause notice under Section 74
+Action 3: Provisional attachment of bank accounts under Section 83
+Action 4: Cancellation of GST registration under Section 29(2)(e)
+Action 5: Referral to DGGI for criminal prosecution if amount exceeds Rs. 5 Crore
+
+---
+
+CBIC CIRCULAR 171/03/2022-GST — GUIDELINES FOR BLOCKING/UNBLOCKING OF ITC (Rule 86A)
+
+ISSUED BY: CBIC
+DATE: March 2022
+
+Key provisions:
+- ITC may be blocked where the credit has been availed without actual receipt of goods/services
+- Where the taxpayer from whom credit has been availed had not paid the tax on such supply
+- Where ITC has been availed based on invoices issued by a registered person whose registration has been cancelled on account of non-compliance
+- The blocking order must contain specific reasons based on documentary evidence
+
+Safeguard: The blocking should not be done merely on suspicion. There must be material evidence that the ITC is fraudulent.
+
+Limitation: The blocking order must be reviewed and confirmed, modified, or revoked within one year of the initial blocking.
+
+---
+
+CBIC ADVISORY 2023 — CIRCULAR TRADING AND CAROUSEL FRAUD DETECTION GUIDELINES
+
+SUBJECT: Identification and enforcement against GST carousel fraud schemes
+
+CAROUSEL FRAUD DEFINITION:
+Carousel fraud (also called circular trading fraud in the Indian context) occurs when:
+  1. "Missing Trader" Entity M receives goods/services from Entity A
+  2. M charges GST on its sales but disappears without paying the collected GST
+  3. The downstream recipient (B) claims ITC on M's invoices
+  4. In a circular variant, B sells back (directly or through intermediaries) to A
+  5. Each entity in the chain claims ITC — but only the first link ever pays GST
+  6. Government loses the GST revenue collected at entity M (which vanishes)
+
+DETECTION INDICATORS SPECIFIC TO CAROUSEL FRAUD:
+  1. Graph cycle detection: Any directed cycle in the buyer-seller transaction graph is a primary indicator
+  2. Cycle length: Shorter cycles (2–4 entities) indicate tighter coordination
+  3. Transaction values in cycle are similar or identical (coordinated invoicing)
+  4. All entities in cycle registered within short period of each other
+  5. Cycle entities share geographic clustering (same city, same business district)
+
+RECOMMENDED AI-ASSISTED DETECTION APPROACH:
+  - Model the transaction network as a directed graph (nodes = GSTINs, edges = invoices)
+  - Run cycle detection algorithms (DFS-based simple cycle detection) to identify all closed loops
+  - Score each cycle by total cycling value and cycle length
+  - Prioritize enforcement on cycles with: high total value, short cycle length, recent registration dates, mismatch in GSTR-1 vs GSTR-3B

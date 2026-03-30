@@ -1,0 +1,81 @@
+gstin,company_name,state,registration_date,fraud_score,risk_level,status,is_fraud_ring
+33AHFTR8040G1ZE,Sri Associates,Tamil Nadu,2020-10-31,0.0,LOW,Active,1
+07SSKLH8714I1Z9,Bharat Traders,Delhi,2019-03-17,0.0,LOW,Active,1
+33JJIGB4190J1ZN,Prime Imports,Tamil Nadu,2021-03-28,0.0,LOW,Active,1
+33BFHCG1263L1ZM,Tech Imports,Tamil Nadu,2019-03-06,0.0,LOW,Active,1
+33PESEJ9656Y1Z3,Shri Manufacturing,Tamil Nadu,2019-04-15,0.0,LOW,Active,1
+08KBXOS2486E1ZG,Smart Imports,Rajasthan,2018-10-13,0.0,LOW,Active,1
+36OTLPJ9147D1Z9,Global Manufacturing,Telangana,2021-07-09,0.0,LOW,Active,1
+09PKPMG5961R1ZH,Bharat Traders,Uttar Pradesh,2022-04-24,0.0,LOW,Active,1
+24LLYWG5198J1ZW,Prime Industries,Gujarat,2021-06-01,0.0,LOW,Active,1
+08TOUNA3098Z1ZJ,Shri Solutions,Rajasthan,2019-05-06,0.0,LOW,Active,1
+32YCMBT7145I1ZX,Royal Solutions,Kerala,2022-11-22,0.0,LOW,Active,1
+36TRSKR3842C1ZL,Smart Ventures,Telangana,2018-02-13,0.0,LOW,Active,0
+07ASBBA3524R1Z8,Pioneer Solutions,Delhi,2022-01-21,0.0,LOW,Active,0
+19UECLL4769D1Z3,Bharat Manufacturing,West Bengal,2020-04-04,0.0,LOW,Active,0
+33GELKH2948R1Z6,Sri Traders,Tamil Nadu,2018-04-14,0.0,LOW,Active,0
+07EMFKB3927O1ZI,Pioneer Industries,Delhi,2020-05-16,0.0,LOW,Active,0
+07HZPOT0558F1Z3,New Distributors,Delhi,2020-11-06,0.0,LOW,Active,0
+29BBWKY5500V1ZX,Tech Solutions,Karnataka,2019-10-10,0.0,LOW,Active,0
+08GKRHI7049D1Z4,Prime Associates,Rajasthan,2021-01-06,0.0,LOW,Active,0
+24DJBGH4539Z1ZX,Indo Suppliers,Gujarat,2018-01-17,0.0,LOW,Active,0
+33YDDCO2672U1ZG,Pioneer Corp,Tamil Nadu,2020-11-01,0.0,LOW,Active,0
+27CLHAU6275N1ZZ,Modern Traders,Maharashtra,2018-01-20,0.0,LOW,Active,0
+29OVPDD3878L1ZD,Smart Exports,Karnataka,2021-10-28,0.0,LOW,Active,0
+33JOWZT9217F1ZQ,Global Imports,Tamil Nadu,2018-02-20,0.0,LOW,Active,0
+08UKRTG1730P1ZE,Elite Trading Co,Rajasthan,2019-02-13,0.0,LOW,Active,0
+24VWFRK2073Q1ZP,Bharat Enterprises,Gujarat,2021-10-23,0.0,LOW,Active,0
+33WGPZA5374Q1Z7,Prime Corp,Tamil Nadu,2020-02-28,0.0,LOW,Active,0
+27SAYNS7630V1ZL,Bharat Exports,Maharashtra,2021-06-30,0.0,LOW,Active,0
+33SHIKK2149V1ZB,Indo Pvt Ltd,Tamil Nadu,2021-06-14,0.0,LOW,Active,0
+36VHFUP3465Z1ZA,New Corp,Telangana,2021-09-11,0.0,LOW,Active,0
+36RQCYG3810P1Z4,Royal Suppliers,Telangana,2020-07-21,0.0,LOW,Active,0
+32FSMGR0771N1ZE,Elite Enterprises,Kerala,2018-12-27,0.0,LOW,Active,0
+36GWLUR9598T1ZW,Elite Suppliers,Telangana,2020-05-23,0.0,LOW,Active,0
+29TMGGQ7562C1ZI,Tech Trading Co,Karnataka,2019-04-26,0.0,LOW,Active,0
+08XCDJD2434B1ZD,Royal Pvt Ltd,Rajasthan,2022-09-02,0.0,LOW,Active,0
+32YAWOM9238N1ZY,Smart Services,Kerala,2022-03-11,0.0,LOW,Active,0
+07HMKRU7899R1Z1,Sri Traders,Delhi,2020-03-17,0.0,LOW,Active,0
+09DMBJF3737N1ZG,New Services,Uttar Pradesh,2022-09-06,0.0,LOW,Active,0
+27TBYFB9002A1Z9,National Services,Maharashtra,2019-05-04,0.0,LOW,Active,0
+33OFSTE6718J1Z6,Sri Suppliers,Tamil Nadu,2021-03-31,0.0,LOW,Active,0
+24OXJYF5826J1Z7,Shri Trading Co,Gujarat,2022-06-19,0.0,LOW,Active,0
+36LJNIW8196O1Z9,Global Imports,Telangana,2020-06-10,0.0,LOW,Active,0
+36ZHVNM4728C1ZH,Elite Solutions,Telangana,2022-12-11,0.0,LOW,Active,0
+19ORIMI4322T1ZH,Sri Associates,West Bengal,2021-02-12,0.0,LOW,Active,0
+07CSMTR6470H1ZP,Smart Corp,Delhi,2021-11-17,0.0,LOW,Active,0
+32JOIZO3432X1ZC,Modern Imports,Kerala,2019-10-09,0.0,LOW,Active,0
+36YRETH5759G1ZI,Apex Industries,Telangana,2019-04-11,0.0,LOW,Active,0
+24ANHZO6184A1ZI,Pioneer Services,Gujarat,2020-08-19,0.0,LOW,Active,0
+08EBYMV4060E1ZJ,Smart Traders,Rajasthan,2018-06-24,0.0,LOW,Active,0
+36TPUFN4489J1Z3,Modern Manufacturing,Telangana,2021-06-02,0.0,LOW,Active,0
+07QGCGO1464B1ZE,Indo Imports,Delhi,2019-08-14,0.0,LOW,Active,0
+19BGGUP8112E1ZH,National Traders,West Bengal,2022-08-20,0.0,LOW,Active,0
+27EHTOH1669Q1ZY,Elite Traders,Maharashtra,2020-10-08,0.0,LOW,Active,0
+32BLIGC9859Y1ZH,Shri Manufacturing,Kerala,2021-03-26,0.0,LOW,Active,0
+29MQXEP6403K1ZK,Modern Distributors,Karnataka,2021-10-04,0.0,LOW,Active,0
+29ISHYV5433Y1ZP,Sri Exports,Karnataka,2022-11-07,0.0,LOW,Active,0
+36MBNQM4021J1ZS,Pioneer Traders,Telangana,2022-12-09,0.0,LOW,Active,0
+27ZPGEO5099O1Z7,National Services,Maharashtra,2021-08-19,0.0,LOW,Active,0
+24NHVZG5395E1Z4,Royal Trading Co,Gujarat,2019-07-20,0.0,LOW,Active,0
+36GASVP6844K1ZZ,Star Services,Telangana,2022-04-12,0.0,LOW,Active,0
+08WZGJW4349M1ZO,National Services,Rajasthan,2021-09-21,0.0,LOW,Active,0
+27DZICV0901U1Z9,Pioneer Manufacturing,Maharashtra,2018-06-03,0.0,LOW,Active,0
+24ISQWW8337Y1ZV,Shri Ventures,Gujarat,2022-11-22,0.0,LOW,Active,0
+33GRHFC9771F1ZJ,Shri Trading Co,Tamil Nadu,2018-03-01,0.0,LOW,Active,0
+27HJDNO7108T1ZF,National Solutions,Maharashtra,2020-10-16,0.0,LOW,Active,0
+19QLRXM2509S1ZJ,Royal Imports,West Bengal,2021-08-01,0.0,LOW,Active,0
+24LHZWC3326A1ZP,Sri Ventures,Gujarat,2019-07-17,0.0,LOW,Active,0
+27XTVXU2821I1Z8,Modern Suppliers,Maharashtra,2021-07-10,0.0,LOW,Active,0
+27ILPTC2711R1ZN,Tech Distributors,Maharashtra,2020-12-23,0.0,LOW,Active,0
+29GVMUT3191H1ZP,Apex Traders,Karnataka,2022-09-29,0.0,LOW,Active,0
+09ANLRR5891H1ZU,Bharat Suppliers,Uttar Pradesh,2018-02-21,0.0,LOW,Active,0
+32FBVXH4193P1Z7,Smart Suppliers,Kerala,2018-07-19,0.0,LOW,Active,0
+36DLRTY4714D1ZV,Royal Corp,Telangana,2021-06-14,0.0,LOW,Active,0
+27RFLGJ9396B1ZP,Prime Traders,Maharashtra,2019-07-20,0.0,LOW,Active,0
+19CFQZB3972Y1ZZ,Prime Distributors,West Bengal,2019-03-01,0.0,LOW,Active,0
+07IDXAW1121V1Z1,Sri Trading Co,Delhi,2018-09-27,0.0,LOW,Active,0
+07PAGDK1043S1Z6,Smart Ventures,Delhi,2020-07-14,0.0,LOW,Active,0
+27SXRHQ0984D1ZV,Elite Traders,Maharashtra,2021-12-29,0.0,LOW,Active,0
+33IDDQP7352Q1ZR,Modern Distributors,Tamil Nadu,2018-07-23,0.0,LOW,Active,0
+36SFLFI4404V1ZG,National Exports,Telangana,2020-02-06,0.0,LOW,Active,0

@@ -1,0 +1,131 @@
+PAST GST FRAUD CASE SUMMARIES — ANONYMIZED INTELLIGENCE REPORTS
+Compiled from DGGI enforcement actions, CBIC press releases, and court records (2019–2024)
+For training and reference purposes only — entity names anonymized.
+
+---
+
+CASE 001 — CIRCULAR TRADING RING, DELHI NCR, 2022
+Fraud Type: Circular Invoice Trading (Carousel)
+Entities Involved: 6 companies (Ring A→B→C→D→E→F→A)
+Total Cycling Value: Rs. 47.3 Crore
+ITC Fraudulently Availed: Rs. 8.5 Crore
+Detection Method: Graph cycle analysis — all 6 entities had invoiced each other in a closed loop within 3 months of registration
+
+KEY FRAUD SIGNALS DETECTED:
+  - All 6 GSTINs registered within 45 days of each other
+  - Common directors across 3 of the 6 entities
+  - Invoice amounts: Rs. 7–9 Crore per chain link (unusually high for the stated business type)
+  - No e-way bills found for any of the claimed goods movements
+  - Bank account analysis: money returned to originating account within 7–10 days of each transaction
+  - GSTR-3B filed for only 2 months, then all 6 entities stopped filing
+
+ENFORCEMENT OUTCOME:
+  - All 6 GSTINs cancelled under Section 29(2)(e)
+  - ITC blocked under Rule 86A within 48 hours of detection
+  - FIR lodged; 3 directors arrested
+
+LESSON FOR DETECTION SYSTEMS: Short cycle length (6 entities), high per-transaction value, low entity age, and coordinated filing cessation are the strongest combined signals.
+
+---
+
+CASE 002 — SHELL COMPANY NETWORK, MUMBAI, 2023
+Fraud Type: Shell Company / Ghost Firm ITC Harvesting
+Entities Involved: 8 shell GSTINs supply chain fraudulently feeding 25 real buyer companies
+Total ITC Fraudulently Passed: Rs. 23.8 Crore
+Detection Method: In-degree/out-degree anomaly — shells had high in-degree (from many real companies) but zero out-degree (never actually sold to anyone downstream)
+
+KEY FRAUD SIGNALS DETECTED:
+  - Shell companies: registered address was a single room; no goods inventory or warehouse
+  - Each shell issued invoices to 8–12 real buyer companies
+  - Each shell had zero outward supply (never sold goods to anyone)
+  - High invoice frequency in a single month (30–50 invoices in one month, then zero)
+  - Phone numbers and emails used in registration were disposable/pre-paid
+
+ENFORCEMENT OUTCOME:
+  - Rs. 15 Crore recovered through bank account provisional attachment
+  - 8 beneficial owners identified through PAN linkage
+  - All 25 buyer companies issued demand notices for reversal of wrongly availed ITC
+
+LESSON FOR DETECTION SYSTEMS: Shell companies always exhibit the pattern: IN-DEGREE >> OUT-DEGREE, with in-weight (incoming transaction value) far exceeding out-weight (outgoing). The ratio of inflow to outflow approaching infinity is the defining characteristic.
+
+---
+
+CASE 003 — TAX MISMATCH / ITC INFLATION, SURAT (GUJARAT), 2021
+Fraud Type: ITC amount inflation — claiming more ITC than supplier actually paid
+Entities Involved: 12 companies in textile and diamond trading
+Total ITC Over-Claimed: Rs. 31.2 Crore
+Detection Method: GSTR-2A mismatch — ITC claimed in GSTR-3B significantly exceeded tax reflected in GSTR-2A (counter-party filings)
+
+KEY FRAUD SIGNALS DETECTED:
+  - ITC claimed: Rs. 31.2 Crore
+  - ITC eligible (verified from supplier GSTR-3B): Rs. 4.8 Crore
+  - Mismatch: Rs. 26.4 Crore (81% of claimed ITC was fraudulent)
+  - Tax mismatch ratio: 6.5x (claimed 6.5 times more than eligible)
+  - All inflated invoices were in the same 2-month period before financial year end
+
+ENFORCEMENT OUTCOME:
+  - Demand notices issued for Rs. 26.4 Crore + 18% interest + 100% penalty = Rs. 60+ Crore total liability
+  - 2 managing directors arrested under Section 132
+
+LESSON FOR DETECTION SYSTEMS: The ratio of ITC_claimed / ITC_eligible > 1.5 is a strong red flag. Ratio > 3.0 is near-certain fraud. Values approaching 5.0 or above indicate deliberate systematic inflation.
+
+---
+
+CASE 004 — VOLUME SPIKE FRAUD, BENGALURU (KARNATAKA), 2023
+Fraud Type: Last-minute ITC harvest before financial year closure
+Entities Involved: 4 companies (IT services, consulting)
+Total ITC Fraudulently Availed: Rs. 8.7 Crore
+
+KEY FRAUD SIGNALS DETECTED:
+  - Normal months: 2–5 invoices per month, average Rs. 5 Lakh per invoice
+  - February/March 2023 (year-end): 78 invoices, average Rs. 1.2 Crore per invoice
+  - Volume spike ratio: 1,400% increase in transaction value over previous months
+  - All year-end invoices from the same 3 supplier GSTINs (concentrated, not diversified)
+  - None of the year-end suppliers had e-way bills or physical delivery documentation
+
+ENFORCEMENT OUTCOME:
+  - Year-end ITC blocked under Rule 86A
+  - Scrutiny assessment issued under Section 61
+
+LESSON FOR DETECTION SYSTEMS: Volume spike detection must compare each entity's current period transaction volume against its own historical baseline. A Z-Score > 3.0 on monthly transaction count relative to that entity's own average is a strong fraud signal, especially when the spike occurs in February/March (Indian financial year end).
+
+---
+
+CASE 005 — DUPLICATE INVOICE FRAUD, HYDERABAD (TELANGANA), 2022
+Fraud Type: Same invoices claimed multiple times / invoice re-use
+Entities Involved: 2 companies (buyer-seller pair)
+Total Fraudulent ITC: Rs. 2.1 Crore
+
+KEY FRAUD SIGNALS DETECTED:
+  - Same invoice number, same amount, same date filed in 3 consecutive GSTR-3B periods
+  - Invoice amount: Rs. 70 Lakh — filed in April, May, and June 2022
+  - Same GSTIN pair (seller: 36XXXXX, buyer: 36YYYYY) appearing in 3 months
+
+ENFORCEMENT OUTCOME:
+  - Rs. 2.1 Crore demand + penalty
+  - Amendment to GSTR-3B required by buyer
+
+LESSON FOR DETECTION SYSTEMS: Duplicate detection should check for (seller_gstin, buyer_gstin, invoice_amount, invoice_date) tuples appearing more than once. Even a single duplicate in this signature almost always indicates fraudulent re-use of an invoice.
+
+---
+
+CASE 006 — MIXED FRAUD RING WITH PROFESSIONAL FACILITATION, CHENNAI, 2024
+Fraud Type: Combination — circular trading + shell companies + professional enablers
+Entities Involved: 18 companies across Tamil Nadu and Andhra Pradesh
+Professional Enablers: 3 CA firms found to have signed fraudulent GST returns
+Total Fraud: Rs. 89 Crore
+
+KEY FRAUD SIGNALS DETECTED:
+  - 4 circular trading rings nested within a larger network
+  - Rings: sizes 3, 4, 5, 6 entities respectively
+  - All rings interconnected at 2 common hub entities (betweenness centrality >> 0.8)
+  - Hub entities had the highest PageRank in the network
+  - Total cycling value across all rings: Rs. 89 Crore
+  - Registration dates: all 18 GSTINs registered within 90 days
+
+ENFORCEMENT OUTCOME:
+  - Largest GST fraud ring busted in Tamil Nadu as of 2024
+  - Bar Council complaint filed against the 3 enabling CA firms
+  - 7 arrests
+
+LESSON FOR DETECTION SYSTEMS: Hub entities (high betweenness centrality + high PageRank) that appear in multiple rings simultaneously are the most dangerous actors in a fraud network. PageRank anomaly scoring effectively identifies these "super-connectors" who bridge multiple fraud rings.

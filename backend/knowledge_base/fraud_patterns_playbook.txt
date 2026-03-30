@@ -1,0 +1,155 @@
+COMMON GST FRAUD PATTERNS — DETECTION PLAYBOOK
+Reference guide for AI-assisted fraud detection systems
+
+---
+
+PATTERN 1: CIRCULAR TRADING / CAROUSEL FRAUD
+
+DEFINITION:
+A group of N companies (N ≥ 2) exchange invoices in a closed loop: A→B→C→...→A.
+Each company claims ITC from the previous company's invoice, but the tax is never actually paid to the government. The loop creates the illusion of legitimate business while extracting government money.
+
+STEP-BY-STEP MECHANISM:
+  Step 1: Company A issues an invoice to Company B for Rs. X of goods/services (never actually delivered)
+  Step 2: Company B claims ITC of ~18% of X (e.g., Rs. 0.18X)
+  Step 3: Company B issues an invoice to Company C for Rs. X (or similar amount)
+  Step 4: Chain continues: C→D→...→Z→A
+  Step 5: Company A (the originator) receives an invoice from Z, giving it ITC credit
+  Step 6: Each company uses its ITC to avoid paying actual GST — government revenue = 0
+  Step 7: Government loses: N × 18% × X in total ITC (multiplied by the cycle length)
+  Step 8: The cycle may run for several months before entities stop filing and disappear
+
+DETECTION ALGORITHM:
+  1. Build directed graph: nodes = GSTINs, edges = invoices (seller → buyer)
+  2. Run DFS-based cycle detection (NetworkX simple_cycles)
+  3. Any cycle is a potential fraud ring
+  4. Prioritize by: (a) total cycling value, (b) short cycle length, (c) recent entity registration date
+
+KEY SIGNALS (scored 0–1):
+  → cycle_participation > 0: entity is in at least one detected fraud ring (highest signal)
+  → All entities in cycle registered within 90 days of each other
+  → Transaction amounts within the ring are similar (±20% of each other)
+  → No corresponding e-way bills for claimed goods movements
+
+RISK SCORING WEIGHT: 40% of composite fraud score (highest weight)
+
+---
+
+PATTERN 2: SHELL COMPANY / GHOST FIRM
+
+DEFINITION:
+A company that exists only on paper — registered under GST but has no physical presence, employees, inventory, or real business activity. Its sole purpose is to issue fake invoices to real businesses who use them to claim fraudulent ITC.
+
+DETECTION ALGORITHM:
+  → Shell companies appear in transaction graphs as "absorbers": they receive many invoices (high in-degree) but never issue invoices onwards (zero or near-zero out-degree)
+  → Ratio: in_degree >> out_degree (in-degree more than 4× out-degree)
+  → High inflow value, zero or negligible outflow value
+
+KEY SIGNALS (scored 0–1):
+  → shell_company_score approaches 1.0: in_degree ≥ 4, out_degree = 0
+  → Registration date is recent (less than 6 months before the fraud invoices)
+  → Address is a residential property or shared co-working space
+  → No employee registrations (PF/ESI records)
+  → Bank account shows only inflow, no outflow for business operations
+
+TYPICAL SHELL COMPANY PROFILE:
+  - Registered business type: Trading/Wholesale (easy to fake)
+  - Invoice items: "Goods" or "Services" (vague, hard to verify)
+  - Turnover declared in GSTR-1: High (to appear legitimate)
+  - Tax paid in GSTR-3B: Zero or minimal
+  - Filing history: 2–4 returns, then complete cessation
+
+RISK SCORING WEIGHT: 5% of composite fraud score (individual signal)
+Combined with cycle_participation, shell_score makes a company extremely high risk.
+
+---
+
+PATTERN 3: TAX MISMATCH / EXCESS ITC CLAIM
+
+DEFINITION:
+A legitimate-looking business that claims significantly more ITC than its suppliers have actually paid. The gap represents tax money the government is paying out as a "refund" that was never actually collected.
+
+MECHANISM:
+  → Fraudster inflates purchase invoice values (e.g., buys goods worth Rs. 10 Lakh but invoice says Rs. 50 Lakh)
+  → Claims ITC at 18% on Rs. 50 Lakh = Rs. 9 Lakh (instead of Rs. 1.8 Lakh on actual Rs. 10 Lakh)
+  → Government pays Rs. 7.2 Lakh fraudulent refund
+  → Supplier may be complicit (real supplier inflates their invoice and shares the refund) or a shell company
+
+DETECTION ALGORITHM:
+  → tax_mismatch_ratio = max(0, (ITC_claimed - output_tax_collected) / output_tax_collected)
+  → A ratio of 0 means perfectly matched (legitimate)
+  → A ratio of 1.0 means ITC claimed is 2× what was actually paid upstream
+  → A ratio ≥ 2.0 means ITC claimed is 3× upstream — near-certain fraud
+  → Z-Score: flag entities with ITC mismatch ratio that is more than 2.5 standard deviations above peer average
+
+KEY SIGNALS:
+  → tax_mismatch_ratio > 1.0: strong fraud indicator
+  → ITC spike concentrated in specific months (March year-end is most common)  → Single supplier accounts for >60% of all ITC claims (over-reliance on one supplier)
+  → Supplier's own GSTR-3B payment far below the ITC they passed
+
+RISK SCORING WEIGHT: 25% of composite fraud score
+
+---
+
+PATTERN 4: VOLUME SPIKE
+
+DEFINITION:
+A company that normally has low-volume transactions suddenly shows a massive spike in invoice volume and/or value, typically near a financial period end (March) or after a long dormant period.
+
+COMMON TRIGGERS:
+  → Year-end ITC harvesting: Companies rush to create fake invoices before March 31
+  → Capital goods fraud: Fake bulk purchases of machinery/equipment to claim large ITC
+  → Refund fraud: Export-linked refund claims with inflated export invoices
+
+DETECTION ALGORITHM:
+  → For each entity, compute monthly invoice counts over the period
+  → volume_spike_score = max_monthly_count / average_monthly_count
+  → Score > 3× average is suspicious
+  → Score > 10× average is strong fraud signal
+  → Anomaly detection: Isolation Forest applied to [monthly_invoice_count, monthly_invoice_value] feature vectors
+
+ADDITIONAL CONTEXT:
+  → Spike in February/March (months 11–12 of Indian FY) is most suspicious
+  → Spikes not accompanied by new business registrations, hiring, or infrastructure = red flag
+  → Compare spike to industry benchmarks: a textile trader spiking 30× in March when cotton prices are normal = anomalous
+
+RISK SCORING WEIGHT: 10% of composite fraud score
+
+---
+
+PATTERN 5: DUPLICATE INVOICE FRAUD
+
+DEFINITION:
+The same invoice (same seller, same buyer, same amount, same date) is claimed multiple times across different filing periods to multiply ITC credits.
+
+DETECTION ALGORITHM:
+  → Group invoices by (seller_gstin, buyer_gstin, invoice_amount, invoice_date)
+  → Any group with count > 1 is a duplicate
+  → duplicate_invoice_count = sum of extra copies (total copies - 1) across all duplicate groups
+
+KEY SIGNALS:
+  → Same invoice re-used in consecutive GSTR-3B periods
+  → Multiple invoice IDs pointing to the same underlying transaction
+  → System-level: invoice_id uniqueness constraint violation (same ID filed twice)
+
+RISK SCORING WEIGHT: Part of the volume anomaly signal (10% combined)
+
+---
+
+FRAUD RISK SCORE INTERPRETATION GUIDE
+
+SCORE 0–30    → LOW RISK: Normal business behavior. No action required.
+SCORE 31–60   → MEDIUM RISK: Borderline — flag for desk scrutiny. Request additional documentation.
+SCORE 61–85   → HIGH RISK: Multiple fraud signals active. Issue notice under Section 61 (scrutiny). Verify physical premises.
+SCORE 86–100  → CRITICAL: Near-certain fraud. Issue notice under Section 74. Block ITC under Rule 86A. Attach bank accounts. Refer to DGGI if amount > Rs. 5 Crore.
+
+SCORE COMPONENTS:
+  Cycle Participation (40%):  Is this entity part of a detected circular trading ring?
+  Tax Mismatch (25%):         Is ITC claimed significantly more than what suppliers paid?
+  Isolation Forest (20%):     Is this entity's overall behavior pattern abnormal compared to peers?
+  Volume Spike (10%):         Is there an unusual spike in transaction volume?
+  Shell Score (5%):           Does this entity show characteristics of a ghost firm?
+
+COMPOSITE SCORE FORMULA:
+  fraud_score = (cycle_score × 0.40) + (mismatch_score × 0.25) + (if_score × 0.20) + (spike_score × 0.10) + (shell_score × 0.05)
+  Where each component is normalized to 0–1, final score multiplied by 100.

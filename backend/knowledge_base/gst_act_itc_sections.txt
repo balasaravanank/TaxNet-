@@ -1,0 +1,71 @@
+GST ACT — CHAPTER V: INPUT TAX CREDIT (ITC) — KEY SECTIONS FOR FRAUD DETECTION
+
+SECTION 16: ELIGIBILITY AND CONDITIONS FOR TAKING INPUT TAX CREDIT
+
+16(1) — Every registered person shall be entitled to take credit of input tax charged on any supply of goods or services or both to him which are used or intended to be used in the course or furtherance of his business.
+
+16(2) — Notwithstanding anything contained in sub-section (1), no registered person shall be entitled to the credit of any input tax in respect of any supply of goods or services or both unless:
+  (a) He is in possession of a tax invoice or debit note issued by a supplier registered under this Act.
+  (b) He has received the goods or services or both.
+  (c) Subject to the provisions of Section 41, the tax charged in respect of such supply has been actually paid to the Government by the supplier, either in cash or through utilisation of input tax credit admissible in respect of the said supply.
+  (d) He has furnished the return under Section 39.
+
+CRITICAL FRAUD IMPLICATION — SECTION 16(2)(c):
+The supplier MUST have actually paid the GST to the government before the buyer can claim ITC. This is the primary mechanism fraudsters exploit: they create fake suppliers who never pay the GST, while the buyers claim ITC on fictitious invoices. This creates a "missing trader" in the supply chain — the supplier exists on paper but the GST is never remitted.
+
+16(4) — A registered person shall not be entitled to take input tax credit in respect of any invoice or debit note for supply of goods or services or both after the due date of furnishing of the return under Section 39 for the month of September following the end of financial year to which such invoice or invoice relating to such debit note pertains or furnishing of the relevant annual return, whichever is earlier.
+
+FRAUD SIGNAL: ITC claims filed late (outside the eligible period) or in sudden bulk after months of inactivity indicate retroactively created fake invoices.
+
+---
+
+SECTION 17: APPORTIONMENT OF CREDIT AND BLOCKED CREDITS
+
+17(5) — Notwithstanding anything contained in sub-section (1) of section 16 and sub-section (1) of section 18, input tax credit shall NOT be available in respect of the following:
+  (a) Motor vehicles and other conveyances
+  (b) Food and beverages, outdoor catering, beauty treatment, health services, cosmetic and plastic surgery
+  (c) Membership of a club, health and fitness centre
+  (d) Travel benefits extended to employees on vacation
+  (e) Works contract services when supplied for construction of an immovable property
+
+FRAUD SIGNAL: Claims of ITC on blocked credit categories indicate fraudulent ITC manipulation.
+
+---
+
+SECTION 36A: SPECIAL PROVISION FOR CONTROL OF FRAUDULENT REFUND OF INPUT TAX CREDIT (Rule 86A)
+
+The proper officer may, with reasons recorded in writing, not allow debit of an amount equivalent to such credit in the electronic credit ledger where:
+  (a) Credit has been availed on the basis of invoices or debit notes issued by a registered person whose registration has been cancelled on account of non-compliance.
+  (b) Credit has been availed on the basis of invoices which are fake.
+  (c) Credit has been availed without actual receipt of goods or services.
+
+ENFORCEMENT ACTION: Rule 86A allows immediate blocking of fraudulently availed ITC in the electronic credit ledger.
+
+---
+
+SECTION 74: DETERMINATION OF TAX NOT PAID OR SHORT PAID OR ERRONEOUSLY REFUNDED OR INPUT TAX CREDIT WRONGLY AVAILED OR UTILISED BY REASON OF FRAUD OR ANY WILFUL MISSTATEMENT OR SUPPRESSION OF FACTS
+
+74(1) — Where it appears to the proper officer that any tax has not been paid or short paid or erroneously refunded or where input tax credit has been wrongly availed or utilised by reason of fraud, or any wilful-misstatement or suppression of facts to evade tax, he shall serve notice on the person chargeable with tax.
+
+PENALTY: Section 74 allows recovery of the evaded tax PLUS penalty equal to the amount of tax evaded (100% penalty) PLUS interest.
+
+STATUTE OF LIMITATIONS: The proper officer shall issue a notice within 5 years from the due date of furnishing the annual return for the financial year in which the ITC was wrongly availed.
+
+STANDARD ENFORCEMENT RESPONSE FOR CIRCULAR TRADING: When circular trading fraud is detected, the standard enforcement action is:
+1. Issue notice under Section 74
+2. Block ITC credits in electronic credit ledger under Rule 86A
+3. Conduct physical verification of business premises
+4. Flag all entities in the ring for coordinated audit
+5. Attach the firm's bank accounts pending investigation
+
+---
+
+SECTION 122: OFFENCES AND PENALTIES
+
+122(1) — Where a taxable person who:
+  (i) Supplies any goods or services or both without issue of any invoice, in violation of the provisions of this Act or rules made thereunder, with the intention to evade tax;
+  (iii) Issues any invoice or bill without supply of goods or services in violation of the provisions of this Act, or the rules thereunder, leading to wrongful availment or utilisation of input tax credit or refund of tax;
+  (vii) Obtains refund of any State tax/Central tax on account of fraud;
+  (ix) Fails to account for any goods or services or both on which he is liable to pay tax under this Act — shall be liable to a penalty of Ten Thousand Rupees or an amount equivalent to the tax evaded or the input tax credit availed of or passed on fraudulently, whichever is greater.
+
+CRIMINAL PROSECUTION: Cases above Rs. 5 Crore are referred to the Directorate General of GST Intelligence (DGGI) for prosecution under Section 132 (imprisonment up to 5 years).
