@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e1b4b" />
+    </linearGradient>
+    <!-- Accent Gradient for Graph -->
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#a78bfa" />
+    </linearGradient>
+    <!-- Subtle Edge Gradient -->
+    <linearGradient id="edge" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Curved Base Tile -->
+  <rect width="256" height="256" rx="60" fill="url(#bg)" />
+
+  <!-- Outer Radar Rings -->
+  <circle cx="128" cy="128" r="90" fill="none" stroke="#334155" stroke-width="4" stroke-dasharray="16 16" />
+  <circle cx="128" cy="128" r="54" fill="none" stroke="#475569" stroke-width="3" />
+
+  <!-- The Network Graph nodes & edges -->
+  <!-- Edges -->
+  <line x1="88" y1="108" x2="128" y2="68" stroke="url(#edge)" stroke-width="8" stroke-linecap="round" />
+  <line x1="128" y1="68" x2="168" y2="108" stroke="url(#edge)" stroke-width="8" stroke-linecap="round" />
+  <line x1="168" y1="108" x2="128" y2="168" stroke="url(#edge)" stroke-width="12" stroke-linecap="round" />
+  <line x1="128" y1="168" x2="88" y2="108" stroke="url(#edge)" stroke-width="12" stroke-linecap="round" />
+  
+  <!-- Center specific connection (fraud ring) -->
+  <line x1="88" y1="108" x2="168" y2="108" stroke="#ef4444" stroke-width="6" stroke-linecap="round" stroke-dasharray="8 8" />
+
+  <!-- Nodes -->
+  <circle cx="88" cy="108" r="18" fill="url(#accent)" />
+  <circle cx="128" cy="68" r="18" fill="url(#accent)" />
+  <circle cx="168" cy="108" r="18" fill="url(#accent)" />
+  <circle cx="128" cy="168" r="24" fill="#ef4444" stroke="#7f1d1d" stroke-width="4" /> <!-- Anomalous node in red -->
+</svg>
