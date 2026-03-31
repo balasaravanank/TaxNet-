@@ -614,6 +614,13 @@ def ingest():
 
         db = get_db()
 
+        # Wipe existing data so new CSV acts as a clean slate for demos
+        db.execute("DELETE FROM invoices")
+        db.execute("DELETE FROM companies")
+        db.execute("DELETE FROM fraud_rings")
+        db.execute("DELETE FROM entity_scores")
+        _cache.clear()
+
         # Ensure all GSTINs in the CSV exist in companies table
         existing_gstins = {
             r[0] for r in db.execute("SELECT gstin FROM companies").fetchall()
