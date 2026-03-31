@@ -48,6 +48,8 @@ const ROLE_PERMISSIONS: Record<Role, Permission[]> = {
     "run_analysis",
     "use_rag_explain",
     "export_reports",
+    "upload_data",
+    "manage_data",
   ],
   analyst: [
     "view_dashboard",

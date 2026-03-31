@@ -32,13 +32,19 @@ export function EntityDetail({ gstin, period, onClose }: Props) {
   useEffect(() => {
     if (!detail || !radarRef.current) return;
     const f = detail.features;
+    const getVal = (v: any, max: number) => {
+      const num = Number(v) || 0;
+      // enforce minimum 0.03 radius to prevent 1D 0-area polygons and overlapping center point artifacts
+      return Math.max(0.03, Math.min(num / max, 1));
+    };
+
     const feats = [
-      { label: "Tax Mismatch",  value: Math.min(f.tax_mismatch_ratio / 5, 1) },
-      { label: "Vol. Spike",    value: Math.min(f.volume_spike_score / 30, 1) },
-      { label: "Duplicates",    value: Math.min(f.duplicate_invoice_count / 10, 1) },
-      { label: "Ring Member",   value: Math.min(f.cycle_participation / 5, 1) },
-      { label: "Shell Score",   value: f.shell_company_score },
-      { label: "PR Anomaly",    value: Math.min(f.pagerank_anomaly / 5, 1) },
+      { label: "Tax Mismatch",  value: getVal(f.tax_mismatch_ratio, 5) },
+      { label: "Vol. Spike",    value: getVal(f.volume_spike_score, 30) },
+      { label: "Duplicates",    value: getVal(f.duplicate_invoice_count, 10) },
+      { label: "Ring Member",   value: getVal(f.cycle_participation, 5) },
+      { label: "Shell Score",   value: getVal(f.shell_company_score, 1) },
+      { label: "PR Anomaly",    value: getVal(f.pagerank_anomaly, 5) },
     ];
     drawRadar(radarRef.current, feats, scoreColor(detail.company.fraud_score));
   }, [detail]);
