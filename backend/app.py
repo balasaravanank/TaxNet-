@@ -312,14 +312,25 @@ def dashboard_stats():
         latest = db.execute("SELECT MAX(invoice_date) FROM invoices").fetchone()[0]
         if latest:
             date_filter = f"WHERE invoice_date >= date('{latest}', '-{days} days')"
+            
+        active_nodes = set(cache.get("G").nodes()) if cache.get("G") else set()
+        composite = cache.get("composite", {})
+        
+        total_entities = len(active_nodes)
+        critical = sum(1 for v in composite.values() if v >= 86)
+        high     = sum(1 for v in composite.values() if 61 <= v < 86)
+        medium   = sum(1 for v in composite.values() if 31 <= v < 61)
+        rings_detected = len(cache.get("rings", []))
+    else:
+        total_entities = db.execute("SELECT COUNT(*) FROM companies").fetchone()[0]
+        critical = db.execute("SELECT COUNT(*) FROM companies WHERE risk_level='CRITICAL'").fetchone()[0]
+        high     = db.execute("SELECT COUNT(*) FROM companies WHERE risk_level='HIGH'").fetchone()[0]
+        medium   = db.execute("SELECT COUNT(*) FROM companies WHERE risk_level='MEDIUM'").fetchone()[0]
+        rings_detected = db.execute("SELECT COUNT(*) FROM fraud_rings").fetchone()[0]
 
-    total_entities = db.execute("SELECT COUNT(*) FROM companies").fetchone()[0]
-    critical = db.execute("SELECT COUNT(*) FROM companies WHERE risk_level='CRITICAL'").fetchone()[0]
-    high     = db.execute("SELECT COUNT(*) FROM companies WHERE risk_level='HIGH'").fetchone()[0]
-    medium   = db.execute("SELECT COUNT(*) FROM companies WHERE risk_level='MEDIUM'").fetchone()[0]
     total_invoices = db.execute(f"SELECT COUNT(*) FROM invoices {date_filter}").fetchone()[0]
     total_value = db.execute(f"SELECT SUM(invoice_amount) FROM invoices {date_filter}").fetchone()[0] or 0
-    rings_detected = db.execute("SELECT COUNT(*) FROM fraud_rings").fetchone()[0]
+    
     suspicious_value = db.execute(f"""
         SELECT SUM(i.invoice_amount) FROM invoices i
         JOIN companies c ON i.seller_gstin = c.gstin
@@ -345,12 +356,29 @@ def dashboard_stats():
 def companies():
     days = parse_period_to_days(request.args.get("period"))
     # Ensure cache is fresh for this period
-    get_analysis(days=days)
+    cache = get_analysis(days=days)
     db = get_db()
     rows = db.execute(
         "SELECT * FROM companies ORDER BY fraud_score DESC"
     ).fetchall()
     db.close()
+
+    if days:
+        active_nodes = set(cache.get("G").nodes()) if cache.get("G") else set()
+        composite = cache.get("composite", {})
+        filtered = []
+        for r in rows:
+            gstin = r["gstin"]
+            if gstin in active_nodes:
+                c = dict(r)
+                if gstin in composite:
+                    s = composite[gstin]
+                    c["fraud_score"] = s
+                    c["risk_level"] = "CRITICAL" if s >= 86 else "HIGH" if s >= 61 else "MEDIUM" if s >= 31 else "LOW"
+                filtered.append(c)
+        filtered.sort(key=lambda x: x["fraud_score"], reverse=True)
+        return jsonify(filtered)
+
     return jsonify([dict(r) for r in rows])
 
 
@@ -452,6 +480,9 @@ def fraud_rings():
 
 @app.route("/api/anomalies")
 def anomalies():
+    days = parse_period_to_days(request.args.get("period"))
+    cache = get_analysis(days=days)
+
     db = get_db()
     rows = db.execute("""
         SELECT c.gstin, c.company_name, c.state, c.fraud_score, c.risk_level,
@@ -460,12 +491,34 @@ def anomalies():
                es.isolation_forest_label
         FROM companies c
         JOIN entity_scores es ON c.gstin = es.gstin
-        WHERE c.fraud_score > 30
-        ORDER BY c.fraud_score DESC
-        LIMIT 30
+        ORDER BY es.composite_score DESC
     """).fetchall()
     db.close()
-    return jsonify([dict(r) for r in rows])
+
+    if days:
+        active_nodes = set(cache.get("G").nodes()) if cache.get("G") else set()
+        composite = cache.get("composite", {})
+        features = cache.get("features", {})
+        if_res = cache.get("if_results", {})
+        filtered = []
+        for r in rows:
+            gstin = r["gstin"]
+            if gstin in active_nodes and composite.get(gstin, 0) > 30:
+                c = dict(r)
+                f = features.get(gstin, {})
+                c["fraud_score"] = composite[gstin]
+                c["risk_level"] = "CRITICAL" if c["fraud_score"] >= 86 else "HIGH" if c["fraud_score"] >= 61 else "MEDIUM"
+                c["cycle_participation"] = f.get("cycle_participation", 0)
+                c["tax_mismatch_ratio"] = f.get("tax_mismatch_ratio", 0)
+                c["shell_company_score"] = f.get("shell_company_score", 0)
+                c["volume_spike_score"] = f.get("volume_spike_score", 0)
+                c["isolation_forest_label"] = if_res.get(gstin, {}).get("label", 1)
+                filtered.append(c)
+        filtered.sort(key=lambda x: x["fraud_score"], reverse=True)
+        return jsonify(filtered[:30])
+
+    filtered = [dict(r) for r in rows if r["fraud_score"] > 30]
+    return jsonify(filtered[:30])
 
 
 # ─── RAG Explain Endpoint ─────────────────────────────────────────────────────
