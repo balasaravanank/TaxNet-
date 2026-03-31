@@ -135,6 +135,10 @@ The risk score is calculated using the following breakdown:
 - Pourhabibi et al. (2020) — Fraud Detection: A Systematic Literature Review of Graph-Based Anomaly Detection, Decision Support Systems
 - Cheng et al. (2024) — Graph Neural Networks for Financial Fraud Detection: A Review, arXiv
 
+## Deployment
+
+This application is configured for deployment on Azure App Service. Pushing to the `main` branch automatically triggers the deployment pipeline.
+
 ## License
 
 MIT License — Free to use, modify, and distribute.
